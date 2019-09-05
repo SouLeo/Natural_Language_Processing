@@ -8,6 +8,7 @@ from utils import *
 from collections import Counter
 from optimizers import *
 from typing import List
+import numpy as np
 
 
 def _parse_args():
@@ -41,9 +42,10 @@ class PersonExample(object):
         labels: 0 if non-person name, 1 if person name for each token in the sentence
     """
 
-    def __init__(self, tokens: List[str], labels: List[int]):
+    def __init__(self, tokens: List[str], labels: List[int], pos: List[str]):
         self.tokens = tokens
         self.labels = labels
+        self.pos = pos
 
     def __len__(self):
         return len(self.tokens)
@@ -56,9 +58,10 @@ def transform_for_classification(ner_exs: List[LabeledSentence]):
     """
     for labeled_sent in ner_exs:
         tags = bio_tags_from_chunks(labeled_sent.chunks, len(labeled_sent))
+        pos = [tok.pos for tok in labeled_sent.tokens]
         labels = [1 if tag.endswith("PER") else 0 for tag in tags]
         # print(labels)
-        yield PersonExample([tok.word for tok in labeled_sent.tokens], labels)
+        yield PersonExample([tok.word for tok in labeled_sent.tokens], labels, pos)
 
 
 class CountBasedPersonClassifier(object):
@@ -129,6 +132,36 @@ class PersonClassifier(object):
         raise Exception("Implement me!")
 
 
+def pos_encoding(tag):
+    pos_tags = [
+        "<s>", "-X-", ":", ".", ",", "(", ")", "$", '\"', "\'\'",
+        "CC", "CD", "DT", "EX", "FW", "IN", "JJ", "JJR", "JJS",
+        "LS", "MD", "NN", "NNS", "NNP", "NNPS", "PDT", "POS", "PRP",
+        "PRP$", "RB", "RBR", "RBS", "RP", "SYM", "TO", "UH", "VB",
+        "VBD", "VBG", "VBN", "VBP", "VBZ", "WDT", "WP", "WP$", "WRB",
+        "NN|SYM"
+    ]
+    pos_to_int = dict((pos, i) for i, pos in enumerate(pos_tags))
+    # int_to_pos = dict((i, pos) for i, pos in enumerate(pos_tags))
+
+    # print(tag)
+    i = pos_to_int[tag]
+    pos_onehot_encoded = [0 for _ in range(len(pos_tags))]
+    pos_onehot_encoded[i] = 1
+    # print(pos_onehot_encoded)
+    return pos_onehot_encoded
+
+
+def init_cap_encoding(token):
+    init_cap = []
+    if token.isupper():
+        init_cap.append(1)
+    else:
+        init_cap.append(0)
+    # print(init_cap)
+    return init_cap
+
+
 def generate_unique_vocabulary(ner_exs: List[PersonExample]):
     # Step 1: Find List of Unique Tokens and
     #         Use Their Indx (int) for Unique Feature ID
@@ -154,17 +187,22 @@ def create_bigram_model(ner_exs: List[PersonExample], vocab: Indexer):
     for ex in ner_exs:
         # Step 1: Force each sentence to begin with a start token
         ex.tokens.insert(0, "<s>")
+        ex.pos.insert(0, "<s>")
+        # associate PoS tag with <s> rn
         for idx in range(1, len(ex)):
             # Step 2: Find index of current word and previous word
             curr_word_indx = vocab.index_of(ex.tokens[idx])
-            prev_word_indx = vocab.index_of(ex.tokens[idx])
+            prev_word_indx = vocab.index_of(ex.tokens[idx-1])
             # Step 3: Convert ints to One Hot Encoded Vectors
             curr_word_onehot_encoding = int_index_to_one_hot_vector(curr_word_indx, len(vocab))
             prev_word_onehot_encoding = int_index_to_one_hot_vector(prev_word_indx, len(vocab))
-            # Step 4: Concatenate to form bigram
-            bigram = prev_word_onehot_encoding + curr_word_onehot_encoding
-            # Step 5: Add additional features
-            # TODO:
+            # Step 4: Add additional features
+            init_cap_encode = init_cap_encoding(ex.tokens[idx])
+            pos_encode = pos_encoding(ex.pos[idx])
+            # print(init_cap_encode)
+            # print(pos_encode)
+            # Step 5: Concatenate to form bigram
+            bigram = prev_word_onehot_encoding + curr_word_onehot_encoding + init_cap_encode + pos_encode
             # Step 6: Add feature vector to bigram_model
             bigram_model.append(bigram)
     return bigram_model
