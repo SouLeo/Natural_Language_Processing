@@ -150,7 +150,7 @@ def int_index_to_one_hot_vector(indx: int, vocab_len: int):
 
 
 def create_bigram_model(ner_exs: List[PersonExample], vocab: Indexer):
-    bigram_model = Indexer()
+    bigram_model = []
     for ex in ner_exs:
         # Step 1: Force each sentence to begin with a start token
         ex.tokens.insert(0, "<s>")
@@ -159,14 +159,15 @@ def create_bigram_model(ner_exs: List[PersonExample], vocab: Indexer):
             curr_word_indx = vocab.index_of(ex.tokens[idx])
             prev_word_indx = vocab.index_of(ex.tokens[idx])
             # Step 3: Convert ints to One Hot Encoded Vectors
-            curr_word_onehot_encoding = int_index_to_one_hot_vector(curr_word_indx)
-            prev_word_onehot_encoding = int_index_to_one_hot_vector(prev_word_indx)
+            curr_word_onehot_encoding = int_index_to_one_hot_vector(curr_word_indx, len(vocab))
+            prev_word_onehot_encoding = int_index_to_one_hot_vector(prev_word_indx, len(vocab))
             # Step 4: Concatenate to form bigram
             bigram = prev_word_onehot_encoding + curr_word_onehot_encoding
             # Step 5: Add additional features
             # TODO:
             # Step 6: Add feature vector to bigram_model
-            bigram_model.add_and_get_index(bigram)
+            bigram_model.append(bigram)
+    return bigram_model
 
 
 def train_classifier(ner_exs: List[PersonExample]):
