@@ -156,8 +156,10 @@ def init_cap_encoding(token):
     init_cap = []
     if token.isupper():
         init_cap.append(1)
+        init_cap.append(0)
     else:
         init_cap.append(0)
+        init_cap.append(1)
     # print(init_cap)
     return init_cap
 
@@ -208,8 +210,10 @@ def create_bigram_model(ner_exs: List[PersonExample], vocab: Indexer):
     return bigram_model
 
 
-def train_classifier(ner_exs: List[PersonExample]):
-    raise Exception("Implement me!")
+def train_classifier(bigram_model: List[int], labels: List[int]):
+    weights = np.zeros(len(bigram_model[0]))
+    learning_rate = 0.5
+    print(weights)
 
 
 def evaluate_classifier(exs: List[PersonExample], classifier: PersonClassifier):
@@ -284,12 +288,17 @@ if __name__ == '__main__':
     args = _parse_args()
     print(args)
     # Load the training and test data
-    # train_class_exs = list(transform_for_classification(read_data(args.train_path)))
-
+    train_class_exs = list(transform_for_classification(read_data(args.train_path)))
     # dev_class_exs = list(transform_for_classification(read_data(args.dev_path)))
-
-    vocabulary = generate_unique_vocabulary(list(transform_for_classification(read_data(args.train_path))))
-    create_bigram_model(list(transform_for_classification(read_data(args.dev_path))), vocabulary)
+    print('program start')
+    print('generating vocabulary')
+    vocabulary = generate_unique_vocabulary(train_class_exs)
+    print('vocabulary generated')
+    print('generating bigram model')
+    features = create_bigram_model(train_class_exs, vocabulary)
+    print('finished bigram model')
+    train_classifier(features, train_class_exs)
+    print('program done')
     # Train the model
     # if args.model == "BAD":
     #     classifier = train_count_based_binary_classifier(train_class_exs)
