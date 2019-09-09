@@ -71,7 +71,6 @@ class SGDOptimizer(Optimizer):
     def get_final_weights(self):
         return self.weights
 
-
 #
 class L1RegularizedAdagradTrainer(Optimizer):
     """
