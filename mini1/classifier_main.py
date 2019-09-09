@@ -181,17 +181,23 @@ def generate_unique_vocabulary(ner_exs: List[PersonExample]):
 def int_index_to_one_hot_vector(indx: int, vocab_len: int):
     token = [0 for _ in range(vocab_len)]
     token[indx] = 1
+    # print(len(token))
     return token
 
 
 def create_bigram_model(ner_exs: List[PersonExample], vocab: Indexer):
     bigram_model = []
+    labels = []
+    # print(len(ner_exs))
     for ex in ner_exs:
         # Step 1: Force each sentence to begin with a start token
         ex.tokens.insert(0, "<s>")
         ex.pos.insert(0, "<s>")
+        ex.labels.insert(0, 0)
         # associate PoS tag with <s> rn
         for idx in range(1, len(ex)):
+            # Get token label
+            labels.append(ex.labels[idx])
             # Step 2: Find index of current word and previous word
             curr_word_indx = vocab.index_of(ex.tokens[idx])
             prev_word_indx = vocab.index_of(ex.tokens[idx-1])
@@ -205,16 +211,48 @@ def create_bigram_model(ner_exs: List[PersonExample], vocab: Indexer):
             # print(pos_encode)
             # Step 5: Concatenate to form bigram
             bigram = prev_word_onehot_encoding + curr_word_onehot_encoding + init_cap_encode + pos_encode
+            bigram_feat_len = len(bigram)
+
+            indices = np.nonzero(np.asarray(bigram))
+            bigram_counter = Counter(list(indices[0].astype(int)))
+
+            for i in bigram_counter.keys():
+                bigram_counter[i] = bigram[i]
             # Step 6: Add feature vector to bigram_model
-            bigram_model.append(bigram)
-    return bigram_model
+            # print(len(bigram))
+            bigram_model.append(bigram_counter)
+
+    return bigram_model, bigram_feat_len, labels
 
 
-def train_classifier(bigram_model: List[int], labels: List[int]):
-    weights = np.zeros(len(bigram_model[0]))
+def train_classifier(bigram_model: List[Counter], feature_len: int, labels: List[int]):
+    weights = np.zeros(feature_len)
+    d_weights = Counter()  # np.zeros(feature_len)
     learning_rate = 0.5
-    print(weights)
+    epochs = 20
 
+    sgd_algo = SGDOptimizer(weights, learning_rate)
+    for epoch in range(epochs):
+        for x in range(len(bigram_model)):
+            # Create one hot vector for each training example
+            x_onehot = np.zeros(feature_len)
+            for i in bigram_model[x].keys():
+                x_onehot[i] = bigram_model[x][i]
+            # For each nonzero feature value in a given training example,
+            # calculate the gradient update
+            for j in bigram_model[x].keys():
+                d_weights[j] = bigram_model[x][j]*(labels[x]-(1/(1+np.exp(np.dot(-sgd_algo.weights, np.asarray(x_onehot))))))
+                # print(len(d_weights))
+                # print(d_weights[j])
+            # nonzero_indx = np.nonzero(d_weights.elements())
+            # print(nonzero_indx[0])
+            # print(d_weights[nonzero_indx[0][0]])
+            # c = Counter(list(nonzero_indx[0]))
+            # for i in c.keys():
+            #     c[i] = d_weights[i]
+            #     # print(c[i])
+            # print(d_weights)
+            sgd_algo.apply_gradient_update(d_weights, batch_size=1)
 
 def evaluate_classifier(exs: List[PersonExample], classifier: PersonClassifier):
     """
@@ -289,15 +327,19 @@ if __name__ == '__main__':
     print(args)
     # Load the training and test data
     train_class_exs = list(transform_for_classification(read_data(args.train_path)))
-    # dev_class_exs = list(transform_for_classification(read_data(args.dev_path)))
+    dev_class_exs = list(transform_for_classification(read_data(args.dev_path)))
+
+    training_truncation = 100  # len(dev_class_exs)
+
     print('program start')
     print('generating vocabulary')
     vocabulary = generate_unique_vocabulary(train_class_exs)
     print('vocabulary generated')
     print('generating bigram model')
-    features = create_bigram_model(train_class_exs, vocabulary)
+    features, feature_length, labels = create_bigram_model(train_class_exs[1:training_truncation], vocabulary)
+    # features, feature_length = create_bigram_model(train_class_exs, vocabulary)
     print('finished bigram model')
-    train_classifier(features, train_class_exs)
+    train_classifier(features, feature_length, labels)
     print('program done')
     # Train the model
     # if args.model == "BAD":
