@@ -130,19 +130,24 @@ class PersonClassifier(object):
         """
         # print('hi')
 
-    def predict(self, ex, idx):
+    def predict(self, tokens, idx):
         # TODO: Create feature vector for word
+        max_sentence_len = 1000
 
-        curr_word_indx = self.indexer.index_of(ex.tokens[idx])
-        prev_word_indx = self.indexer.index_of(ex.tokens[idx - 1])
+        curr_word_indx = self.indexer.index_of(tokens[idx])
+        prev_word_indx = self.indexer.index_of(tokens[idx - 1])
+        try:
+            next_word_indx = self.indexer.index_of(tokens[idx + 1])
+        except IndexError:
+            next_word_indx = curr_word_indx
 
-        init_cap_encode, cap_indx = init_cap_encoding(ex.tokens[idx])
-        # pos_encode, pos_indx = pos_encoding(ex.pos[idx])
+        cap_indx = init_cap_encoding(tokens[idx])
+        position_indx = idx
 
-        # bigram_sparse = [
-        #     curr_word_indx, prev_word_indx + vocab_length, pos_indx + 2 * vocab_length, cap_indx + 2 * vocab_length + 47]
         bigram_sparse = [
-            curr_word_indx, prev_word_indx + vocab_length, cap_indx + 2 * vocab_length]
+            curr_word_indx, prev_word_indx + vocab_length, cap_indx + 2 * vocab_length,
+                            position_indx + 2 * vocab_length + 2,
+                            next_word_indx + 2 * vocab_length + 2 + max_sentence_len]
 
         prediction = score_indexed_features(bigram_sparse, self.weights)
         if prediction >= 0:
@@ -175,14 +180,11 @@ def init_cap_encoding(token):
     init_cap = []
     indx = 0
     if token.isupper():
-        init_cap.append(1)
-        init_cap.append(0)
+        indx = 0
     else:
-        init_cap.append(0)
-        init_cap.append(1)
         indx = 1
     # print(init_cap)
-    return init_cap, indx
+    return indx
 
 
 def generate_unique_vocabulary(ner_exs: List[PersonExample]):
@@ -199,87 +201,18 @@ def generate_unique_vocabulary(ner_exs: List[PersonExample]):
     return vocab
 
 
-def int_index_to_one_hot_vector(indx: int, vocab_len: int):
-    token = [0 for _ in range(vocab_len)]
-    token[indx] = 1
-    # print(len(token))
-    return token
-
-
-def create_bigram_model_all_at_once(ner_exs: List[PersonExample], vocab: Indexer):
-    bigram_model = []
-    labels = []
-    # print(len(ner_exs))
-    for ex in ner_exs:
-        # Step 1: Force each sentence to begin with a start token
-        ex.tokens.insert(0, "<s>")
-        ex.pos.insert(0, "<s>")
-        ex.labels.insert(0, 0)
-        # associate PoS tag with <s> rn
-        for idx in range(1, len(ex)):
-            # Get token label
-            labels.append(ex.labels[idx])
-            # Step 2: Find index of current word and previous word
-            curr_word_indx = vocab.index_of(ex.tokens[idx])
-            prev_word_indx = vocab.index_of(ex.tokens[idx - 1])
-            curr_word = ex.tokens[idx]
-            prev_word = ex.tokens[idx - 1]
-            # Step 3: Convert ints to One Hot Encoded Vectors
-            curr_word_onehot_encoding = int_index_to_one_hot_vector(curr_word_indx, len(vocab))
-            prev_word_onehot_encoding = int_index_to_one_hot_vector(prev_word_indx, len(vocab))
-            # Step 4: Add additional features
-            init_cap_encode = init_cap_encoding(ex.tokens[idx])
-            pos_encode = pos_encoding(ex.pos[idx])
-            # print(init_cap_encode)
-            # print(pos_encode)
-            # Step 5: Concatenate to form bigram
-            bigram = prev_word_onehot_encoding + curr_word_onehot_encoding + init_cap_encode + pos_encode
-            # bigram = curr_word_onehot_encoding
-            bigram_feat_len = len(bigram)
-
-            indices = np.nonzero(np.asarray(bigram))
-            bigram_counter = Counter(list(indices[0].astype(int)))
-
-            for i in bigram_counter.keys():
-                bigram_counter[i] = bigram[i]
-            # Step 6: Add feature vector to bigram_model
-            # print(len(bigram))
-            bigram_model.append(bigram_counter)
-
-    return bigram_model, bigram_feat_len, labels
-
-
-def create_bigram(per: PersonExample, vocab: Indexer):
-    bigram_model = []
-    labels = []
-
-    for idx in range(len(per)):
-        # Get token label
-        labels.append(per.labels[idx])
-
-        curr_word_indx = vocab.index_of(per.tokens[idx])
-        prev_word_indx = vocab.index_of(per.tokens[idx - 1])
-
-        init_cap_encode, cap_indx = init_cap_encoding(per.tokens[idx])
-        pos_encode, pos_indx = pos_encoding(per.pos[idx])
-
-        bigram_sparse = [curr_word_indx]  # , prev_word_indx+len(vocab), pos_indx+2*len(vocab), cap_indx+2*len(vocab)+47]
-        bigram_model.append(bigram_sparse)
-
-    return bigram_model, labels
-
-
 def train_classifier(ner_exs: List[PersonExample]):
     bigram_exs = []
     ex_labels = []
 
+    max_sentence_len = 1000
     vocab = generate_unique_vocabulary(ner_exs)
     global vocab_length
     vocab_length = len(vocab.objs_to_ints)
     # print('vocab len')
     # print(vocab_length)
     # feature_length = vocab_length * 2 + 47 + 2  # sum of individual feature vectors lengths together
-    feature_length = vocab_length * 2 + 2  # sum of individual feature vectors lengths together
+    feature_length = vocab_length * 3 + 2 + max_sentence_len  # sum of individual feature vectors lengths together
     weights = np.zeros(feature_length)
 
     learning_rate = 0.5
@@ -293,13 +226,19 @@ def train_classifier(ner_exs: List[PersonExample]):
 
             curr_word_indx = vocab.index_of(ner_exs[x].tokens[idx])
             prev_word_indx = vocab.index_of(ner_exs[x].tokens[idx - 1])
-            init_cap_encode, cap_indx = init_cap_encoding(ner_exs[x].tokens[idx])
+            try:
+                next_word_indx = vocab.index_of(ner_exs[x].tokens[idx + 1])
+            except IndexError:
+                next_word_indx = curr_word_indx
+            cap_indx = init_cap_encoding(ner_exs[x].tokens[idx])
+            position_indx = idx
             # pos_encode, pos_indx = pos_encoding(ner_exs[x].pos[idx])
 
             # bigram_sparse = [
             #     curr_word_indx, prev_word_indx+vocab_length, pos_indx+2*vocab_length, cap_indx+2*vocab_length+47]
             bigram_sparse = [
-                curr_word_indx, prev_word_indx + vocab_length, cap_indx + 2 * vocab_length]
+                curr_word_indx, prev_word_indx + vocab_length, cap_indx + 2 * vocab_length,
+                position_indx + 2 * vocab_length + 2, next_word_indx + 2 * vocab_length + 2 + max_sentence_len]
             bigram_exs.append(bigram_sparse)
 
     print('entering training loop')
@@ -325,8 +264,8 @@ def evaluate_classifier(exs: List[PersonExample], classifier: PersonClassifier):
     for ex in exs:
         for idx in range(0, len(ex)):
             golds.append(ex.labels[idx])
-            # predictions.append(classifier.predict(ex.tokens, idx))
-            predictions.append(classifier.predict(ex, idx))
+            predictions.append(classifier.predict(ex.tokens, idx))
+            # predictions.append(classifier.predict(ex, idx))
     print_evaluation(golds, predictions)
 
 
