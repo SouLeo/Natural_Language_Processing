@@ -251,6 +251,7 @@ def create_bigram_model_all_at_once(ner_exs: List[PersonExample], vocab: Indexer
 
     return bigram_model, bigram_feat_len, labels
 
+
 def create_bigram(per: PersonExample, vocab: Indexer):
     bigram_model = []
     labels = []
@@ -291,14 +292,18 @@ def create_bigram(per: PersonExample, vocab: Indexer):
 
     return bigram_model, labels
 
+
 def train_classifier(ner_exs: List[PersonExample]):
+    # Feature Extraction Caching
     bigram_exs = []
     ex_labels = []
 
     vocabulary = generate_unique_vocabulary(ner_exs)
     feature_length = len(vocabulary.objs_to_ints)*2+47+2
+
     weights = np.zeros(feature_length)
     d_weights = Counter()
+
     learning_rate = 0.1
     epochs = 3
     print('entering training loop')
@@ -323,7 +328,8 @@ def train_classifier(ner_exs: List[PersonExample]):
                 d_weights[j] = bigram_exs[x][j]*(ex_labels[x]-(1/(1+np.exp(np.dot(-sgd_algo.weights.transpose(),
                                                                                  np.asarray(x_onehot))))))
             sgd_algo.apply_gradient_update(d_weights, batch_size=1)
-    # print(d_weights)
+    print("model weights")
+    print(sgd_algo.weights)
     return PersonClassifier(sgd_algo.get_final_weights(), vocabulary)
 
 def evaluate_classifier(exs: List[PersonExample], classifier: PersonClassifier):
@@ -401,7 +407,7 @@ if __name__ == '__main__':
     # Load the training and test data
     train_class_exs = list(transform_for_classification(read_data(args.train_path)))
     dev_class_exs = list(transform_for_classification(read_data(args.dev_path)))
-    training_truncation = 2000
+    training_truncation = 5000
     testing_truncation = int(training_truncation/2)
 
     # Train the model
