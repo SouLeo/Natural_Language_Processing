@@ -179,7 +179,7 @@ def pos_encoding(tag):
 def init_cap_encoding(token):
     init_cap = []
     indx = 0
-    if token.isupper():
+    if token.istitle():
         indx = 0
     else:
         indx = 1
