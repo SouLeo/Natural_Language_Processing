@@ -10,7 +10,7 @@ from optimizers import *
 from typing import List
 import numpy as np
 
-feature_length = 0
+vocab_length = 0
 
 def _parse_args():
     """
@@ -131,7 +131,7 @@ class PersonClassifier(object):
         # print('hi')
 
     def predict(self, ex, idx):
-        vocab = feature_length
+        vocab = vocab_length
         # TODO: Create feature vector for word
 
         curr_word_indx = self.indexer.index_of(ex.tokens[idx])
@@ -274,7 +274,8 @@ def train_classifier(ner_exs: List[PersonExample]):
     ex_labels = []
 
     vocab = generate_unique_vocabulary(ner_exs)
-    feature_length = len(vocab.objs_to_ints) * 2 + 47 + 2  # sum of individual feature vectors lengths together
+    vocab_length = len(vocab.objs_to_ints)
+    feature_length = vocab_length * 2 + 47 + 2  # sum of individual feature vectors lengths together
     weights = np.zeros(feature_length)
 
     learning_rate = 0.1
@@ -300,17 +301,11 @@ def train_classifier(ner_exs: List[PersonExample]):
     for epoch in range(epochs):
         print(epoch)
         for i in range(len(bigram_exs)):
-            #s_time_1 = time.time()
             d_weights = Counter()
             for j in bigram_exs[i]:
                 d_weights[j] = (ex_labels[i] - (1 / (1 + np.e**(-score_indexed_features(
                     bigram_exs[i], sgd_algo.weights)))))
-            #t_diff_1 = - s_time_1 + time.time()
-            # s_time_2 = time.time()
             sgd_algo.apply_gradient_update(d_weights, batch_size=1)
-
-            # t_diff_2 = - s_time_2 + time.time()
-            # print(t_diff_2)
     return PersonClassifier(sgd_algo.get_final_weights(), vocab)
 
 
