@@ -140,8 +140,8 @@ class PersonClassifier(object):
         init_cap_encode, cap_indx = init_cap_encoding(ex.tokens[idx])
         pos_encode, pos_indx = pos_encoding(ex.pos[idx])
 
-        bigram_sparse = [curr_word_indx]  # , prev_word_indx + vocab, pos_indx + 2 * vocab,
-                         # cap_indx + 2 * vocab + 47]
+        bigram_sparse = [curr_word_indx, prev_word_indx + vocab, pos_indx + 2 * vocab,
+                         cap_indx + 2 * vocab + 47]
 
         prediction = score_indexed_features(bigram_sparse, self.weights)
         if prediction >= 0:
@@ -274,11 +274,11 @@ def train_classifier(ner_exs: List[PersonExample]):
     ex_labels = []
 
     vocab = generate_unique_vocabulary(ner_exs)
-    feature_length = len(vocab.objs_to_ints) #* 2 + 47 + 2  # sum of individual feature vectors lengths together
+    feature_length = len(vocab.objs_to_ints) * 2 + 47 + 2  # sum of individual feature vectors lengths together
     weights = np.zeros(feature_length)
-    d_weights = Counter()
+
     learning_rate = 0.1
-    epochs = 1
+    epochs = 5
     sgd_algo = SGDOptimizer(weights, learning_rate)
     print('gather features')
     for x in range(len(ner_exs)):  # loops over sentences
@@ -293,19 +293,24 @@ def train_classifier(ner_exs: List[PersonExample]):
             pos_encode, pos_indx = pos_encoding(ner_exs[x].pos[idx])
 
             bigram_sparse = [
-                curr_word_indx]  # , prev_word_indx+len(vocab), pos_indx+2*len(vocab), cap_indx+2*len(vocab)+47]
+                curr_word_indx, prev_word_indx+len(vocab), pos_indx+2*len(vocab), cap_indx+2*len(vocab)+47]
             bigram_exs.append(bigram_sparse)
 
-    print(len(bigram_exs))
-    print(bigram_exs[0])
     print('entering training loop')
     for epoch in range(epochs):
         print(epoch)
         for i in range(len(bigram_exs)):
+            #s_time_1 = time.time()
+            d_weights = Counter()
             for j in bigram_exs[i]:
-                d_weights[j] = (ex_labels[i] - (1 / (1 + np.exp(-score_indexed_features(
+                d_weights[j] = (ex_labels[i] - (1 / (1 + np.e**(-score_indexed_features(
                     bigram_exs[i], sgd_algo.weights)))))
+            #t_diff_1 = - s_time_1 + time.time()
+            # s_time_2 = time.time()
             sgd_algo.apply_gradient_update(d_weights, batch_size=1)
+
+            # t_diff_2 = - s_time_2 + time.time()
+            # print(t_diff_2)
     return PersonClassifier(sgd_algo.get_final_weights(), vocab)
 
 
