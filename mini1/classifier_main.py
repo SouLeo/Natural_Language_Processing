@@ -150,8 +150,8 @@ class PersonClassifier(object):
         # print(init_cap_encode)
         # print(pos_encode)
         # Step 5: Concatenate to form bigram
-        # feature_vec = prev_word_onehot_encoding + curr_word_onehot_encoding + init_cap_encode + pos_encode
-        feature_vec = curr_word_onehot_encoding
+        feature_vec = prev_word_onehot_encoding + curr_word_onehot_encoding + init_cap_encode + pos_encode
+        # feature_vec = curr_word_onehot_encoding
         # indices = np.nonzero(np.asarray(bigram))
         # bigram_counter = Counter(list(indices[0].astype(int)))
         # for i in bigram_counter.keys():
@@ -246,8 +246,8 @@ def create_bigram_model(ner_exs: List[PersonExample], vocab: Indexer):
             # print(init_cap_encode)
             # print(pos_encode)
             # Step 5: Concatenate to form bigram
-            # bigram = prev_word_onehot_encoding + curr_word_onehot_encoding + init_cap_encode + pos_encode
-            bigram = curr_word_onehot_encoding
+            bigram = prev_word_onehot_encoding + curr_word_onehot_encoding + init_cap_encode + pos_encode
+            # bigram = curr_word_onehot_encoding
             bigram_feat_len = len(bigram)
 
             indices = np.nonzero(np.asarray(bigram))
@@ -269,10 +269,11 @@ def train_classifier(ner_exs: List[PersonExample]):
     weights = np.zeros(feature_length)
     d_weights = Counter()  # np.zeros(feature_len)
     learning_rate = 0.1
-    epochs = 5
+    epochs = 3
     print('entering training loop')
     sgd_algo = SGDOptimizer(weights, learning_rate)
     for epoch in range(epochs):
+        print(epoch)
         for x in range(len(bigram_model)):
             # Create one hot vector for each training example
             x_onehot = np.zeros(feature_length)
@@ -363,20 +364,20 @@ if __name__ == '__main__':
     # Load the training and test data
     train_class_exs = list(transform_for_classification(read_data(args.train_path)))
     dev_class_exs = list(transform_for_classification(read_data(args.dev_path)))
-    training_truncation = 200
+    training_truncation = 3000
     testing_truncation = int(training_truncation/2)
 
     # Train the model
     if args.model == "BAD":
         classifier = train_count_based_binary_classifier(train_class_exs)
     else:
-        classifier = train_classifier(train_class_exs)
+        classifier = train_classifier(train_class_exs[1:training_truncation])
     print("Data reading and training took %f seconds" % (time.time() - start_time))
     # Evaluate on training, development, and test data
     # print("===Train accuracy===")
     # evaluate_classifier(train_class_exs[1:training_truncation], classifier)
     print("===Dev accuracy===")
-    evaluate_classifier(dev_class_exs, classifier)
+    evaluate_classifier(dev_class_exs[1:testing_truncation], classifier)
     # if args.run_on_test:
     #     print("Running on test")
     #     test_exs = list(transform_for_classification(read_data(args.blind_test_path)))
