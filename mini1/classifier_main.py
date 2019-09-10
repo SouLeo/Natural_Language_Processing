@@ -131,17 +131,18 @@ class PersonClassifier(object):
         # print('hi')
 
     def predict(self, ex, idx):
-        vocab = vocab_length
         # TODO: Create feature vector for word
 
         curr_word_indx = self.indexer.index_of(ex.tokens[idx])
         prev_word_indx = self.indexer.index_of(ex.tokens[idx - 1])
 
         init_cap_encode, cap_indx = init_cap_encoding(ex.tokens[idx])
-        pos_encode, pos_indx = pos_encoding(ex.pos[idx])
+        # pos_encode, pos_indx = pos_encoding(ex.pos[idx])
 
-        bigram_sparse = [curr_word_indx, prev_word_indx + vocab, pos_indx + 2 * vocab,
-                         cap_indx + 2 * vocab + 47]
+        # bigram_sparse = [
+        #     curr_word_indx, prev_word_indx + vocab_length, pos_indx + 2 * vocab_length, cap_indx + 2 * vocab_length + 47]
+        bigram_sparse = [
+            curr_word_indx, prev_word_indx + vocab_length, cap_indx + 2 * vocab_length]
 
         prediction = score_indexed_features(bigram_sparse, self.weights)
         if prediction >= 0:
@@ -167,7 +168,6 @@ def pos_encoding(tag):
     i = pos_to_int[tag]
     pos_onehot_encoded = [0 for _ in range(len(pos_tags))]
     pos_onehot_encoded[i] = 1
-    # print(pos_onehot_encoded)
     return pos_onehot_encoded, i
 
 
@@ -274,12 +274,16 @@ def train_classifier(ner_exs: List[PersonExample]):
     ex_labels = []
 
     vocab = generate_unique_vocabulary(ner_exs)
+    global vocab_length
     vocab_length = len(vocab.objs_to_ints)
-    feature_length = vocab_length * 2 + 47 + 2  # sum of individual feature vectors lengths together
+    # print('vocab len')
+    # print(vocab_length)
+    # feature_length = vocab_length * 2 + 47 + 2  # sum of individual feature vectors lengths together
+    feature_length = vocab_length * 2 + 2  # sum of individual feature vectors lengths together
     weights = np.zeros(feature_length)
 
-    learning_rate = 0.1
-    epochs = 5
+    learning_rate = 0.5
+    epochs = 20
     sgd_algo = SGDOptimizer(weights, learning_rate)
     print('gather features')
     for x in range(len(ner_exs)):  # loops over sentences
@@ -289,12 +293,13 @@ def train_classifier(ner_exs: List[PersonExample]):
 
             curr_word_indx = vocab.index_of(ner_exs[x].tokens[idx])
             prev_word_indx = vocab.index_of(ner_exs[x].tokens[idx - 1])
-
             init_cap_encode, cap_indx = init_cap_encoding(ner_exs[x].tokens[idx])
-            pos_encode, pos_indx = pos_encoding(ner_exs[x].pos[idx])
+            # pos_encode, pos_indx = pos_encoding(ner_exs[x].pos[idx])
 
+            # bigram_sparse = [
+            #     curr_word_indx, prev_word_indx+vocab_length, pos_indx+2*vocab_length, cap_indx+2*vocab_length+47]
             bigram_sparse = [
-                curr_word_indx, prev_word_indx+len(vocab), pos_indx+2*len(vocab), cap_indx+2*len(vocab)+47]
+                curr_word_indx, prev_word_indx + vocab_length, cap_indx + 2 * vocab_length]
             bigram_exs.append(bigram_sparse)
 
     print('entering training loop')
