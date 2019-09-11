@@ -37,7 +37,6 @@ def _parse_args():
 class PersonExample(object):
     """
     Data wrapper for a single sentence for person classification, which consists of many individual tokens to classify.
-
     Attributes:
         tokens: the sentence to classify
         labels: 0 if non-person name, 1 if person name for each token in the sentence
@@ -342,8 +341,8 @@ if __name__ == '__main__':
     # evaluate_classifier(train_class_exs[1:training_truncation], classifier)
     print("===Dev accuracy===")
     evaluate_classifier(dev_class_exs, classifier)
-    # if args.run_on_test:
-    #     print("Running on test")
-    #     test_exs = list(transform_for_classification(read_data(args.blind_test_path)))
-    #     predict_write_output_to_file(test_exs, classifier, args.test_output_path)
-    #     print("Wrote predictions on %i labeled sentences to %s" % (len(test_exs), args.test_output_path))
+    if args.run_on_test:
+        print("Running on test")
+        test_exs = list(transform_for_classification(read_data(args.blind_test_path)))
+        predict_write_output_to_file(test_exs, classifier, args.test_output_path)
+        print("Wrote predictions on %i labeled sentences to %s" % (len(test_exs), args.test_output_path))
