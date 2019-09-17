@@ -66,7 +66,43 @@ class HmmNerModel(object):
         :param sentence_tokens: List of the tokens in the sentence to tag
         :return: The LabeledSentence consisting of predictions over the sentence
         """
-        raise Exception("IMPLEMENT ME")
+        # raise Exception("IMPLEMENT ME")
+        self.viterbi_algorithm(sentence_tokens)
+
+
+    def viterbi_algorithm(self, sentence_tokens: List[Token]):
+        # TODO: FIGURE OUT WHY 4 IS THE BEST INDEX EVERY TIME
+
+        # best_states contains the indices of the best probabilities determined from the
+        # viterbi algorithm
+        best_states = []  # final length of "best_states" < # example sentences - 1 (this is because we don't include
+        # the first state
+        sent_len = len(sentence_tokens)
+        # add an extra transition state for terminating on a "STOP"
+        trans_mat = np.zeros((self.transition_log_probs.shape[0], self.transition_log_probs.shape[0]+1))
+        trans_mat[:, :-1] = self.transition_log_probs
+        v = np.zeros((sent_len, trans_mat.shape[0]))
+
+        # Handle the initial state
+        for y in range(trans_mat.shape[0]):
+            v[0, y] = self.init_log_probs[y] + \
+                      self.emission_log_probs[y, self.word_indexer.index_of(sentence_tokens[0])]
+
+        for i in range(1, sent_len):
+            for y in range(trans_mat.shape[0]):
+                v[i, y] = self.emission_log_probs[y, self.word_indexer.index_of(sentence_tokens[i])] + \
+                          np.max(trans_mat[:, y] + v[i-1, :])
+            ind_best_state = np.argmax(v[i, :])
+            best_states.append(ind_best_state)
+
+        # Handle the final state
+        for y in range(trans_mat.shape[0]):
+            v[sent_len-1, y] = \
+                v[sent_len-1, y] + trans_mat[y, trans_mat.shape[1]-1]  # TODO: Ask Uday where stop transition probabs come from
+        # Step below finds NER Label index for last word in sentence
+        ind_best_final_state = np.argmax(v[sent_len-1, :])
+        best_states.append(ind_best_final_state)
+        return best_states, v
 
 
 def train_hmm_model(sentences: List[LabeledSentence]) -> HmmNerModel:
