@@ -67,8 +67,12 @@ class HmmNerModel(object):
         :return: The LabeledSentence consisting of predictions over the sentence
         """
         # raise Exception("IMPLEMENT ME")
-        best_guess_ind, best_vals = self.viterbi_algorithm(sentence_tokens)
-
+        best_guess_ind = self.viterbi_algorithm(sentence_tokens)
+        predicted_tags = []
+        for i in range(len(sentence_tokens)):
+            predicted_tags.append(self.tag_indexer.get_object(best_guess_ind[i]))
+        chunks = chunks_from_bio_tag_seq(predicted_tags)
+        return LabeledSentence(sentence_tokens, chunks)
 
     def viterbi_algorithm(self, sentence_tokens: List[Token]):
         # best_states contains the indices of the best probabilities determined from the
@@ -97,11 +101,11 @@ class HmmNerModel(object):
         # Handle the final state
         for y in range(trans_mat.shape[0]):
             v[sent_len-1, y] = \
-                v[sent_len-1, y] + trans_mat[y, trans_mat.shape[1]-1]  # TODO: Ask Uday where stop transition probabs come from
+                v[sent_len-1, y] + trans_mat[y, trans_mat.shape[1]-1]  # TODO: add in stop probabilities somehow?
         # Step below finds NER Label index for last word in sentence
         ind_best_final_state = np.argmax(v[sent_len-1, :])
         best_states_ind.append(ind_best_final_state)
-        return best_states_ind, v
+        return best_states_ind
 
 
 def train_hmm_model(sentences: List[LabeledSentence]) -> HmmNerModel:
