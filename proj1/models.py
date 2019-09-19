@@ -53,11 +53,11 @@ class HmmNerModel(object):
         transition_log_probs: [num_tags, num_tags] matrix containing transition log probabilities (prev, curr)
         emission_log_probs: [num_tags, num_words] matrix containing emission log probabilities (tag, word)
     """
-    def __init__(self, tag_indexer: Indexer, word_indexer: Indexer, init_log_probs, final_log_probs, transition_log_probs, emission_log_probs):
+    def __init__(self, tag_indexer: Indexer, word_indexer: Indexer, init_log_probs, transition_log_probs, emission_log_probs):
         self.tag_indexer = tag_indexer
         self.word_indexer = word_indexer
         self.init_log_probs = init_log_probs
-        self.final_log_probs = final_log_probs
+        # self.final_log_probs = final_log_probs
         self.transition_log_probs = transition_log_probs
         self.emission_log_probs = emission_log_probs
 
@@ -76,12 +76,14 @@ class HmmNerModel(object):
         return LabeledSentence(sentence_tokens, chunks)
 
     def viterbi_algorithm(self, sentence_tokens: List[Token]):
+
+        # TODO: Look at wikipedia backpointer implementation
         pss = ProbabilisticSequenceScorer(self.tag_indexer, self.word_indexer, self.init_log_probs,
                                           self.transition_log_probs, self.emission_log_probs)
 
         # best_states contains the indices of the best probabilities determined from the
         # viterbi algorithm
-        best_states_ind = []
+        best_states_indexs = []
         sent_len = len(sentence_tokens)
 
         trans_mat = self.transition_log_probs
@@ -90,15 +92,15 @@ class HmmNerModel(object):
         # Handle the initial state
         for y in range(trans_mat.shape[0]):
             v[0, y] = pss.score_init(sentence_tokens, y) + pss.score_emission(sentence_tokens, y, 0)
-        ind_best_state = np.argmax(v[0, :])
-        best_states_ind.append(ind_best_state)
+            best_states_indexs[0, y] = np.zeros(trans_mat.shape[0])
 
         for i in range(1, sent_len):
             for y in range(trans_mat.shape[0]):
                 v[i, y] = pss.score_emission(sentence_tokens, y, i) + \
-                          np.max(np.add(trans_mat[:, y], v[i-1, :]))
-            ind_best_state = np.argmax(v[i, :])
-            best_states_ind.append(ind_best_state)
+                          np.max(np.add(trans_mat[:, y], v[i-1, :]))  # is this line correct?
+                best_states_indexs[i, y] =
+
+        best_final_state = np.argmax(v[sent_len-1, :])
 
         # Handle the final state
         # for y in range(trans_mat.shape[0]):
@@ -136,7 +138,7 @@ def train_hmm_model(sentences: List[LabeledSentence]) -> HmmNerModel:
     # Count occurrences of initial tags, transitions, and emissions
     # Apply additive smoothing to avoid log(0) / infinities / etc.
     init_counts = np.ones((len(tag_indexer)), dtype=float) * 0.001
-    final_counts = np.ones((len(tag_indexer)), dtype=float) * 0.001
+    # final_counts = np.ones((len(tag_indexer)), dtype=float) * 0.001
     transition_counts = np.ones((len(tag_indexer),len(tag_indexer)), dtype=float) * 0.001
     emission_counts = np.ones((len(tag_indexer),len(word_indexer)), dtype=float) * 0.001
     for sentence in sentences:
@@ -148,16 +150,16 @@ def train_hmm_model(sentences: List[LabeledSentence]) -> HmmNerModel:
             if i == 0:
                 init_counts[tag_idx] += 1.0
             else:
-                if i == (len(sentence) - 1):
-                    final_counts[tag_idx] += 1.0
+                # if i == (len(sentence) - 1):
+                #     final_counts[tag_idx] += 1.0
                 transition_counts[tag_indexer.add_and_get_index(bio_tags[i-1])][tag_idx] += 1.0
     # Turn counts into probabilities for initial tags, transitions, and emissions. All
     # probabilities are stored as log probabilities
     print(repr(init_counts))
     init_counts = np.log(init_counts / init_counts.sum())
 
-    print(repr(final_counts))
-    final_counts = np.log(final_counts / final_counts.sum())
+    # print(repr(final_counts))
+    # final_counts = np.log(final_counts / final_counts.sum())
     # transitions are stored as count[prev state][next state], so we sum over the second axis
     # and normalize by that to get the right conditional probabilities
     transition_counts = np.log(transition_counts / transition_counts.sum(axis=1)[:, np.newaxis])
@@ -170,7 +172,7 @@ def train_hmm_model(sentences: List[LabeledSentence]) -> HmmNerModel:
     print("Emission log probs for India: %s" % emission_counts[:,word_indexer.add_and_get_index("India")])
     print("Emission log probs for Phil: %s" % emission_counts[:,word_indexer.add_and_get_index("Phil")])
     print("   note that these distributions don't normalize because it's p(word|tag) that normalizes, not p(tag|word)")
-    return HmmNerModel(tag_indexer, word_indexer, init_counts, final_counts, transition_counts, emission_counts)
+    return HmmNerModel(tag_indexer, word_indexer, init_counts, transition_counts, emission_counts)
 
 
 def get_word_index(word_indexer: Indexer, word_counter: Counter, word: str) -> int:
