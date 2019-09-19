@@ -96,17 +96,17 @@ class HmmNerModel(object):
         for i in range(1, sent_len):
             for y in range(trans_mat.shape[0]):
                 v[i, y] = pss.score_emission(sentence_tokens, y, i) + \
-                          np.max(trans_mat[:, y] + v[i-1, :])
+                          np.max(np.add(trans_mat[:, y], v[i-1, :]))
             ind_best_state = np.argmax(v[i, :])
             best_states_ind.append(ind_best_state)
 
         # Handle the final state
-        for y in range(trans_mat.shape[0]):
-            v[sent_len-1, y] = \
-                v[sent_len-1, y] + self.final_log_probs[y]
+        # for y in range(trans_mat.shape[0]):
+        #     v[sent_len-1, y] = \
+        #         v[sent_len-1, y]  # + self.final_log_probs[y]
         # Step below finds NER Label index for last word in sentence
-        ind_best_final_state = np.argmax(v[sent_len-1, :])
-        best_states_ind.append(ind_best_final_state)
+        # ind_best_final_state = np.argmax(v[sent_len-1, :])
+        # best_states_ind.append(ind_best_final_state)
         return best_states_ind
 
 
@@ -195,8 +195,18 @@ class CrfNerModel(object):
         self.feature_weights = feature_weights
 
     def decode(self, sentence_tokens):
+        print('hi')
         raise Exception("IMPLEMENT ME")
 
+
+def get_transition_probs(sentences, tag_indexer):
+    transition_counts = np.ones((len(tag_indexer), len(tag_indexer)), dtype=float) * 0.001
+    for sentence in sentences:
+        bio_tags = sentence.get_bio_tags()
+        for i in range(0, len(sentence)):
+            tag_idx = tag_indexer.add_and_get_index(bio_tags[i])
+            transition_counts[tag_indexer.add_and_get_index(bio_tags[i-1])][tag_idx] += 1.0
+    return np.log(transition_counts / transition_counts.sum(axis=1)[:, np.newaxis])
 
 # Trains a CrfNerModel on the given corpus of sentences.
 def train_crf_model(sentences):
@@ -215,6 +225,9 @@ def train_crf_model(sentences):
             for tag_idx in range(0, len(tag_indexer)):
                 feature_cache[sentence_idx][word_idx][tag_idx] = extract_emission_features(sentences[sentence_idx].tokens, word_idx, tag_indexer.get_object(tag_idx), feature_indexer, add_to_indexer=True)
     print("Training")
+    trans_probs = get_transition_probs(sentences, tag_indexer)
+
+
     raise Exception("IMPLEMENT THE REST OF ME")
 
 
