@@ -199,16 +199,6 @@ class CrfNerModel(object):
         raise Exception("IMPLEMENT ME")
 
 
-def get_transition_probs(sentences, tag_indexer):
-    transition_counts = np.ones((len(tag_indexer), len(tag_indexer)), dtype=float) * 0.001
-    for sentence in sentences:
-        bio_tags = sentence.get_bio_tags()
-        for i in range(0, len(sentence)):
-            tag_idx = tag_indexer.add_and_get_index(bio_tags[i])
-            transition_counts[tag_indexer.add_and_get_index(bio_tags[i - 1])][tag_idx] += 1.0
-    return np.log(transition_counts / transition_counts.sum(axis=1)[:, np.newaxis])
-
-
 # Trains a CrfNerModel on the given corpus of sentences.
 def train_crf_model(sentences):
     tag_indexer = Indexer()
@@ -228,10 +218,30 @@ def train_crf_model(sentences):
                 feature_cache[sentence_idx][word_idx][tag_idx] = extract_emission_features(
                     sentences[sentence_idx].tokens, word_idx, tag_indexer.get_object(tag_idx), feature_indexer,
                     add_to_indexer=True)
-    print("Training")
-    trans_probs = get_transition_probs(sentences, tag_indexer)
 
-    raise Exception("IMPLEMENT THE REST OF ME")
+    print("Emission Training")
+    feature_weights = np.zeros(len(feature_indexer.ints_to_objs))
+    learning_rate = 0.5
+    epochs = 3
+    sgd = SGDOptimizer(feature_weights, learning_rate)
+
+    for epoch in range(epochs):
+        for sentence_idx in range(0, len(sentences)):
+            # TODO: Implement emission potential update [DONE?]
+            emission_potentials = np.zeros((len(tag_indexer), len(sentences[sentence_idx])))  # Does this need to be a 2D matrix for viterbi to work?
+            for word_idx in range(0, len(sentences[sentence_idx])):
+                for tag_idx in range(0, len(tag_indexer)):
+                    # d_weights = Counter()
+                    emission_potentials[tag_idx][word_idx] = np.e**(score_indexed_features(
+                        feature_cache[sentence_idx][word_idx][tag_idx], sgd.weights))
+            # TODO: Implement forward-backward for marginals for emission
+            # TODO: Compute Grad over all emission probabilities
+            compute_forward_backward()
+    return CrfNerModel(tag_indexer, feature_indexer, feature_weights)
+
+
+def compute_forward_backward():
+    return "hi"
 
 
 def extract_emission_features(sentence_tokens: List[Token], word_index: int, tag: str, feature_indexer: Indexer,
