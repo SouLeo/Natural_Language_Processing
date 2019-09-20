@@ -45,6 +45,33 @@ class ProbabilisticSequenceScorer(object):
         return self.emission_log_probs[tag_idx, word_idx]
 
 
+class FeatureBasedSequenceScorer(object):
+    """
+    Scoring function for sequence models based on conditional probabilities.
+    Scores are provided for three potentials in the model: initial scores (applied to the first tag),
+    emissions, and transitions. Note that CRFs typically don't use potentials of the first type.
+
+    Attributes:
+        tag_indexer: Indexer mapping BIO tags to indices. Useful for dynamic programming
+        word_indexer: Indexer mapping words to indices in the emission probabilities matrix
+        init_log_probs: [num_tags]-length array containing initial sequence log probabilities
+        transition_log_probs: [num_tags, num_tags] matrix containing transition log probabilities (prev, curr)
+        emission_log_probs: [num_tags, num_words] matrix containing emission log probabilities (tag, word)
+    """
+
+    def __init__(self, tag_indexer: Indexer, feature_indexer: Indexer, emission_potentials: np.ndarray):
+        self.tag_indexer = tag_indexer
+        self.feature_indexer = feature_indexer
+        self.emission_potentials = emission_potentials
+
+    # TODO: finish converting this to emission feature based scoring. remove references to 'word'
+    def score_emission(self, sentence_tokens: List[Token], tag_idx: int, word_posn: int, feat_posn: int):
+        word = sentence_tokens[word_posn].word
+        feat_idx = self.feature_indexer.index_of(word) if self.feature_indexer.contains(word) else self.feature_indexer.index_of(
+            "UNK")
+        return self.emission_potentials[tag_idx, feat_idx]
+
+
 class HmmNerModel(object):
     """
     HMM NER model for predicting tags
@@ -189,18 +216,53 @@ def get_word_index(word_indexer: Indexer, word_counter: Counter, word: str) -> i
 
 
 class CrfNerModel(object):
-    def __init__(self, tag_indexer, feature_indexer, feature_weights):
+    def __init__(self, tag_indexer, feature_indexer, feature_weights, emission_potentials):
         self.tag_indexer = tag_indexer
         self.feature_indexer = feature_indexer
         self.feature_weights = feature_weights
 
+        self.emission_potentials = emission_potentials
+
     def decode(self, sentence_tokens):
         print('hi')
-        raise Exception("IMPLEMENT ME")
+        tag_seq_indx = self.compute_forward_backward(sentence_tokens)
+        tag_labels = []
+        for i in range(len(sentence_tokens)):
+            indx = int(tag_seq_indx[i])
+            tag_label = self.tag_indexer.get_object(indx)
+            tag_labels.append(tag_label)
+        chunks = chunks_from_bio_tag_seq(tag_labels)
+        return LabeledSentence(sentence_tokens, chunks)
+
+    def compute_forward_backward(self, sentence_tokens: List[Token]):
+        # TODO: Create your own PSS class for scoring things
+        fbss = FeatureBasedSequenceScorer(self.tag_indexer, self.feature_indexer, self.emission_potentials)
+
+        sent_len = len(sentence_tokens)
+
+        v = np.zeros((sent_len, trans_mat.shape[0]))
+        best = np.zeros((sent_len, trans_mat.shape[0]))
+
+        # Handle the initial state
+        for y in range(trans_mat.shape[0]):
+            v[0, y] = pss.score_init(sentence_tokens, y) + pss.score_emission(sentence_tokens, y, 0)
+            best[0, y] = 0
+
+        for i in range(1, sent_len):
+            for y in range(trans_mat.shape[0]):
+                v[i, y] = np.max(pss.score_emission(sentence_tokens, y, i) + trans_mat[:, y] + v[i - 1, :])
+                best[i, y] = np.argmax(trans_mat[:, y] + v[i - 1, :])
+
+        x = np.zeros(sent_len)
+        x[-1] = np.argmax(v[sent_len - 1, :])
+
+        for j in range(sent_len - 1, 0, -1):
+            x[j - 1] = best[j, int(x[j])]
+        return x
 
 
 # Trains a CrfNerModel on the given corpus of sentences.
-def train_crf_model(sentences):
+def train_crf_model(sentences: List[LabeledSentence]) -> CrfNerModel:
     tag_indexer = Indexer()
     for sentence in sentences:
         for tag in sentence.get_bio_tags():
@@ -235,13 +297,10 @@ def train_crf_model(sentences):
                     emission_potentials[tag_idx][word_idx] = np.e**(score_indexed_features(
                         feature_cache[sentence_idx][word_idx][tag_idx], sgd.weights))
             # TODO: Implement forward-backward for marginals for emission
-            # TODO: Compute Grad over all emission probabilities
             compute_forward_backward()
-    return CrfNerModel(tag_indexer, feature_indexer, feature_weights)
+            # TODO: Compute Grad over all emission probabilities
 
-
-def compute_forward_backward():
-    return "hi"
+    return CrfNerModel(tag_indexer, feature_indexer, feature_weights, emission_potentials)
 
 
 def extract_emission_features(sentence_tokens: List[Token], word_index: int, tag: str, feature_indexer: Indexer,
