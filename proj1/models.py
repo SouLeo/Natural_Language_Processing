@@ -59,17 +59,17 @@ class FeatureBasedSequenceScorer(object):
         emission_log_probs: [num_tags, num_words] matrix containing emission log probabilities (tag, word)
     """
 
-    def __init__(self, tag_indexer: Indexer, feature_indexer: Indexer, emission_potentials: np.ndarray):
+    def __init__(self, tag_indexer: Indexer, word_indexer: Indexer, emission_potentials: np.ndarray):
         self.tag_indexer = tag_indexer
-        self.feature_indexer = feature_indexer
+        self.word_indexer = word_indexer
         self.emission_potentials = emission_potentials
 
     # TODO: finish converting this to emission feature based scoring. remove references to 'word'
-    def score_emission(self, sentence_tokens: List[Token], tag_idx: int, word_posn: int, feat_posn: int):
+    def score_emission(self, sentence_tokens: List[Token], tag_idx: int, word_posn: int):
         word = sentence_tokens[word_posn].word
-        feat_idx = self.feature_indexer.index_of(word) if self.feature_indexer.contains(word) else self.feature_indexer.index_of(
+        word_idx = self.word_indexer.index_of(word) if self.word_indexer.contains(word) else self.word_indexer.index_of(
             "UNK")
-        return self.emission_potentials[tag_idx, feat_idx]
+        return self.emission_potentials[tag_idx, word_idx]
 
 
 class HmmNerModel(object):
@@ -220,7 +220,6 @@ class CrfNerModel(object):
         self.tag_indexer = tag_indexer
         self.feature_indexer = feature_indexer
         self.feature_weights = feature_weights
-
         self.emission_potentials = emission_potentials
 
     def decode(self, sentence_tokens):
@@ -234,31 +233,44 @@ class CrfNerModel(object):
         chunks = chunks_from_bio_tag_seq(tag_labels)
         return LabeledSentence(sentence_tokens, chunks)
 
-    def compute_forward_backward(self, sentence_tokens: List[Token]):
-        # TODO: Create your own PSS class for scoring things
-        fbss = FeatureBasedSequenceScorer(self.tag_indexer, self.feature_indexer, self.emission_potentials)
 
-        sent_len = len(sentence_tokens)
+def compute_forward_backward(emission_potentials, sentence_tokens: List[Token], tag_indexer):
+    # Everything is in logspace
+    # fbss = ProbabilisticSequenceScorer(tag_indexer, word_indexer, emission_potentials)
 
-        v = np.zeros((sent_len, trans_mat.shape[0]))
-        best = np.zeros((sent_len, trans_mat.shape[0]))
+    sent_len = len(sentence_tokens)
+    num_labels = len(tag_indexer)
 
-        # Handle the initial state
-        for y in range(trans_mat.shape[0]):
-            v[0, y] = pss.score_init(sentence_tokens, y) + pss.score_emission(sentence_tokens, y, 0)
-            best[0, y] = 0
+    a = np.zeros((num_labels, sent_len))
+    b = np.zeros((num_labels, sent_len))
 
-        for i in range(1, sent_len):
-            for y in range(trans_mat.shape[0]):
-                v[i, y] = np.max(pss.score_emission(sentence_tokens, y, i) + trans_mat[:, y] + v[i - 1, :])
-                best[i, y] = np.argmax(trans_mat[:, y] + v[i - 1, :])
+    # Handle the initial state of a and b
+    for i in range(num_labels):
+        a[i][0] = emission_potentials[i][0]
+        b[i][sent_len-1] = np.log(1)
 
-        x = np.zeros(sent_len)
-        x[-1] = np.argmax(v[sent_len - 1, :])
+    for i in range(num_labels):  # for all NER tags
+        for t in range(1, sent_len):  # for all words in the sentence
+            # forward pass
+            for label_ind in range(num_labels):
+                a[i][t] += np.exp(a[label_ind][t - 1] + emission_potentials[i][t])
+            a[i][t] = np.log(a[i][t])
 
-        for j in range(sent_len - 1, 0, -1):
-            x[j - 1] = best[j, int(x[j])]
-        return x
+        for t in range(0, sent_len-1):
+            # backward pass
+            for label_ind in range(num_labels):
+                b[i][t] += np.exp(b[label_ind][t + 1] + emission_potentials[i][t + 1])
+            b[i][t] = np.log(b[i][t])
+
+    # TODO: use a and b to build marginals
+    marginals = np.zeros((num_labels, sent_len))
+    for i in range(num_labels):
+        for t in range(1, sent_len):
+            # TODO: Solve why sum is not the same for all iterations
+            sum = np.sum(np.multiply(a[:, t], b[:, t]))
+            marginals[i][t] = (a[i][t]*b[i][t])/sum
+    print('fb ended')
+    return marginals
 
 
 # Trains a CrfNerModel on the given corpus of sentences.
@@ -282,7 +294,8 @@ def train_crf_model(sentences: List[LabeledSentence]) -> CrfNerModel:
                     add_to_indexer=True)
 
     print("Emission Training")
-    feature_weights = np.zeros(len(feature_indexer.ints_to_objs))
+    feat_len = len(feature_indexer.ints_to_objs)  # * 8  # only includes emission features
+    feature_weights = np.zeros(feat_len)
     learning_rate = 0.5
     epochs = 3
     sgd = SGDOptimizer(feature_weights, learning_rate)
@@ -290,17 +303,17 @@ def train_crf_model(sentences: List[LabeledSentence]) -> CrfNerModel:
     for epoch in range(epochs):
         for sentence_idx in range(0, len(sentences)):
             # TODO: Implement emission potential update [DONE?]
-            emission_potentials = np.zeros((len(tag_indexer), len(sentences[sentence_idx])))  # Does this need to be a 2D matrix for viterbi to work?
+            emission_potentials = np.zeros((len(tag_indexer), len(sentences[sentence_idx])))
             for word_idx in range(0, len(sentences[sentence_idx])):
                 for tag_idx in range(0, len(tag_indexer)):
-                    # d_weights = Counter()
-                    emission_potentials[tag_idx][word_idx] = np.e**(score_indexed_features(
-                        feature_cache[sentence_idx][word_idx][tag_idx], sgd.weights))
+                    emission_potentials[tag_idx][word_idx] = score_indexed_features(
+                        feature_cache[sentence_idx][word_idx][tag_idx], sgd.weights)
             # TODO: Implement forward-backward for marginals for emission
-            compute_forward_backward()
+            # print('hi')
+            compute_forward_backward(emission_potentials, sentences[sentence_idx], tag_indexer)
             # TODO: Compute Grad over all emission probabilities
 
-    return CrfNerModel(tag_indexer, feature_indexer, feature_weights, emission_potentials)
+    return  # CrfNerModel(tag_indexer, feature_indexer, feature_weights, emission_potentials)
 
 
 def extract_emission_features(sentence_tokens: List[Token], word_index: int, tag: str, feature_indexer: Indexer,
