@@ -317,7 +317,6 @@ def train_crf_model(sentences: List[LabeledSentence]) -> CrfNerModel:
             marginals = compute_forward_backward(sentences[sentence_idx], tag_indexer,
                                                  feature_cache[sentence_idx], crf.feature_weights)
             # Apply Grad Update
-
             for word_idx in range(0, len(sentences[sentence_idx])):
                 for tag_idx in range(0, len(tag_indexer)):
                     for obj in feature_cache[sentence_idx][word_idx][tag_idx]:
@@ -333,6 +332,7 @@ def train_crf_model(sentences: List[LabeledSentence]) -> CrfNerModel:
                     else:
                         gradient[obj] = 1.0
             sgd.apply_gradient_update(gradient, batch_size)
+            crf.feature_weights = sgd.get_final_weights()
             gradient = Counter()
     return crf
 
