@@ -65,7 +65,7 @@ class FeatureBasedSequenceScorer(object):
         self.feature_indexer = feature_indexer
         self.feature_weights = feature_weights
 
-    def score_emission(self, feature_cache, tag_idx, word_idx):
+    def score_emission(self, tag_idx, word_idx, feature_cache):
         return score_indexed_features(feature_cache[word_idx][tag_idx], self.feature_weights)
 
     # # TODO: finish converting this to emission feature based scoring. remove references to 'word'
@@ -230,11 +230,11 @@ class CrfNerModel(object):
         sent_len = len(sentence)
         # Extract Features of Input Sentence
         feature_cache = [[[] for k in range(0, num_labels)] for j in range(0, sent_len)]
-        for word_idx in range(0, len(sentence)):
-            for tag_idx in range(0, len(self.tag_indexer)):
+        for word_idx in range(0, sent_len):
+            for tag_idx in range(0, num_labels):
                 feature_cache[word_idx][tag_idx] = extract_emission_features(
                     sentence, word_idx, self.tag_indexer.get_object(tag_idx),
-                    self.feature_indexer, add_to_indexer=False)
+                    self.feature_indexer, add_to_indexer=False)  # False because no longer training
 
         score = np.zeros((sent_len, num_labels))
         history = np.zeros((sent_len, num_labels))
@@ -246,19 +246,18 @@ class CrfNerModel(object):
                     if isI(tag):
                         score[word_idx][tag_idx] = -np.inf
                     else:
-                        score[word_idx][tag_idx] = fbss.score_emission(feature_cache, tag_idx, 0)
+                        score[word_idx][tag_idx] = fbss.score_emission(tag_idx, 0, feature_cache)
             else:
                 for curr_tag_idx in range(num_labels):
                     score[word_idx][curr_tag_idx] = -np.inf
                     for prev_tag_idx in range(num_labels):
-                        # TODO : did not prohibit the O-I transition at the last word
                         curr_tag = self.tag_indexer.get_object(curr_tag_idx)
                         prev_tag = self.tag_indexer.get_object(prev_tag_idx)
                         if isO(prev_tag) and isI(curr_tag):
                             continue
                         if isI(curr_tag) and (get_tag_label(curr_tag) != get_tag_label(prev_tag)):
                             continue
-                        curr_score = fbss.score_emission(feature_cache, curr_tag_idx, word_idx) + \
+                        curr_score = fbss.score_emission(curr_tag_idx, word_idx, feature_cache) + \
                                      score[word_idx - 1][prev_tag_idx]
                         if curr_score > score[word_idx][curr_tag_idx]:
                             score[word_idx][curr_tag_idx] = curr_score
@@ -286,7 +285,7 @@ def compute_forward_backward(sentence_tokens, tag_indexer, feature_cache, featur
     # Handle the initial state of a and b
     for i in range(num_labels):
         log_a[0][i] = score_indexed_features(feature_cache[0][i], feature_weights)
-        log_b[sent_len - 1][i] = np.log(1)  # TODO: Verify log(1) is right
+        log_b[sent_len - 1][i] = np.log(1)
 
     # forward pass
     for t in range(1, sent_len):  # for all words in the sentence
@@ -295,6 +294,8 @@ def compute_forward_backward(sentence_tokens, tag_indexer, feature_cache, featur
             for j in range(num_labels):  # for the previous word
                 curr_tag = tag_indexer.get_object(i)
                 prev_tag = tag_indexer.get_object(j)
+                if isO(prev_tag) and isI(curr_tag):
+                    continue
                 if isI(curr_tag) and get_tag_label(curr_tag) != get_tag_label(prev_tag):
                     continue
                 log_a[t][i] = np.logaddexp(log_a[t][i], log_a[t - 1][j] +
@@ -307,6 +308,8 @@ def compute_forward_backward(sentence_tokens, tag_indexer, feature_cache, featur
             for k in range(num_labels):  # for the next word
                 curr_tag = tag_indexer.get_object(i)
                 next_tag = tag_indexer.get_object(k)
+                if isO(curr_tag) and isI(next_tag):
+                    continue
                 if isI(next_tag) and get_tag_label(curr_tag) != get_tag_label(next_tag):
                     continue
                 log_b[t][i] = np.logaddexp(log_b[t][i], log_b[t + 1][k] +
@@ -350,9 +353,9 @@ def train_crf_model(sentences: List[LabeledSentence]) -> CrfNerModel:
 
     learning_rate = 0.5
     batch_size = 1
-    epochs = 3
+    epochs = 10
 
-    sgd = SGDOptimizer(feature_weights, learning_rate)
+    sgd = UnregularizedAdagradTrainer(feature_weights) # SGDOptimizer(feature_weights, learning_rate)
     crf = CrfNerModel(tag_indexer, feature_indexer, feature_weights)
 
 

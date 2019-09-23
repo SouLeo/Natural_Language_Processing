@@ -93,7 +93,7 @@ if __name__ == '__main__':
     elif system_to_run == "CRF":
         crf_model = train_crf_model(train)
         print("Data reading and training took %f seconds" % (time.time() - start_time))
-        # dev = dev[1:4]
+        # dev = dev[1:10]
         dev_decoded = [crf_model.decode(test_ex.tokens) for test_ex in dev]
         # if args.run_on_test:
         #     print("Running on test")
