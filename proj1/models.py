@@ -65,12 +65,6 @@ class FeatureBasedSequenceScorer(object):
         self.feature_indexer = feature_indexer
         self.feature_weights = feature_weights
 
-    def score_init(self, feature_cache, tag_idx):
-        return score_indexed_features(feature_cache[0][tag_idx], self.feature_weights)
-
-    def score_transition(self, feature_cache, prev_tag_idx, curr_tag_idx):
-        return 0
-
     def score_emission(self, feature_cache, tag_idx, word_idx):
         return score_indexed_features(feature_cache[word_idx][tag_idx], self.feature_weights)
 
@@ -232,29 +226,31 @@ class CrfNerModel(object):
         self.feature_weights = feature_weights
 
     def decode(self, sentence):
-        feature_cache = [[[] for k in range(0, len(self.tag_indexer))] for j in range(0, len(sentence))]
+        num_labels = len(self.tag_indexer)
+        sent_len = len(sentence)
+        # Extract Features of Input Sentence
+        feature_cache = [[[] for k in range(0, num_labels)] for j in range(0, sent_len)]
         for word_idx in range(0, len(sentence)):
             for tag_idx in range(0, len(self.tag_indexer)):
-                feature_cache[word_idx][tag_idx] = extract_emission_features(sentence, word_idx,
-                                                                             self.tag_indexer.get_object(tag_idx),
-                                                                             self.feature_indexer, add_to_indexer=False)
+                feature_cache[word_idx][tag_idx] = extract_emission_features(
+                    sentence, word_idx, self.tag_indexer.get_object(tag_idx),
+                    self.feature_indexer, add_to_indexer=False)
 
-        # Viterbi
-        score = np.zeros((len(sentence), len(self.tag_indexer)))
-        back_pointers = np.ones((len(sentence), len(self.tag_indexer))) * -1
-        sequence_scorer = FeatureBasedSequenceScorer(self.tag_indexer, self.feature_indexer, self.feature_weights)
-        for word_idx in range(0, len(sentence)):
+        score = np.zeros((sent_len, num_labels))
+        history = np.zeros((sent_len, num_labels))
+        fbss = FeatureBasedSequenceScorer(self.tag_indexer, self.feature_indexer, self.feature_weights)
+        for word_idx in range(sent_len):
             if word_idx == 0:
-                for tag_idx in range(0, len(self.tag_indexer)):
+                for tag_idx in range(num_labels):
                     tag = self.tag_indexer.get_object(tag_idx)
                     if isI(tag):
                         score[word_idx][tag_idx] = -np.inf
                     else:
-                        score[word_idx][tag_idx] = sequence_scorer.score_init(feature_cache, tag_idx)
+                        score[word_idx][tag_idx] = fbss.score_emission(feature_cache, tag_idx, 0)
             else:
-                for curr_tag_idx in range(0, len(self.tag_indexer)):
+                for curr_tag_idx in range(num_labels):
                     score[word_idx][curr_tag_idx] = -np.inf
-                    for prev_tag_idx in range(0, len(self.tag_indexer)):
+                    for prev_tag_idx in range(num_labels):
                         # TODO : did not prohibit the O-I transition at the last word
                         curr_tag = self.tag_indexer.get_object(curr_tag_idx)
                         prev_tag = self.tag_indexer.get_object(prev_tag_idx)
@@ -262,22 +258,20 @@ class CrfNerModel(object):
                             continue
                         if isI(curr_tag) and (get_tag_label(curr_tag) != get_tag_label(prev_tag)):
                             continue
-                        curr_score = sequence_scorer.score_transition(feature_cache, prev_tag_idx, curr_tag_idx) + \
-                                     sequence_scorer.score_emission(feature_cache, curr_tag_idx, word_idx) + \
+                        curr_score = fbss.score_emission(feature_cache, curr_tag_idx, word_idx) + \
                                      score[word_idx - 1][prev_tag_idx]
                         if curr_score > score[word_idx][curr_tag_idx]:
                             score[word_idx][curr_tag_idx] = curr_score
-                            back_pointers[word_idx][curr_tag_idx] = prev_tag_idx
-        max_score_idx = score.argmax(axis=1)[-1]
-        idx = max_score_idx
-        pred_tags = []
-        word_idx = len(sentence) - 1
-        while idx != -1:
-            pred_tags.append(self.tag_indexer.get_object(idx))
-            idx = back_pointers[word_idx][int(idx)]
-            word_idx -= 1
-        pred_tags.reverse()
-        return LabeledSentence(sentence, chunks_from_bio_tag_seq(pred_tags))
+                            history[word_idx][curr_tag_idx] = prev_tag_idx
+
+        best_seq_idx = score.argmax(axis=1)[sent_len-1]
+        final_labels = []
+        for i in range(sent_len-1, -1, -1):
+            final_labels.append(self.tag_indexer.get_object(best_seq_idx))
+            best_seq_idx = int(history[i][best_seq_idx])
+        final_labels.reverse()
+        chunks = chunks_from_bio_tag_seq(final_labels)
+        return LabeledSentence(sentence, chunks)
 
 
 def compute_forward_backward(sentence_tokens, tag_indexer, feature_cache, feature_weights):
