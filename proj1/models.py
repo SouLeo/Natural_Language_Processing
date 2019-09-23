@@ -253,9 +253,9 @@ class CrfNerModel(object):
                     for prev_tag_idx in range(num_labels):
                         curr_tag = self.tag_indexer.get_object(curr_tag_idx)
                         prev_tag = self.tag_indexer.get_object(prev_tag_idx)
-                        if isO(prev_tag) and isI(curr_tag):
-                            continue
                         if isI(curr_tag) and (get_tag_label(curr_tag) != get_tag_label(prev_tag)):
+                            continue
+                        if isO(prev_tag) and isI(curr_tag):
                             continue
                         curr_score = fbss.score_emission(curr_tag_idx, word_idx, feature_cache) + \
                                      score[word_idx - 1][prev_tag_idx]
@@ -265,7 +265,9 @@ class CrfNerModel(object):
 
         best_seq_idx = score.argmax(axis=1)[sent_len-1]
         final_labels = []
+        # final_labels = np.zeros(sent_len))
         for i in range(sent_len-1, -1, -1):
+            # final_labels[i] = self.tag_indexer.get_object(best_seq_idx)
             final_labels.append(self.tag_indexer.get_object(best_seq_idx))
             best_seq_idx = int(history[i][best_seq_idx])
         final_labels.reverse()
@@ -294,9 +296,9 @@ def compute_forward_backward(sentence_tokens, tag_indexer, feature_cache, featur
             for j in range(num_labels):  # for the previous word
                 curr_tag = tag_indexer.get_object(i)
                 prev_tag = tag_indexer.get_object(j)
-                if isO(prev_tag) and isI(curr_tag):
-                    continue
                 if isI(curr_tag) and get_tag_label(curr_tag) != get_tag_label(prev_tag):
+                    continue
+                if isO(prev_tag) and isI(curr_tag):
                     continue
                 log_a[t][i] = np.logaddexp(log_a[t][i], log_a[t - 1][j] +
                                            score_indexed_features(feature_cache[t][i], feature_weights))
@@ -308,20 +310,20 @@ def compute_forward_backward(sentence_tokens, tag_indexer, feature_cache, featur
             for k in range(num_labels):  # for the next word
                 curr_tag = tag_indexer.get_object(i)
                 next_tag = tag_indexer.get_object(k)
-                if isO(curr_tag) and isI(next_tag):
-                    continue
                 if isI(next_tag) and get_tag_label(curr_tag) != get_tag_label(next_tag):
+                    continue
+                if isO(curr_tag) and isI(next_tag):
                     continue
                 log_b[t][i] = np.logaddexp(log_b[t][i], log_b[t + 1][k] +
                                            score_indexed_features(feature_cache[t][k], feature_weights))
 
     # Use a and b to build marginals
-    log_marginals = log_a + log_b
+    log_marginals = log_a + log_b  # add because log space
     for t in range(sent_len):
         z = -np.inf
         for i in range(num_labels):
             z = np.logaddexp(z, log_marginals[t][i])
-        log_marginals[t] -= z
+        log_marginals[t] -= z  # subtract because log space
     # print('fb ended')
     return log_marginals
 
