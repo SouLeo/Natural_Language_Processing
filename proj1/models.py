@@ -245,12 +245,10 @@ class CrfNerModel(object):
                     tag = self.tag_indexer.get_object(tag_idx)
                     if isI(tag):
                         continue
-                        # score[word_idx][tag_idx] = -np.inf
                     else:
                         score[word_idx][tag_idx] = fbss.score_emission(tag_idx, 0, feature_cache)
             else:
                 for curr_tag_idx in range(num_labels):
-                    # score[word_idx][curr_tag_idx] = -np.inf
                     for prev_tag_idx in range(num_labels):
                         curr_tag = self.tag_indexer.get_object(curr_tag_idx)
                         prev_tag = self.tag_indexer.get_object(prev_tag_idx)
