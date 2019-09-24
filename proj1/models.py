@@ -236,7 +236,7 @@ class CrfNerModel(object):
                     sentence, word_idx, self.tag_indexer.get_object(tag_idx),
                     self.feature_indexer, add_to_indexer=False)  # False because no longer training
 
-        score = np.zeros((sent_len, num_labels))
+        score = np.ones((sent_len, num_labels))*-np.inf
         history = np.zeros((sent_len, num_labels))
         fbss = FeatureBasedSequenceScorer(self.tag_indexer, self.feature_indexer, self.feature_weights)
         for word_idx in range(sent_len):
@@ -244,12 +244,13 @@ class CrfNerModel(object):
                 for tag_idx in range(num_labels):
                     tag = self.tag_indexer.get_object(tag_idx)
                     if isI(tag):
-                        score[word_idx][tag_idx] = -np.inf
+                        continue
+                        # score[word_idx][tag_idx] = -np.inf
                     else:
                         score[word_idx][tag_idx] = fbss.score_emission(tag_idx, 0, feature_cache)
             else:
                 for curr_tag_idx in range(num_labels):
-                    score[word_idx][curr_tag_idx] = -np.inf
+                    # score[word_idx][curr_tag_idx] = -np.inf
                     for prev_tag_idx in range(num_labels):
                         curr_tag = self.tag_indexer.get_object(curr_tag_idx)
                         prev_tag = self.tag_indexer.get_object(prev_tag_idx)
@@ -281,8 +282,8 @@ def compute_forward_backward(sentence_tokens, tag_indexer, feature_cache, featur
     sent_len = len(sentence_tokens)
     num_labels = len(tag_indexer)
 
-    log_a = np.zeros((sent_len, num_labels))
-    log_b = np.zeros((sent_len, num_labels))
+    log_a = np.ones((sent_len, num_labels))*-np.inf
+    log_b = np.ones((sent_len, num_labels))*-np.inf
 
     # Handle the initial state of a and b
     for i in range(num_labels):
@@ -292,7 +293,6 @@ def compute_forward_backward(sentence_tokens, tag_indexer, feature_cache, featur
     # forward pass
     for t in range(1, sent_len):  # for all words in the sentence
         for i in range(0, num_labels):  # for the current word
-            log_a[t][i] = -np.inf
             for j in range(num_labels):  # for the previous word
                 curr_tag = tag_indexer.get_object(i)
                 prev_tag = tag_indexer.get_object(j)
@@ -306,7 +306,6 @@ def compute_forward_backward(sentence_tokens, tag_indexer, feature_cache, featur
     # backward pass
     for t in range(sent_len - 2, -1, -1):
         for i in range(0, num_labels):  # for the current word
-            log_b[t][i] = -np.inf
             for k in range(num_labels):  # for the next word
                 curr_tag = tag_indexer.get_object(i)
                 next_tag = tag_indexer.get_object(k)
@@ -355,17 +354,22 @@ def train_crf_model(sentences: List[LabeledSentence]) -> CrfNerModel:
 
     learning_rate = 0.5
     batch_size = 1
-    epochs = 10
+    epochs = 5
 
-    sgd = UnregularizedAdagradTrainer(feature_weights) # SGDOptimizer(feature_weights, learning_rate)
+    sgd = UnregularizedAdagradTrainer(feature_weights)  # SGDOptimizer(feature_weights, learning_rate)
     crf = CrfNerModel(tag_indexer, feature_indexer, feature_weights)
 
 
     for epoch in range(epochs):
+        print(epoch)
         for sentence_idx in range(0, len(sentences)):
             # Calculate Emission Potentials
+            # if sentence_idx % 100 == 0:
+            #     print("Ex %i/%i" % (sentence_idx, len(sentences)))
+            # print('begin f-b')
             marginals = compute_forward_backward(sentences[sentence_idx], tag_indexer,
                                                  feature_cache[sentence_idx], crf.feature_weights)
+            # print('end f-b')
             gradient = Counter()
             # Apply Grad Update
             for word_idx in range(0, len(sentences[sentence_idx])):
