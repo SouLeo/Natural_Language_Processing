@@ -1,0 +1,10 @@
+1) Create 3 new feature examples [done]
+    > check for all capitalization [done]
+    > check for bigram feature too
+        > curr + next [done]
+        > prev + curr [todo?]
+    > check for hyphenantion? [done]
+2) Evaluate examples improvement on F1 scores
+3) Evaluate the weight matrix and see what features contribute the most to decisions
+> overall
+> for individual words

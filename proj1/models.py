@@ -421,6 +421,23 @@ def extract_emission_features(sentence_tokens: List[Token], word_index: int, tag
             active_pos = sentence_tokens[word_index + idx_offset].pos
         maybe_add_feature(feats, feature_indexer, add_to_indexer, tag + ":Word" + repr(idx_offset) + "=" + active_word)
         maybe_add_feature(feats, feature_indexer, add_to_indexer, tag + ":Pos" + repr(idx_offset) + "=" + active_pos)
+    # Newly Added Feature #1
+    # Lexical and POS features on this word, the previous, and the next (Word0, Word1)
+    for idx_offset in range(0, 2):
+        if word_index + idx_offset < 0:
+            active_word = "<s>"
+        elif word_index + idx_offset >= len(sentence_tokens):
+            active_word = "</s>"
+        else:
+            active_word = sentence_tokens[word_index + idx_offset].word
+        if word_index + idx_offset < 0:
+            active_pos = "<S>"
+        elif word_index + idx_offset >= len(sentence_tokens):
+            active_pos = "</S>"
+        else:
+            active_pos = sentence_tokens[word_index + idx_offset].pos
+        maybe_add_feature(feats, feature_indexer, add_to_indexer, tag + ":Word" + repr(idx_offset) + "=" + active_word)
+        maybe_add_feature(feats, feature_indexer, add_to_indexer, tag + ":Pos" + repr(idx_offset) + "=" + active_pos)
     # Character n-grams of the current word
     max_ngram_size = 3
     for ngram_size in range(1, max_ngram_size + 1):
@@ -430,6 +447,13 @@ def extract_emission_features(sentence_tokens: List[Token], word_index: int, tag
         maybe_add_feature(feats, feature_indexer, add_to_indexer, tag + ":EndNgram=" + end_ngram)
     # Look at a few word shape features
     maybe_add_feature(feats, feature_indexer, add_to_indexer, tag + ":IsCap=" + repr(curr_word[0].isupper()))
+    # Newly added feature #2
+    maybe_add_feature(feats, feature_indexer, add_to_indexer, tag + ":AllCap=" + repr(curr_word.isupper()))
+    # Newly added feature #3
+    if '-' in curr_word:
+        maybe_add_feature(feats, feature_indexer, add_to_indexer, tag + ":Hyphen=" + repr(True))
+    else:
+        maybe_add_feature(feats, feature_indexer, add_to_indexer, tag + ":Hyphen=" + repr(False))
     # Compute word shape
     new_word = []
     for i in range(0, len(curr_word)):
