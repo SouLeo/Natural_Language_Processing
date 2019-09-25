@@ -387,6 +387,42 @@ def train_crf_model(sentences: List[LabeledSentence]) -> CrfNerModel:
             sgd.apply_gradient_update(gradient, batch_size)
             crf.feature_weights = sgd.get_final_weights()
             gradient = Counter()
+    # np.savetxt('weights.txt', crf.feature_weights)
+    # # TODO: print top 10 weights and their associated tag and values
+    # print('best features:')
+    # ind = np.sort(crf.feature_weights)[-10:]
+    # print(ind)
+    # for i in range(ind):
+    #     print('feat: ' + feature_indexer.get_object(i) + ' weight: ' + str(crf.feature_weights[i]))
+    # # TODO: print worst 10 weights and their associated tag and values
+    # print('worst features:')
+    # ind = np.sort(crf.feature_weights)[0:10]
+    # for i in ind:
+    #     print('feat: ' + feature_indexer.get_object(i) + ' weight: ' + str(crf.feature_weights[i]))
+    # # TODO: print weights of newly implemented features
+    word_psn = []
+    allcaps = []
+    hyphen = []
+    for j in range(len(feature_indexer)):
+        if ":WordPsn" in feature_indexer.ints_to_objs[j]:
+            word_psn.append(j)
+            print(feature_indexer.ints_to_objs[j])
+        elif ":AllCap=" in feature_indexer.ints_to_objs[j]:
+            allcaps.append(j)
+        elif ":Hyphen=" in feature_indexer.ints_to_objs[j]:
+            hyphen.append(j)
+
+    print('hyphens')
+    for h in hyphen:
+        print('feat: ' + feature_indexer.get_object(h) + ' weight: ' + str(crf.feature_weights[h]))
+    print('all caps')
+    for ac in allcaps:
+        print('feat: ' + feature_indexer.get_object(ac) + ' weight: ' + str(crf.feature_weights[ac]))
+    print('word psn')
+    best_word_psn = np.sort(word_psn)[-10:]
+    for b in best_word_psn[-10:]:
+        print('feat: ' + feature_indexer.get_object(b) + ' weight: ' + str(crf.feature_weights[b]))
+
     return crf
 
 
@@ -406,24 +442,8 @@ def extract_emission_features(sentence_tokens: List[Token], word_index: int, tag
     feats = []
     curr_word = sentence_tokens[word_index].word
     # Lexical and POS features on this word, the previous, and the next (Word-1, Word0, Word1)
+    maybe_add_feature(feats, feature_indexer, add_to_indexer, tag + ":WordPsn" + repr(word_index) + "=" + curr_word)
     for idx_offset in range(-1, 2):
-        if word_index + idx_offset < 0:
-            active_word = "<s>"
-        elif word_index + idx_offset >= len(sentence_tokens):
-            active_word = "</s>"
-        else:
-            active_word = sentence_tokens[word_index + idx_offset].word
-        if word_index + idx_offset < 0:
-            active_pos = "<S>"
-        elif word_index + idx_offset >= len(sentence_tokens):
-            active_pos = "</S>"
-        else:
-            active_pos = sentence_tokens[word_index + idx_offset].pos
-        maybe_add_feature(feats, feature_indexer, add_to_indexer, tag + ":Word" + repr(idx_offset) + "=" + active_word)
-        maybe_add_feature(feats, feature_indexer, add_to_indexer, tag + ":Pos" + repr(idx_offset) + "=" + active_pos)
-    # Newly Added Feature #1
-    # Lexical and POS features on this word, the previous, and the next (Word0, Word1)
-    for idx_offset in range(0, 2):
         if word_index + idx_offset < 0:
             active_word = "<s>"
         elif word_index + idx_offset >= len(sentence_tokens):
