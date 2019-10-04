@@ -24,8 +24,9 @@ class FFNN(nn.Module):
     # Forward computation. Backward computation is done implicitly (nn.Module already has an implementation of
     # it that you shouldn't need to override)
     def forward(self, x):
+        # TODO: feed in all training examples
         # put averaging here
-        return self.softmax(self.W(self.g(self.V(x))))
+        return self.softmax(self.W(self.g(self.V(x)).mean()))
 
 
 # Form the input to the neural network. In general this may be a complex function that synthesizes multiple pieces

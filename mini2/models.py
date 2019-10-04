@@ -46,9 +46,9 @@ def train_evaluate_ffnn(train_exs: List[SentimentExample], dev_exs: List[Sentime
     lr = 0.1
     epochs = 10
 
-    ffnn.learn_weights(lr, epochs, ffnn, train_labels_arr, train_seq_lens, num_classes)
+    learn_weights(lr, epochs, ffnn, train_labels_arr, train_mat, num_classes)
     print("hi")
-    raise Exception("Not implemented")
+    # raise Exception("Not implemented")
 
 
 # Analogous to train_ffnn, but trains your fancier model.
