@@ -40,13 +40,13 @@ def train_evaluate_ffnn(train_exs: List[SentimentExample], dev_exs: List[Sentime
     # Labels
     train_labels_arr = np.array([ex.label for ex in train_exs])
 
-    embedding_size = 10  # TODO: ask what this means
+    embedding_size = 50  # TODO: ask what this means
     num_classes = 2
     ffnn = FFNN(seq_max_len, embedding_size, num_classes)
     lr = 0.1
     epochs = 10
 
-    learn_weights(lr, epochs, ffnn, train_labels_arr, train_mat, num_classes)
+    learn_weights(lr, epochs, ffnn, train_labels_arr, train_mat, word_vectors, num_classes)
     print("hi")
     # raise Exception("Not implemented")
 

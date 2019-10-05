@@ -13,12 +13,12 @@ import random
 class FFNN(nn.Module):
     def __init__(self, inp, hid, out):
         super(FFNN, self).__init__()
-        self.V = nn.Linear(inp, hid)
-        self.g = nn.Tanh()
+        # self.V = nn.Linear(inp, hid)
+        # self.g = nn.Tanh()
         self.W = nn.Linear(hid, out)
         self.softmax = nn.Softmax(dim=0)
         # Initialize weights according to the Xavier Glorot formula
-        nn.init.xavier_uniform(self.V.weight)
+        # nn.init.xavier_uniform(self.V.weight)
         nn.init.xavier_uniform(self.W.weight)
 
     # Forward computation. Backward computation is done implicitly (nn.Module already has an implementation of
@@ -26,23 +26,29 @@ class FFNN(nn.Module):
     def forward(self, x):
         # TODO: feed in all training examples
         # put averaging here
-        return self.softmax(self.W(self.g(self.V(x)).mean()))
+        # ghey = self.V(x)
+        fu = torch.mean(x, 0)
+        return self.softmax(self.W(fu))
 
 
 # Form the input to the neural network. In general this may be a complex function that synthesizes multiple pieces
 # of data, does some computation, handles batching, etc.
-def form_input(x):
-    return torch.from_numpy(x).float()
+def form_input(sent, word_embedding):
+    embedded_input = np.zeros((len(sent), word_embedding.get_embedding_length()))  # TODO: might have to change to 300
+    for token_idx in range(len(sent)):
+        word = word_embedding.word_indexer.get_object(int(sent[token_idx]))
+        embedded_input[token_idx, :] = word_embedding.get_embedding(word)
+    return torch.from_numpy(embedded_input).float()
 
 
-def learn_weights(alpha, epochs, ffnn, train_labels, train_exs, num_classes):
+def learn_weights(alpha, epochs, ffnn, train_labels, train_exs, word_vectors, num_classes):
     optimizer = optim.Adam(ffnn.parameters(), alpha)
     for epoch in range(epochs):
         train_lab_ind = [i for i in range(0, len(train_labels))]
         random.shuffle(train_lab_ind)
         total_loss = 0.0
         for idx in train_lab_ind:
-            x = form_input(train_exs[idx])
+            x = form_input(train_exs[idx], word_vectors)
             y = train_labels[idx]
             # Build one-hot representation of y
             y_onehot = torch.zeros(num_classes)
