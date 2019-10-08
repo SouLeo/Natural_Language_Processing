@@ -15,7 +15,7 @@ class FFNN(nn.Module):
     def __init__(self, inp, hid, out):
         super(FFNN, self).__init__()
         self.V = nn.Linear(inp, hid)
-        self.g = nn.Tanh()  #TODO: Change from Tanh to Averaging?
+        self.g = nn.Tanh()
         self.W = nn.Linear(hid, out)
         self.softmax = nn.Softmax(dim=0)
         # Initialize weights according to the Xavier Glorot formula

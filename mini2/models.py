@@ -40,17 +40,38 @@ def train_evaluate_ffnn(train_exs: List[SentimentExample], dev_exs: List[Sentime
     # Labels
     train_labels_arr = np.array([ex.label for ex in train_exs])
 
-    embedding_size = 50  # TODO: ask what this means
+    input_size = word_vectors.get_embedding_length()
+    hid_size = word_vectors.get_embedding_length()
     num_classes = 2
-    ffnn = FFNN(seq_max_len, embedding_size, num_classes)
-    lr = 0.1
-    epochs = 10
+    ffnn = FFNN(input_size, hid_size, num_classes)  # TODO: Add embed layer?
+    lr = 0.001
+    epochs = 5
 
-    learn_weights(lr, epochs, ffnn, train_labels_arr, train_mat, word_vectors, num_classes)
-    print("hi")
+    learn_weights(lr, epochs, ffnn, train_labels_arr, train_mat, word_vectors, num_classes, train_seq_lens)
+
+    # Begin Prediction
+    dev_mat = np.asarray([pad_to_length(np.array(ex.indexed_words), seq_max_len) for ex in dev_exs])
+    dev_seq_lens = np.array([len(ex.indexed_words) for ex in dev_exs])
+    guesses = []
+    correct = 0
+    for idx in range(0, len(dev_exs)):
+        # Note that we only feed in the x, not the y, since we're not training. We're also extracting different
+        # quantities from the running of the computation graph, namely the probabilities, prediction, and z
+        x = form_input(dev_mat[idx], word_vectors, dev_seq_lens[idx])
+        probs = ffnn.forward(x)
+        prediction = int(torch.argmax(probs))
+        guess = SentimentExample(dev_exs[idx].indexed_words, prediction)
+        guesses.append(guess)
+        if prediction == dev_exs[idx].label:
+            correct += 1
+    accuracy = 100*correct/len(dev_exs)
+    print('accuracy: ')
+    print(accuracy)
+    return guesses
     # raise Exception("Not implemented")
 
 
 # Analogous to train_ffnn, but trains your fancier model.
 def train_evaluate_fancy(train_exs: List[SentimentExample], dev_exs: List[SentimentExample], test_exs: List[SentimentExample], word_vectors: WordEmbeddings) -> List[SentimentExample]:
+    # Create LSTM
     raise Exception("Not implemented")

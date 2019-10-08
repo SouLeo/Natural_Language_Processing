@@ -13,7 +13,7 @@ def _parse_args():
     """
     parser = argparse.ArgumentParser(description='trainer.py')
     parser.add_argument('--model', type=str, default='FF', help='model to run (FF or FANCY)')
-    parser.add_argument('--word_vecs_path', type=str, default='data/glove.6B.50d-relativized.txt', help='path to word vectors file')
+    parser.add_argument('--word_vecs_path', type=str, default='data/glove.6B.300d-relativized.txt', help='path to word vectors file')
     parser.add_argument('--train_path', type=str, default='data/train.txt', help='path to train set (you should not need to modify)')
     parser.add_argument('--dev_path', type=str, default='data/dev.txt', help='path to dev set (you should not need to modify)')
     parser.add_argument('--blind_test_path', type=str, default='data/test-blind.txt', help='path to blind test set (you should not need to modify)')
