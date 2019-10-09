@@ -3,6 +3,7 @@
 from sentiment_data import *
 from typing import List
 from FFNN import *
+from BiLSTM import *
 
 def pad_to_length(np_arr, length):
     """
@@ -74,4 +75,61 @@ def train_evaluate_ffnn(train_exs: List[SentimentExample], dev_exs: List[Sentime
 # Analogous to train_ffnn, but trains your fancier model.
 def train_evaluate_fancy(train_exs: List[SentimentExample], dev_exs: List[SentimentExample], test_exs: List[SentimentExample], word_vectors: WordEmbeddings) -> List[SentimentExample]:
     # Create LSTM
-    raise Exception("Not implemented")
+    # 59 is the max sentence length in the corpus, so let's set this to 60
+    seq_max_len = 60
+    # To get you started off, we'll pad the training input to 60 words to make it a square matrix.
+    train_mat = np.asarray([pad_to_length(np.array(ex.indexed_words), seq_max_len) for ex in train_exs])
+    # Also store the sequence lengths -- this could be useful for training LSTMs
+    train_seq_lens = np.array([len(ex.indexed_words) for ex in train_exs])
+    # Labels
+    train_labels_arr = np.array([ex.label for ex in train_exs])
+
+    # shrink input for faster training and debugging
+    cutoff = 50
+    train_mat = train_mat[1:cutoff]
+    train_seq_lens = train_seq_lens[1:cutoff]
+    train_labels_arr = train_labels_arr[1:cutoff]
+
+
+    hidden_size = 256
+    n_layers = 2
+    batch_size = 8
+    bilstm = BiLSTM(word_vectors.vectors, word_vectors.get_embedding_length(), hidden_size, n_layers, batch_size)
+    # print(bilstm)
+    print('begin training')
+    bilstm_training(batch_size, train_labels_arr, train_seq_lens, train_mat, bilstm)
+    print('done training')
+
+    # Begin Prediction
+    dev_mat = np.asarray([pad_to_length(np.array(ex.indexed_words), seq_max_len) for ex in dev_exs])
+    # Also store the sequence lengths -- this could be useful for training LSTMs
+    dev_seq_lens = np.array([len(ex.indexed_words) for ex in dev_exs])
+    # Labels
+    dev_labels_arr = np.array([ex.label for ex in dev_exs])
+
+    # shrink input for faster training and debugging
+    cutoff_d = 5
+    dev_mat = dev_mat[0:cutoff_d]
+    dev_seq_lens = dev_seq_lens[0:cutoff_d]
+    dev_labels_arr = dev_labels_arr[0:cutoff_d]
+
+    guesses = []
+    correct = 0
+    # for idx in range(0, len(dev_exs)):
+        # Note that we only feed in the x, not the y, since we're not training. We're also extracting different
+        # quantities from the running of the computation graph, namely the probabilities, prediction, and z
+        # x = form_input(dev_mat[idx], word_vectors, dev_seq_lens[idx])
+
+    bilstm.batch_size = 5
+    bilstm.hidden = bilstm.init_hidden()
+    predictions = bilstm.forward(torch.from_numpy(dev_mat), torch.from_numpy(dev_seq_lens))
+    for idx in range(0, len(predictions)):
+        # prediction = bilstm.predict_forward(dev_mat[idx], dev_seq_lens[idx])
+        guess = SentimentExample(dev_exs[idx].indexed_words, predictions[idx])
+        guesses.append(guess)
+        if predictions[idx] == dev_exs[idx].label:
+            correct += 1
+    accuracy = 100 * correct / len(dev_exs)
+    print('accuracy: ')
+    print(accuracy)
+    return guesses
