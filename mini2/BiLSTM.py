@@ -5,6 +5,7 @@ import torch.autograd
 from torch.utils.data import DataLoader, TensorDataset
 import numpy as np
 import random
+import time
 
 
 class BiLSTM(nn.Module):
@@ -32,7 +33,7 @@ class BiLSTM(nn.Module):
         x, lengths, perm_indx = sort_seqs(x, lengths)
         x_packed_sorted = torch.nn.utils.rnn.pack_padded_sequence(x, lengths=lengths, batch_first=True)
 
-        out, self.hidden = self.bilstm(x_packed_sorted, self.hidden)
+        out, _ = self.bilstm(x_packed_sorted, self.hidden)
 
         # Pad sequence
         out, _ = torch.nn.utils.rnn.pad_packed_sequence(out, batch_first=True)  # out: batch_size x padded_seq_len x hidden_size*2
@@ -69,15 +70,19 @@ def bilstm_training(batch_size, train_labels, train_seq_lens, train_mat, bilstm)
         # batching below
         total_loss = 0.0
         i = 0
+        start_time = time.time()
         for sentences, labels, seq_lengths in loader:
-            bilstm.init_hidden()
+            # bilstm.init_hidden()
             bilstm.zero_grad()
             probs = bilstm.forward(sentences, seq_lengths)
             loss = loss_func(probs, labels.long())
-            total_loss += loss
-            loss.backward(retain_graph=True)
+            total_loss += loss.item()
+            loss.backward()
             optimizer.step()
             i += 1
             print(i)
+        end_time = time.time()
+        print('epoch time duration:')
+        print(end_time-start_time)
         print("Loss on epoch %i: %f" % (epoch, total_loss))
     return

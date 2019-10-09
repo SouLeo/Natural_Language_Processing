@@ -85,15 +85,16 @@ def train_evaluate_fancy(train_exs: List[SentimentExample], dev_exs: List[Sentim
     train_labels_arr = np.array([ex.label for ex in train_exs])
 
     # shrink input for faster training and debugging
-    cutoff = 1000
-    train_mat = train_mat[1:cutoff]
-    train_seq_lens = train_seq_lens[1:cutoff]
-    train_labels_arr = train_labels_arr[1:cutoff]
 
+    full_set = 8530-1
+    cutoff = 8000
+    train_mat = train_mat[0:cutoff]
+    train_seq_lens = train_seq_lens[0:cutoff]
+    train_labels_arr = train_labels_arr[0:cutoff]
 
-    hidden_size = 256
+    hidden_size = 128  #256
     n_layers = 1
-    batch_size = 10
+    batch_size = 100
     bilstm = BiLSTM(word_vectors.vectors, word_vectors.get_embedding_length(), hidden_size, n_layers, batch_size)
     # print(bilstm)
     print('begin training')
@@ -108,19 +109,16 @@ def train_evaluate_fancy(train_exs: List[SentimentExample], dev_exs: List[Sentim
     dev_labels_arr = np.array([ex.label for ex in dev_exs])
 
     # shrink input for faster training and debugging
-    cutoff_d = 5
-    dev_mat = dev_mat[0:cutoff_d]
-    dev_seq_lens = dev_seq_lens[0:cutoff_d]
-    dev_labels_arr = dev_labels_arr[0:cutoff_d]
+    whole_dev = 1066-1
+    cutoff_d = 4000  #whole_dev
+    dev_mat = train_mat[0:cutoff_d]  #dev_mat[0:cutoff_d]
+    dev_seq_lens = train_seq_lens[0:cutoff_d]  #dev_seq_lens[0:cutoff_d]
+    dev_labels_arr = train_labels_arr[0:cutoff_d] #dev_labels_arr[0:cutoff_d]
 
     guesses = []
     correct = 0
-    # for idx in range(0, len(dev_exs)):
-        # Note that we only feed in the x, not the y, since we're not training. We're also extracting different
-        # quantities from the running of the computation graph, namely the probabilities, prediction, and z
-        # x = form_input(dev_mat[idx], word_vectors, dev_seq_lens[idx])
 
-    bilstm.batch_size = 5
+    bilstm.batch_size = cutoff_d
     bilstm.hidden = bilstm.init_hidden()
     predictions = bilstm.forward(torch.from_numpy(dev_mat), torch.from_numpy(dev_seq_lens))
     predictions = predictions.data.max(1)[1].numpy()
