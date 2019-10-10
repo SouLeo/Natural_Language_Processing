@@ -17,34 +17,39 @@ class BiLSTM(nn.Module):
         self.n_layers = n_layers
 
         self.embedded = nn.Embedding.from_pretrained(torch.FloatTensor(embedding))
-        self.bilstm = nn.LSTM(input_size=embedding_size, hidden_size=hidden_size, num_layers=n_layers, bidirectional=True, batch_first=True)
+        self.dropout = nn.Dropout(0.5)
+        self.bilstm = nn.LSTM(input_size=embedding_size, hidden_size=hidden_size, num_layers=n_layers, bidirectional=True, batch_first=True, dropout=0.5)
         self.linear = nn.Linear(hidden_size*n_layers*2, 2, bias=True)  # positive or negative review
-        self.hidden = self.init_hidden()
+        # self.hidden = self.init_hidden()
         # self.LogSoftmax = nn.LogSoftmax(dim=0)
 
-    def init_hidden(self):
-        return (torch.zeros(self.n_layers*2, self.batch_size, self.hidden_size),
-                torch.zeros(self.n_layers*2, self.batch_size, self.hidden_size))
+    # def init_hidden(self):
+    #     return (torch.zeros(self.n_layers*2, self.batch_size, self.hidden_size),
+    #             torch.zeros(self.n_layers*2, self.batch_size, self.hidden_size))
 
     def forward(self, sent, lengths):
-        self.hidden = self.init_hidden()
+        # self.hidden = self.init_hidden()
         x = self.embedded(sent.long())
         # batch_size, seq_len, _ = x.size()
-
+        x = self.dropout(x)
         # Sort sentences by length then pack it
         # x, lengths, perm_indx = sort_seqs(x, lengths)
         # x_packed_sorted = torch.nn.utils.rnn.pack_padded_sequence(x, lengths=lengths, batch_first=True)
 
-        out, _ = self.bilstm(x, self.hidden)
+        out, (h, c) = self.bilstm(x)  # self.hidden)
 
         # Pad sequence
         # out, _ = torch.nn.utils.rnn.pad_packed_sequence(out, batch_first=True)  # out: batch_size x padded_seq_len x hidden_size*2
 
         # _, orig_idx = perm_indx.sort(0)
         # unsorted_out = out[orig_idx]
-
-
-        hi = out[:, -1, :]  # batch_size x hidden_size*2
+        forward = h[-1, :, :]
+        backward = h[-2, :, :]
+        hi = torch.cat((forward, backward), 1)
+        hi = self.dropout(hi)
+        # hi2 = out[:, -1, :]  # batch_size x hidden_size*2
+        #
+        # hi3 = torch.cat((backward, forward), 1)
         prediction = self.linear(hi)  # batch_size x num_tags=2
 
         # log_probs = self.LogSoftmax(prediction)  # batch_size x num_tags=2
@@ -66,13 +71,13 @@ def load_data(train_x, train_y, train_seq_lens, batch_size):
 def bilstm_training(batch_size, train_labels, train_seq_lens, train_mat, bilstm):
     loader = load_data(train_mat, train_labels, train_seq_lens, batch_size)
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(bilstm.parameters(), lr=3e-3)
+    optimizer = optim.Adam(bilstm.parameters(), lr=1e-3)
 
-    # bilstm.train()
-    for epoch in range(0, 10):
+    bilstm.train()
+    for epoch in range(0, 20):
         # batching below
         total_loss = 0.0
-        i = 0
+        # i = 0
         start_time = time.time()
         for sentences, labels, seq_lengths in loader:
             probs = bilstm.forward(sentences, seq_lengths)
@@ -81,8 +86,8 @@ def bilstm_training(batch_size, train_labels, train_seq_lens, train_mat, bilstm)
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
-            i += 1
-            print(i)
+            # i += 1
+            # print(i)
         end_time = time.time()
         print('epoch time duration:')
         print(end_time-start_time)
