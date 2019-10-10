@@ -7,6 +7,7 @@ import numpy as np
 import random
 import time
 
+# https://github.com/yunjey/pytorch-tutorial/blob/master/tutorials/02-intermediate/bidirectional_recurrent_neural_network/main.py
 
 class BiLSTM(nn.Module):
     def __init__(self, embedding, embedding_size, hidden_size, n_layers, batch_size):
@@ -19,33 +20,35 @@ class BiLSTM(nn.Module):
         self.bilstm = nn.LSTM(input_size=embedding_size, hidden_size=hidden_size, num_layers=n_layers, bidirectional=True, batch_first=True)
         self.linear = nn.Linear(hidden_size*n_layers*2, 2, bias=True)  # positive or negative review
         self.hidden = self.init_hidden()
-        self.LogSoftmax = nn.LogSoftmax(dim=0)
+        # self.LogSoftmax = nn.LogSoftmax(dim=0)
 
     def init_hidden(self):
-        return (torch.autograd.Variable(torch.zeros(self.n_layers*2, self.batch_size, self.hidden_size)),
-                torch.autograd.Variable(torch.zeros(self.n_layers*2, self.batch_size, self.hidden_size)))
+        return (torch.zeros(self.n_layers*2, self.batch_size, self.hidden_size),
+                torch.zeros(self.n_layers*2, self.batch_size, self.hidden_size))
 
     def forward(self, sent, lengths):
+        self.hidden = self.init_hidden()
         x = self.embedded(sent.long())
-        batch_size, seq_len, _ = x.size()
+        # batch_size, seq_len, _ = x.size()
 
         # Sort sentences by length then pack it
-        x, lengths, perm_indx = sort_seqs(x, lengths)
-        x_packed_sorted = torch.nn.utils.rnn.pack_padded_sequence(x, lengths=lengths, batch_first=True)
+        # x, lengths, perm_indx = sort_seqs(x, lengths)
+        # x_packed_sorted = torch.nn.utils.rnn.pack_padded_sequence(x, lengths=lengths, batch_first=True)
 
-        out, _ = self.bilstm(x_packed_sorted, self.hidden)
+        out, _ = self.bilstm(x, self.hidden)
 
         # Pad sequence
-        out, _ = torch.nn.utils.rnn.pad_packed_sequence(out, batch_first=True)  # out: batch_size x padded_seq_len x hidden_size*2
+        # out, _ = torch.nn.utils.rnn.pad_packed_sequence(out, batch_first=True)  # out: batch_size x padded_seq_len x hidden_size*2
 
-        _, orig_idx = perm_indx.sort(0)
-        unsorted_out = out[orig_idx]
+        # _, orig_idx = perm_indx.sort(0)
+        # unsorted_out = out[orig_idx]
 
-        hi = unsorted_out[:, -1, :]  # batch_size x hidden_size*2
+
+        hi = out[:, -1, :]  # batch_size x hidden_size*2
         prediction = self.linear(hi)  # batch_size x num_tags=2
 
-        log_probs = self.LogSoftmax(prediction)  # batch_size x num_tags=2
-        return log_probs
+        # log_probs = self.LogSoftmax(prediction)  # batch_size x num_tags=2
+        return prediction
 
 
 def sort_seqs(embeddings, lengths):
@@ -62,21 +65,20 @@ def load_data(train_x, train_y, train_seq_lens, batch_size):
 
 def bilstm_training(batch_size, train_labels, train_seq_lens, train_mat, bilstm):
     loader = load_data(train_mat, train_labels, train_seq_lens, batch_size)
+    criterion = nn.CrossEntropyLoss()
+    optimizer = optim.Adam(bilstm.parameters(), lr=3e-3)
 
-    optimizer = optim.Adam(bilstm.parameters(), lr=1e-3)
-    loss_func = nn.NLLLoss()
-    bilstm.train()
-    for epoch in range(0, 3):
+    # bilstm.train()
+    for epoch in range(0, 10):
         # batching below
         total_loss = 0.0
         i = 0
         start_time = time.time()
         for sentences, labels, seq_lengths in loader:
-            # bilstm.init_hidden()
-            bilstm.zero_grad()
             probs = bilstm.forward(sentences, seq_lengths)
-            loss = loss_func(probs, labels.long())
+            loss = criterion(probs, labels.long())
             total_loss += loss.item()
+            optimizer.zero_grad()
             loss.backward()
             optimizer.step()
             i += 1

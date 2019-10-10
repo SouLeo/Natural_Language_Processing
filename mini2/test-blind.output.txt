@@ -1,5 +1,1000 @@
-0	exactly what you 'd expect from a guy named kaos .
-1	ryan gosling . . . is at 22 a powerful young actor .
-0	rock 's stand - up magic wanes . hopkins , squarely fills the screen . action - mechanical .
-0	an undeniably moving film to experience , and ultimately that 's what makes it worth a recommendation .
-0	an exceptionally dreary and overwrought bit of work , every bit as imperious as katzenberg 's the prince of egypt from 1998 .
+tensor(0)	what 's surprising about this traditional thriller , moderately successful but not completely satisfying , is exactly how genteel and unsurprising the execution turns out to be .
+tensor(0)	the essential problem in orange county is that , having created an unusually vivid set of characters worthy of its strong cast , the film flounders when it comes to giving them something to do .
+tensor(0)	a devastating indictment of unbridled greed and UNK .
+tensor(0)	a breezy romantic comedy that has the punch of a good sitcom , while offering exceptionally well - detailed characters .
+tensor(0)	drumline ably captures the complicated relationships in a marching band .
+tensor(0)	what bloody sunday lacks in clarity , it makes up for with a great , fiery passion .
+tensor(0)	works better in the conception than it does in the execution . . . winds up seeming just a little too clever .
+tensor(0)	the film has a laundry list of minor shortcomings , but the numerous scenes of gory mayhem are worth the price of admission . . . if gory mayhem is your idea of a good time .
+tensor(0)	there is no insight into the anguish of heidi 's life - - only a depiction of pain , today 's version of greek tragedy , the talk - show guest decrying her fate .
+tensor(0)	although shot with little style , skins is heartfelt and achingly real .
+tensor(0)	enriched by a strong and unforced supporting cast .
+tensor(0)	that haynes can both maintain and dismantle the facades that his genre and his character construct is a UNK accomplishment of veracity and narrative grace .
+tensor(0)	melodrama with a message .
+tensor(0)	a wordy wisp of a comedy .
+tensor(0)	ordinary melodrama that is heavy on religious symbols but wafer - thin on dramatic substance
+tensor(0)	this film is full of rabbits . brimful . but like most rabbits , it seems to lack substance .
+tensor(0)	the merchant - ivory team continues to systematically destroy everything we hold dear about cinema , only now it 's begun to split up so that it can do even more damage .
+tensor(0)	uplifting as only a document of the worst possibilities of mankind can be , and among the best films of the year .
+tensor(0)	at every opportunity to do something clever , the film goes right over the edge and kills every sense of believability . . . all you have left is a no - surprise series of explosions and violence while banderas looks like he 's not trying to laugh at how bad it
+tensor(0)	while undercover brother is definitely one for the masses , it 's also full of sharp , smart satire .
+tensor(0)	only about as sexy and dangerous as an actress in a role that reminds at every turn of elizabeth berkley 's flopping dolphin - UNK .
+tensor(0)	it 's bedeviled by labored writing and slack direction .
+tensor(0)	vividly conveys the passion , creativity , and fearlessness of one of mexico 's most colorful and controversial artists - - a captivating drama that will speak to the nonconformist in us all .
+tensor(0)	sluggishly directed by episodic tv veteran joe zwick , it 's a sitcom without the snap - crackle .
+tensor(0)	what with all the blanket statements and dime - store ruminations on vanity , the worries of the rich and sudden wisdom , the film becomes a sermon for most of its running time .
+tensor(0)	implicitly acknowledges and celebrates the glorious chicanery and self - delusion of this most american of businesses , and for that reason it may be the most oddly honest hollywood document of all .
+tensor(0)	what empire lacks in depth it makes up for with its heart .
+tensor(0)	like being trapped at a perpetual frat party . . . how can something so gross be so boring ?
+tensor(0)	supposedly authentic account of a historical event that 's far too tragic to merit such superficial treatment .
+tensor(0)	i did n't laugh at the ongoing efforts of cube , and his skinny buddy mike epps , to make like laurel and hardy 'n the hood .
+tensor(0)	the film 's most improbable feat ? it did n't go straight to video .
+tensor(0)	the messages of compassion and mercy are clearly , squarely and specifically expounded via computer animated old testament tale of jonah and the whale . determined to be fun , and bouncy , with energetic musicals , the humor did n't quite engage this adult .
+tensor(0)	it 's a film with an idea buried somewhere inside its fabric , but never clearly seen or felt .
+tensor(0)	a compelling motion picture that illustrates an american tragedy .
+tensor(0)	overly stylized with lots of flash black - - white freeze frames reminiscent of a pseudo - hip luxury car commercial , ( it 's ) at its worst when it 's actually inside the ring .
+tensor(0)	it 's not only dull because we 've seen eddie murphy do the genial - rogue shtick to death , but because the plot is equally hackneyed .
+tensor(0)	you will emerge with a clearer view of how the gears of justice grind on and the death report comes to share airtime alongside the farm report .
+tensor(0)	sluggish , tonally uneven .
+tensor(0)	does little to elaborate the conceit of setting this blood - soaked tragedy of murderous ambition in the era of richard nixon .
+tensor(0)	has its share of arresting images .
+tensor(0)	while tattoo borrows heavily from both seven and the silence of the lambs , it manages to maintain both a level of sophisticated intrigue and human - scale characters that suck the audience in .
+tensor(0)	flotsam in the sea of moviemaking , not big enough for us to worry about it causing significant harm and not smelly enough to bother despising .
+tensor(0)	never comes together as a coherent whole .
+tensor(0)	a terrific insider look at the star - making machinery of tinseltown .
+tensor(0)	minority report is exactly what the title indicates , a report .
+tensor(0)	an intelligent , multi - layered and profoundly humanist ( not to mention gently political ) meditation on the values of knowledge , education , and the affects of cultural and geographical displacement .
+tensor(0)	. . . there 's enough cool fun here to warm the hearts of animation enthusiasts of all ages .
+tensor(0)	written , flatly , by david kendall and directed , barely , by there 's something about mary co - writer ed decter .
+tensor(0)	a well - acted , but one - note film .
+tensor(0)	. . . digs beyond the usual portrayals of good kids and bad seeds to reveal a more ambivalent set of characters and motivations .
+tensor(0)	dreary tale of middle - class angst
+tensor(0)	not only a coming - of - age story and cautionary parable , but also a perfectly rendered period piece .
+tensor(0)	some body smacks of exhibitionism more than it does cathartic truth telling .
+tensor(0)	immersing us in the endlessly inventive , fiercely competitive world of hip - hop djs , the project is sensational and revelatory , even if scratching makes you itch .
+tensor(0)	every potential twist is telegraphed well in advance , every performance respectably muted the movie itself seems to have been made under the influence of rohypnol .
+tensor(0)	a muddle splashed with bloody beauty as vivid as any scorsese has ever given us .
+tensor(0)	the film 's center will not hold .
+tensor(0)	despite the opulent lushness of every scene , the characters never seem to match the power of their surroundings .
+tensor(0)	somewhere in the middle , the film compels , as demme experiments he harvests a few movie moment gems , but the field of roughage dominates .
+tensor(0)	it gets old quickly . watch barbershop again if you 're in need of a cube fix - - this is n't worth sitting through .
+tensor(0)	like all abstract art , the film does not make this statement in an easily accessible way , and - - unless UNK - - it would be very possible for a reasonably intelligent person to sit through its tidal wave of imagery and not get this vision at all .
+tensor(0)	this is pure , exciting moviemaking . you wo n't exactly know what 's happening but you 'll be blissfully exhausted .
+tensor(0)	eisenstein lacks considerable brio for a film about one of cinema 's directorial giants .
+tensor(0)	the only element of suspense is whether the movie will change titles or distributors again before the closing credits roll .
+tensor(0)	rare is the UNK UNK that even attempts the insight and honesty of this disarming indie .
+tensor(0)	throughout , mr . audiard 's direction is fluid and quick .
+tensor(0)	the unexplored story opportunities of punch - drunk love may have worked against the maker 's minimalist intent but it is an interesting exercise by talented writer director anderson .
+tensor(0)	barely gets off the ground .
+tensor(0)	serious movie - goers embarking upon this journey will find that the road to perdition leads to a satisfying destination .
+tensor(0)	this documentary is a dazzling , remarkably unpretentious reminder of what evans had , lost , and got back .
+tensor(0)	coughs and sputters on its own postmodern conceit .
+tensor(0)	to those who have not read the book , the film is a much better mother - daughter tale than last summer 's UNK secrets of the ya - ya sisterhood , ' but that 's not saying much .
+tensor(0)	the film has an infectious enthusiasm and we 're touched by the film 's conviction that all life centered on that place , that time and that sport .
+tensor(0)	producer john UNK surveyed high school students . . . and came back with the astonishing revelation that they wanted to see something that did n't talk down to them . ignoring that , he made swimfan anyway
+tensor(0)	contains all the substance of a twinkie - - easy to swallow , but scarcely nourishing .
+tensor(0)	a glossy knock - off of a b - movie revenge flick .
+tensor(0)	displaying about equal amounts of UNK , passion and talent , beneath clouds establishes sen as a filmmaker of considerable potential .
+tensor(0)	a sequence of ridiculous shoot - 'em - up scenes .
+tensor(0)	son of the bride may be a good half - hour too long but comes replete with a flattering sense of mystery and quietness .
+tensor(0)	by turns pretentious , fascinating , ludicrous , provocative and vainglorious .
+tensor(0)	a mix of gritty realism , crisp storytelling and radiant compassion that effortlessly draws you in .
+tensor(0)	. curiously , super troopers suffers because it does n't have enough vices to merit its 103 - minute length .
+tensor(0)	predecessors the mummy and the mummy returns stand as intellectual masterpieces next to the scorpion king .
+tensor(0)	a predictable and stereotypical little b - movie .
+tensor(0)	nair 's attention to detail creates an impeccable sense of place , while thurman and lewis give what can easily be considered career - best performances .
+tensor(0)	an honest , sensitive story from a vietnamese point of view .
+tensor(0)	the most excruciating 86 minutes one might sit through this summer that do not involve a dentist drill .
+tensor(0)	the best thing i can say about this film is that i ca n't wait to see what the director does next .
+tensor(0)	the film offers an intriguing what - if premise .
+tensor(0)	this is a dark , gritty , sometimes funny little gem .
+tensor(0)	the sheer dumbness of the plot ( other than its one good idea ) and the movie 's inescapable air of sleaziness get you down .
+tensor(0)	well made but uninvolving , bloodwork is n't a terrible movie , just a UNK obvious one - - an unrewarding collar for a murder mystery .
+tensor(0)	tennessee williams by way of oprah 's book club .
+tensor(0)	not only does leblanc make one spectacularly ugly - looking broad , but he appears miserable throughout as he swaggers through his scenes .
+tensor(0)	it 's not a film to be taken literally on any level , but its focus always appears questionable .
+tensor(0)	the tug of war that ensues is as much a snapshot of modern china in microcosm as it is a crash course in movie mythology .
+tensor(0)	a great ending does n't make up for a weak movie , and crazy as hell does n't even have a great ending .
+tensor(0)	this is junk food cinema at its UNK .
+tensor(0)	all these developments and challenges facing santa weigh down the plot so heavily that they drain all the film of its energy and needlessly strain credibility .
+tensor(0)	. . . fifty minutes of tedious adolescent melodramatics followed by thirty - five minutes of inflated nonsense .
+tensor(0)	the pace and the visuals are so hyped up that a curious sense of menace informs everything .
+tensor(0)	lasker 's canny , meditative script distances sex and love , as byron and luther . . . realize they ca n't get no satisfaction without the latter .
+tensor(0)	effective in all its aspects , margarita happy hour represents an auspicious feature debut for chaiken .
+tensor(0)	now trimmed by about 20 minutes , this lavish three - year - old production has enough grandeur and scale to satisfy as grown - up escapism .
+tensor(0)	mama africa pretty much delivers on that promise . it does give you a peek . the main problem being that it 's only a peek .
+tensor(0)	4ever has the same sledgehammer appeal as pokemon videos , but it breathes more on the big screen and induces headaches more slowly .
+tensor(0)	as tricky and satisfying as any of david mamet 's airless cinematic shell games .
+tensor(0)	if you 're content with a clever pseudo - bio that manages to have a good time as it doles out pieces of the famous director 's life , eisenstein delivers .
+tensor(0)	a graceful , moving tribute to the courage of new york 's finest and a nicely understated expression of the grief shared by the nation at their sacrifice .
+tensor(0)	the fun of the movie is the chance it affords to watch jackson , who also served as executive producer , take his smooth , shrewd , powerful act abroad .
+tensor(0)	too leisurely paced and visually drab for its own good , it succeeds in being only sporadically amusing .
+tensor(0)	this is a good script , good dialogue , funny even for adults . the characters are interesting and often very creatively constructed from figure to backstory . the film will play equally well on both the standard and giant screens .
+tensor(0)	the tasteful little revision works wonders , enhancing the cultural and economic subtext , bringing richer meaning to the story 's morals .
+tensor(0)	it 's been made with an innocent yet fervid conviction that our hollywood has all but lost .
+tensor(0)	it 's hard to care about a film that proposes as epic tragedy the plight of a callow rich boy who is forced to choose between his beautiful , self - satisfied 22 - year - old girlfriend and an equally beautiful , self - satisfied 18 - year - old mistress .
+tensor(0)	you can see where big bad love is trying to go , but it never quite gets there .
+tensor(0)	the only time 8 crazy nights comes close to hitting a comedic or satirical target is during the offbeat musical numbers .
+tensor(0)	lee treats his audience the same way that jim brown treats his women - - as dumb , credulous , unassuming , subordinate subjects . and lee seems just as expectant of an adoring , wide - smiling reception .
+tensor(0)	the director has injected self - consciousness into the proceedings at every turn . the results are far more alienating than involving .
+tensor(0)	it 's the kind of movie you ca n't quite recommend because it is all windup and not much of a pitch , yet you ca n't bring yourself to dislike it .
+tensor(0)	a first - class , thoroughly involving b movie that effectively combines two surefire , beloved genres - - the prison flick and the fight film .
+tensor(0)	the film has the courage of its convictions and excellent performances on its side .
+tensor(0)	UNK 's barbara is a precise and moving portrait of someone whose world is turned upside down , first by passion and then by illness .
+tensor(0)	coy but exhilarating , with really solid performances by ving rhames and wesley snipes .
+tensor(0)	one of the most original american productions this year , you 'll find yourself remembering this refreshing visit to a sunshine state .
+tensor(0)	after you laugh once ( maybe twice ) , you will have completely forgotten the movie by the time you get back to your car in the parking lot .
+tensor(0)	when not obscured by the booming bass - heavy soundtrack , the conversation presents the kind of linguistic fumbling not heard since macy gray 's game of chinese whispers with mr bean .
+tensor(0)	neither as scary - funny as tremors nor demented - funny as starship troopers , the movie is n't tough to take as long as you 've paid a matinee price .
+tensor(0)	it 's a movie that ends with UNK , for UNK out loud . if that does n't clue you in that something 's horribly wrong , nothing will .
+tensor(0)	watching these eccentrics is both inspiring and pure joy .
+tensor(0)	divine secrets of the ya - ya sisterhood may not be exactly divine , but it 's definitely - - defiantly - - ya ya , what with all of those terrific songs and spirited performances .
+tensor(0)	avary 's film never quite emerges from the shadow of UNK book .
+tensor(0)	the streets , shot by cinematographer michael ballhaus , may be as authentic as they are mean , but it is nearly impossible to care about what happens on them .
+tensor(0)	sharp , lively , funny and ultimately sobering film .
+tensor(0)	jackson and co have brought back the value and respect for the term epic cinema .
+tensor(0)	lee 's achievement extends to his supple understanding of the role that brown played in american culture as an athlete , a movie star , and an image of black indomitability .
+tensor(0)	with its paint fights , motorized scooter chases and dewy - eyed sentiment , it 's a pretty listless collection of kid - movie clich s .
+tensor(0)	stephen earnhart 's homespun documentary mule skinner blues has nothing but love for its posse of trailer park denizens .
+tensor(0)	read my lips is to be viewed and treasured for its extraordinary intelligence and originality as well as its lyrical variations on the game of love .
+tensor(0)	it 's not life - affirming its vulgar and mean , but i liked it .
+tensor(0)	an ugly , pointless , stupid movie .
+tensor(0)	even if you do n't know the band or the album 's songs by heart , you will enjoy seeing how both evolve , and you will also learn a good deal about the state of the music business in the 21st century .
+tensor(0)	black - and - white and unrealistic .
+tensor(0)	. . . creates a visceral sense of its UNK lives and conflicted emotions that carries it far above . . . what could have been a melodramatic , lifetime channel - style anthology .
+tensor(0)	it ai n't art , by a long shot , but unlike last year 's lame musketeer , this dumas adaptation entertains .
+tensor(0)	it wo n't be long before you 'll spy i spy at a video store near you .
+tensor(0)	going to this movie is a little like chewing whale blubber - it 's an acquired taste that takes time to enjoy , but it 's worth it , even if it does take 3 hours to get through .
+tensor(0)	ultimate x is a ride , basically the kind of greatest - hits reel that might come with a subscription to espn the magazine .
+tensor(0)	the hours , a delicately crafted film , is an impressive achievement in spite of a river of sadness that pours into every frame .
+tensor(0)	final verdict you 've seen it all before .
+tensor(0)	once again , the intelligence of gay audiences has been grossly underestimated , and a meaty plot and well - developed characters have been sacrificed for skin and flash that barely fizzle .
+tensor(0)	the main story . . . is compelling enough , but it 's difficult to shrug off the annoyance of that chatty fish .
+tensor(0)	my goodness , queen latifah has a lot to offer and she seemed to have no problem flaunting her natural gifts . she must have a very strong back .
+tensor(0)	it 's almost as if it 's an elaborate dare more than a full - blooded film .
+tensor(0)	considering the harsh locations and demanding stunts , this must have been a difficult shoot , but the movie proves rough going for the audience as well .
+tensor(0)	if you really want to understand what this story is really all about , you 're far better served by the source material .
+tensor(0)	on its own staggeringly unoriginal terms , this gender - bending comedy is generally quite funny .
+tensor(0)	what begins as a seemingly brainless , bubbly romantic comedy becomes a cliche - drenched melodrama by mid - film and , by film 's end , a feminist action fantasy .
+tensor(0)	this u - boat does n't have a captain .
+tensor(0)	i liked the original short story but this movie , even at an hour and twenty - some minutes , it 's too long and it goes nowhere .
+tensor(0)	the UNK eye for detail and the high standards of performance convey a strong sense of the UNK environment .
+tensor(0)	an UNK threefold expansion on the former mtv series , accompanying the stunt - hungry dimwits in a random series of collected gags , pranks , pratfalls , dares , injuries , etc .
+tensor(0)	a solidly seaworthy chiller .
+tensor(0)	this is so de palma . if you love him , you 'll like it . if you do n't . . . well , skip to another review .
+tensor(0)	harsh , effective documentary on life in the israeli - occupied palestinian territories .
+tensor(0)	are monsters born , or made ?
+tensor(0)	many insightful moments .
+tensor(0)	it arrives with an impeccable pedigree , mongrel pep , and almost indecipherable plot complications .
+tensor(0)	the gags that fly at such a furiously funny pace that the only rip off that we were aware of was the one we felt when the movie ended so damned soon .
+tensor(0)	an inventive , absorbing movie that 's as hard to classify as it is hard to resist .
+tensor(0)	theirs is a simple and heart - warming story , full of mirth that should charm all but the most cynical .
+tensor(0)	if you enjoy more thoughtful comedies with interesting conflicted characters this one is for you .
+tensor(0)	. . . a pretentious mess . . .
+tensor(0)	the most memorable moment was when green threw medical equipment at a window not because it was particularly funny , but because i had a serious urge to grab the old lady at the end of my aisle 's walker and toss it at the screen in frustration .
+tensor(0)	richly entertaining and suggestive of any number of metaphorical readings .
+tensor(0)	blade ii is as estrogen - free as movies get , so you might want to leave your date behind for this one , or she 's gonna make you feel like you owe her big - time .
+tensor(0)	much like its easily dismissive take on the upscale lifestyle , there is n't much there here .
+tensor(0)	claims to sort the bad guys from the good , which is its essential problem .
+tensor(0)	the film is bright and flashy in all the right ways .
+tensor(0)	the whole is quite entertaining , but despite its virtues , there is an unsettled feeling to the film .
+tensor(0)	ze movie starts out so funny , then she is nothing .
+tensor(0)	salma goes native and she 's never been better in this colorful bio - pic of a mexican icon .
+tensor(0)	. . . while each moment of this broken character study is rich in emotional texture , the journey does n't really go anywhere .
+tensor(0)	sometimes there are very , very good reasons for certain movies to be sealed in a jar and left on a remote shelf indefinitely .
+tensor(0)	UNK bale 's quinn is a leather clad grunge - pirate with a hairdo like gandalf in a wind - tunnel and a simply astounding cor - blimey - luv - a - duck cockney accent . '
+tensor(0)	as befits its title , this pg - 13 - rated piffle is ultimately as threatening as the snuggle fabric softener bear .
+tensor(0)	no one but a convict guilty of some truly heinous crime should have to sit through the master of disguise .
+tensor(0)	a generic international version of a typical american horror film .
+tensor(0)	in visual fertility treasure planet rivals the top japanese animations of recent vintage .
+tensor(0)	i have to admit i walked out of UNK . i did go back and check out the last 10 minutes , but these were more repulsive than the first 30 or 40 minutes .
+tensor(0)	kwan is a master of shadow , quietude , and room noise , and lan yu is a disarmingly lived - in movie .
+tensor(0)	if melville is creatively a great whale , this film is canned tuna .
+tensor(0)	the stripped - down dramatic constructs , austere imagery and abstract characters are equal parts poetry and politics , obvious at times but evocative and heartfelt .
+tensor(0)	. . . enthusiastically invokes the percussion rhythm , the brass soul and the sense of fierce competition that helps make great marching bands half the fun of college football games .
+tensor(0)	everything in maid in manhattan is exceedingly pleasant , designed not to offend . it goes down easy , leaving virtually no aftertaste .
+tensor(0)	the film was immensely enjoyable thanks to great performances by both steve buscemi and rosario dawson . . .
+tensor(0)	take away the controversy , and it 's not much more watchable than a mexican soap opera .
+tensor(0)	nemesis suffers from a paunchy midsection , several plodding action sequences and a wickedly undramatic central theme .
+tensor(0)	superior genre storytelling , which gets under our skin simply by crossing the nuclear line .
+tensor(0)	it 's this memory - as - identity UNK that gives secret life its intermittent unease , reaffirming that long - held illusions are indeed reality , and that erasing them recasts the self .
+tensor(0)	it leaves little doubt that kidman has become one of our best actors .
+tensor(0)	old - form moviemaking at its best .
+tensor(0)	it may not be a huge cut of above the rest , but i enjoyed barbershop . it 's a funny little movie with clever dialogue and likeable characters .
+tensor(0)	a well - put - together piece of urban satire .
+tensor(0)	see scratch for the history , see scratch for the music , see scratch for a lesson in scratching , but , most of all , see it for the passion .
+tensor(0)	a winning and wildly fascinating work .
+tensor(0)	significantly better than its 2002 children 's - movie competition .
+tensor(0)	laggard drama wending its way to an uninspired philosophical epiphany .
+tensor(0)	with its hints of a greater intelligence lurking somewhere , the ring makes its stupidity more than obvious . it 's painful .
+tensor(0)	the plot combines the blues brothers and almost famous ( but with bears , and a g rating ) , with an excruciating dollop of disney sentimentality mixed in for good measure .
+tensor(0)	some of the most ravaging , gut - wrenching , frightening war scenes since saving private ryan have been recreated by john woo in this little - known story of native americans and their role in the second great war .
+tensor(0)	one of the worst movies of the year . . . . watching it was painful .
+tensor(0)	japan 's premier stylist of sex and blood hits audiences with what may be his most demented film to date .
+tensor(0)	the film makes strong arguments regarding the social status of america 's indigenous people , but really only exists to try to eke out an emotional tug of the heart , one which it fails to get .
+tensor(0)	the story line may be 127 years old , but el crimen del padre amaro . . . could n't be more timely in its despairing vision of corruption within the catholic establishment .
+tensor(0)	it 's fascinating to see how bettany and mcdowell play off each other .
+tensor(0)	( it ) highlights not so much the crime lord 's messianic bent , but spacey 's .
+tensor(0)	one of the funniest motion pictures of the year , but . . . also one of the most curiously depressing .
+tensor(0)	this is cool , slick stuff , ready to quench the thirst of an audience that misses the summer blockbusters .
+tensor(0)	good car chases , great fight scenes , and a distinctive blend of european , american and asian influences .
+tensor(0)	if there was any doubt that peter o'fallon did n't have an original bone in his body , a rumor of angels should dispel it .
+tensor(0)	feels too formulaic and too familiar to produce the transgressive thrills of early underground work .
+tensor(0)	simone is not a bad film . it just does n't have anything really interesting to say .
+tensor(0)	enchanted with low - life tragedy and liberally seasoned with emotional outbursts . . . what is sorely missing , however , is the edge of wild , lunatic invention that we associate with cage 's best acting .
+tensor(0)	kitschy , flashy , overlong soap opera .
+tensor(0)	well , jason 's gone to manhattan and hell , i guess a space station in the year 2455 can be crossed off the list of ideas for the inevitable future sequels ( hey , do n't shoot the messenger ) .
+tensor(0)	you could say that it 's slow at times , you could say that a few of the characters act in ways that real people would n't , but one thing you could n't say is that alias betty is predictable .
+tensor(0)	acting , particularly by tambor , almost makes never again worthwhile , but writer director schaeffer should follow his titular advice
+tensor(0)	a cumbersome and cliche - ridden movie greased with every emotional device known to man .
+tensor(0)	given that both movies expect us to root for convicted violent felons over those assigned to protect us from same , we need every bit of sympathy the cons can muster this time , there is n't much .
+tensor(0)	it 's a nicely detailed world of pawns , bishops and kings , of wagers in dingy backrooms or pristine forests .
+tensor(0)	that death is merely a transition is a common tenet in the world 's religions . this deeply spiritual film taps into the meaning and consolation in afterlife communications .
+tensor(0)	does n't come close to justifying the hype that surrounded its debut at the sundance film festival two years ago .
+tensor(0)	compared to his series of spectacular belly flops both on and off the screen , UNK is something of a triumph .
+tensor(0)	this seductive tease of a thriller gets the job done . it 's a scorcher .
+tensor(0)	how inept is serving sara ? it makes even elizabeth hurley seem graceless and ugly .
+tensor(0)	the movie is as far as you can get from racy , to the point where it almost stops the blood flow to your brain it has a dull , UNK feel .
+tensor(0)	it 's clear that mehta simply wanted to update her beloved genre for the thousands of indians who fancy themselves too sophisticated for the cheese - laced spectacles that pack 'em in on the subcontinent .
+tensor(0)	could n't someone take rob schneider and have him switch bodies with a funny person ?
+tensor(0)	a showcase for both the scenic splendor of the mountains and for legendary actor michel serrault , the film is less successful on other levels .
+tensor(0)	generic slasher - movie nonsense , but it 's not without style .
+tensor(0)	hey arnold ! is now stretched to barely feature length , with a little more attention paid to the animation . still , the updated dickensian sensibility of writer craig bartlett 's story is appealing .
+tensor(0)	what redeems the film is the cast , particularly the ya - yas themselves .
+tensor(0)	the so - inept - it 's - surreal dubbing ( featuring the voices of glenn close , regis philbin and breckin meyer ) brings back memories of cheesy old godzilla flicks .
+tensor(0)	it 's tough , astringent , darkly funny and . . . well , it 's also generic , untidy , condescending and mild of impact rather than stunning .
+tensor(0)	beautifully shot , delicately scored and powered by a set of heartfelt performances , it 's a lyrical endeavour .
+tensor(0)	zhang yimou delivers warm , genuine characters who lie not through dishonesty , but because they genuinely believe it 's the only way to bring happiness to their loved ones .
+tensor(0)	secret ballot is too contemplative to be really funny .
+tensor(0)	a broad , melodramatic estrogen opera that 's pretty toxic in its own right .
+tensor(0)	probes in a light - hearted way the romantic problems of individuals for whom the yearning for passion spells discontent .
+tensor(0)	koepp 's screenplay is n't nearly surprising or clever enough to sustain a reasonable degree of suspense on its own .
+tensor(0)	its and pieces of the hot chick are so hilarious , and schneider 's performance is so fine , it 's a real shame that so much of the movie - - again , as in the animal - - is a slapdash mess .
+tensor(0)	an enthralling , entertaining feature .
+tensor(0)	the history is fascinating the action is dazzling . they just do n't work in concert .
+tensor(0)	a chance to see three splendid actors turn a larky chase movie into an emotionally satisfying exploration of the very human need to be somebody , and to belong to somebody .
+tensor(0)	a thriller without a lot of thrills .
+tensor(0)	UNK is a competent enough filmmaker , but her story has nothing fresh or very exciting about it .
+tensor(0)	this bold and lyrical first feature from raja amari expands the pat notion that middle - aged women just wanna have fun into a rousing treatise of sensual empowerment .
+tensor(0)	velocity represents everything wrong with UNK UNK as a commodified , sold - out concept on the american filmmaking scene .
+tensor(0)	. . . a funny yet dark and seedy clash of cultures and generations .
+tensor(0)	it 's an interesting effort ( particularly for jfk conspiracy nuts ) , and barry 's cold - fish act makes the experience worthwhile .
+tensor(0)	at its worst the screenplay is callow , but at its best it is a young artist 's thoughtful consideration of fatherhood .
+tensor(0)	frank capra played this story straight . but the 2002 film does n't really believe in it , and breaks the mood with absurdly inappropriate UNK scenes .
+tensor(0)	UNK manages to nail the spirit - crushing ennui of denuded urban living without giving in to it .
+tensor(0)	adam sandler 's eight crazy nights grows on you - - like a rash .
+tensor(0)	. . . the film falls back on the same old formula of teen sex , outrageous pranks and scenes designed to push the envelope of bad taste for laughs .
+tensor(0)	sillier , cuter , and shorter than the first ( as best i remember ) , but still a very good time at the cinema .
+tensor(0)	it is as uncompromising as it is nonjudgmental , and makes clear that a prostitute can be as lonely and needy as any of the clients .
+tensor(0)	all in all , an interesting look at the life of the campaign - trail press , especially ones that do n't really care for the candidate they 're forced to follow .
+tensor(0)	deuces wild is an encyclopedia of cliches that UNK shamelessly from farewell - to - innocence movies like the wanderers and a bronx tale without cribbing any of their intelligence .
+tensor(0)	the members manage to pronounce kok exactly as you think they might , thus giving the cast ample opportunity to use that term as often as possible . it 's very beavis and butthead , yet always seems to elicit a chuckle .
+tensor(0)	places a slightly believable love triangle in a difficult - to - swallow setting , and then disappointingly moves the story into the realm of an improbable thriller .
+tensor(0)	with an obvious rapport with her actors and a striking style behind the camera , h l ne angel is definitely a director to watch .
+tensor(0)	director nancy savoca 's no - frills record of a show forged in still - raw emotions captures the unsettled tenor of that post 9 - 11 period far better than a more measured or polished production ever could .
+tensor(0)	with the film 's striking ending , one realizes that we have a long way to go before we fully understand all the sexual permutations involved .
+tensor(0)	but the power of these subjects is obscured by the majority of the film that shows a stationary camera on a subject that could be mistaken for giving a public oration , rather than contributing to a film 's narrative .
+tensor(0)	chalk it up to my adoration for both de niro and murphy , but i had a pretty good time with this movie - despite its myriad flaws .
+tensor(0)	the film has just enough of everything - - re - enactments , archival footage , talking - head interviews - - and the music is simply sublime .
+tensor(0)	it 's a count for our times .
+tensor(0)	twohy 's a good yarn - spinner , and ultimately the story compels .
+tensor(0)	may reawaken discussion of the kennedy assassination but this fictional film looks made for cable rather than for the big screen .
+tensor(0)	at its best , it 's black hawk down with more heart . at its worst , it 's rambo - meets - john ford .
+tensor(0)	tsai may be ploughing the same furrow once too often .
+tensor(0)	the movie does its best to work us over , with second helpings of love , romance , tragedy , false dawns , real dawns , comic relief , two separate crises during marriage ceremonies , and the lush scenery of the cotswolds .
+tensor(0)	shafer 's feature does n't offer much in terms of plot or acting .
+tensor(0)	a movie like the guys is why film criticism can be considered work .
+tensor(0)	who needs mind - bending drugs when they can see this , the final part of the UNK trilogy , directed by godfrey reggio , with music by philip glass ?
+tensor(0)	the rare imax movie that you 'll wish was longer than an hour .
+tensor(0)	the only thing scary about UNK is that the filmmakers and studio are brazen enough to attempt to pass this stinker off as a scary movie .
+tensor(0)	instead of trying to bust some blondes , diggs should be probing why a guy with his talent ended up in a movie this bad .
+tensor(0)	this movie got me grinning . there 's a part of us that cannot help be entertained by the sight of someone getting away with something .
+tensor(0)	as david letterman and the onion have proven , the worst of tragedies can be fertile sources of humor , but lawrence has only a fleeting grasp of how to develop them .
+tensor(0)	UNK in black ii creates a new threat for the mib , but recycles the same premise .
+tensor(0)	falters when it takes itself too seriously and when it depends too heavily on its otherwise talented cast to clown in situations that are n't funny .
+tensor(0)	simply a re - hash of the other seven films .
+tensor(0)	tv skit - com material fervently deposited on the big screen .
+tensor(0)	the story is - - forgive me - - a little thin , and the filmmaking clumsy and rushed .
+tensor(0)	a mostly believable , refreshingly low - key and quietly inspirational little sports drama .
+tensor(0)	this is an insultingly inept and artificial examination of grief and its impacts upon the relationships of the survivors .
+tensor(0)	. . . grows decidedly flimsier with its many out - sized , out of character and logically porous action set pieces .
+tensor(0)	imperfect ? yes , but also intriguing and honorable , a worthwhile addition to a distinguished film legacy .
+tensor(0)	although it includes a fair share of dumb drug jokes and predictable slapstick , orange county is far funnier than it would seem to have any right to be .
+tensor(0)	miyazaki is one of world cinema 's most wondrously gifted artists and storytellers .
+tensor(0)	it 's both degrading and strangely liberating to see people working so hard at leading lives of sexy intrigue , only to be revealed by the dispassionate gantz brothers as ordinary , pasty lumpen .
+tensor(0)	a literate presentation that wonderfully weaves a murderous event in 1873 with murderous rage in 2002 .
+tensor(0)	they crush each other under cars , throw each other out windows , electrocute and dismember their victims in full consciousness . and we do n't avert our eyes for a moment .
+tensor(0)	at times , the movie looks genuinely pretty . your nightmares , on the other hand , will be anything but . not even UNK would know what to make of this italian freakshow .
+tensor(0)	you live the mood rather than savour the story .
+tensor(0)	even film silliness needs a little gravity , beyond good hair and humping .
+tensor(0)	when it comes to the battle of hollywood vs . woo , it looks like woo 's a p . o . w .
+tensor(0)	an improvement on the feeble examples of big - screen poke - mania that have preceded it .
+tensor(0)	the pace of the film is very slow ( for obvious reasons ) and that too becomes off - putting .
+tensor(0)	a rare and lightly entertaining look behind the curtain that separates comics from the people laughing in the crowd .
+tensor(0)	not the best herzog perhaps , but unmistakably herzog .
+tensor(0)	while not for every taste , this often very funny collegiate gross - out comedy goes a long way toward restoring the luster of the national lampoon film franchise , too long reduced to direct - to - video irrelevancy .
+tensor(0)	cannon 's confidence and laid - back good spirits are , with the drumming routines , among the film 's saving graces .
+tensor(0)	like an afterschool special with costumes by gianni versace , mad love looks better than it feels .
+tensor(0)	a semi - autobiographical film that 's so sloppily written and cast that you cannot believe anyone more central to the creation of bugsy than the caterer had anything to do with it .
+tensor(0)	renner ? s face is chillingly UNK , yet he communicates a great deal in his performance . see it for his performance if nothing else .
+tensor(0)	. . . an interesting slice of history .
+tensor(0)	carvey 's characters are both overplayed and exaggerated , but then again , subtlety has never been his trademark .
+tensor(0)	because of an unnecessary and clumsy last scene , UNK left me with a very bad feeling .
+tensor(0)	slap me , i saw this movie .
+tensor(0)	lan yu is at times too restrained , yet there are moments it captures the erotics of intimacy in a way that makes most american love stories look downright unfree .
+tensor(0)	impostor ca n't think of a thing to do with these characters except have them run through dark tunnels , fight off various anonymous attackers , and evade elaborate surveillance technologies .
+tensor(0)	the last 20 minutes are somewhat redeeming , but most of the movie is the same teenage american road - trip UNK we 've seen before - only this time you have to read the fart jokes
+tensor(0)	an admirable , sometimes exceptional film
+tensor(0)	although it tries to be much more , it 's really just another major league .
+tensor(0)	in the director 's cut , the film is not only a love song to the movies but it also is more fully an example of the kind of lush , all - enveloping movie experience it rhapsodizes .
+tensor(0)	rather than real figures , elling and kjell bjarne become symbolic characters whose actions are supposed to relate something about the na f 's encounter with the world .
+tensor(0)	. . . standard guns versus martial arts cliche with little new added .
+tensor(0)	the elements were all there but lack of a pyschological center knocks it flat .
+tensor(0)	i doubt anyone will remember the picture by the time christmas really rolls around , but maybe it 'll be on video by then .
+tensor(0)	a different movie - - sometimes tedious - - by a director many viewers would like to skip but film buffs should get to know .
+tensor(0)	the film never rises above a conventional , two dimension tale
+tensor(0)	there is very little dread or apprehension , and though i like the creepy ideas , they are not executed with anything more than perfunctory skill .
+tensor(0)	yo , it 's the days of our lives meets electric boogaloo .
+tensor(0)	the emotion is impressively true for being so hot - blooded , and both leads are up to the task .
+tensor(0)	jason patric and ray liotta make for one splendidly cast pair .
+tensor(0)	witless but watchable .
+tensor(0)	the film is a fierce dance of destruction . its flame - like , roiling black - and - white inspires trembling and gratitude .
+tensor(0)	this may be the dumbest , sketchiest movie on record about an aspiring writer 's coming - of - age .
+tensor(0)	a full world has been presented onscreen , not some series of carefully structured plot points building to a pat resolution .
+tensor(0)	beautifully filmed and well acted . . . but admittedly problematic in its narrative specifics .
+tensor(0)	mr . polanski is in his element here alone , abandoned , but still consoled by his art , which is more than he has ever revealed before about the source of his spiritual survival .
+tensor(0)	one problem with the movie , directed by joel schumacher , is that it jams too many prefabricated story elements into the running time .
+tensor(0)	. . . really horrible UNK .
+tensor(0)	. . . a solid , unassuming drama .
+tensor(0)	UNK begins and ends with scenes so terrifying UNK still stunned . and i 've decided to leave a light on every night from now on .
+tensor(0)	the casting of von sydow . . . is itself UNK 's luckiest stroke .
+tensor(0)	feels like the grittiest movie that was ever made for the lifetime cable television network .
+tensor(0)	la cinta comienza UNK ser un drama , r UNK se UNK en una comedia y termina por ser una parodia UNK UNK
+tensor(0)	execrable .
+tensor(0)	has an uppity musical beat that you can dance to , but its energy ca n't compare to the wit , humor and snappy dialogue of the original . if i want music , i 'll buy the soundtrack . if i want a real movie , i 'll buy the criterion dvd .
+tensor(0)	it might be tempting to regard mr . andrew and his collaborators as oddballs , but mr . earnhart 's quizzical , charming movie allows us to see them , finally , as artists .
+tensor(0)	the whole cast looks to be having so much fun with the slapstick antics and silly street patois , tossing around obscure expressions like bellini and UNK , that the compact 86 minutes breezes by .
+tensor(0)	cantet perfectly captures the hotel lobbies , two - lane highways , and roadside cafes that permeate vincent 's days
+tensor(0)	for all its visual panache and compelling supporting characters , the heart of the film rests in the relationship between sullivan and his son .
+tensor(0)	UNK provocative film might be called an example of the UNK of evil .
+tensor(0)	the first tunisian film i have ever seen , and it 's also probably the most good - hearted yet sensual entertainment UNK likely to see all year .
+tensor(0)	star producer salma hayek and director julie taymor have infused frida with a visual style unique and inherent to the titular character 's paintings and in the process created a masterful work of art of their own .
+tensor(0)	i can take infantile humor . . . but this is the sort of infantile that makes you wonder about changing the director and writer 's diapers .
+tensor(0)	in the affable maid in manhattan , jennifer lopez 's most aggressive and most sincere attempt to take movies by storm , the diva shrewdly surrounds herself with a company of strictly a - list players .
+tensor(0)	its over - reliance on genre conventions , character types and formulaic conflict resolutions crushes all the goodwill it otherwise develops .
+tensor(0)	an empty exercise , a florid but ultimately vapid crime melodrama with lots of surface flash but little emotional resonance .
+tensor(0)	it 's not difficult to spot the culprit early - on in this predictable thriller .
+tensor(0)	it 's a documentary that says that the alternate sexuality meant to set you free may require so much relationship maintenance that celibacy can start looking good .
+tensor(0)	is it a total success ? no . is it something any true film addict will want to check out ? you bet .
+tensor(0)	a work of intricate elegance , literary lyricism and profound common sense .
+tensor(0)	a coarse and stupid gross - out .
+tensor(0)	sweet home alabama is one dumb movie , but its stupidity is so relentlessly harmless that it almost wins you over in the end .
+tensor(0)	the UNK interviews tend to let the guys off the hook .
+tensor(0)	the film is a masterpiece of nuance and characterization , marred only by an inexplicable , utterly distracting blunder at the very end .
+tensor(0)	long time dead ? not nearly long enough .
+tensor(0)	a moving , if uneven , success .
+tensor(0)	as teen movies go , orange county is a refreshing change
+tensor(0)	secret ballot is a funny , puzzling movie ambiguous enough to be engaging and oddly moving .
+tensor(0)	the way coppola professes his love for movies - - both colorful pop junk and the classics that unequivocally qualify as art - - is giddily entertaining .
+tensor(0)	you can practically smell the patchouli oil .
+tensor(0)	. . . plenty of warmth to go around , with music and laughter and the love of family .
+tensor(0)	interview with the assassin is structured less as a documentary and more as a found relic , and as such the film has a difficult time shaking its blair witch project real - time roots .
+tensor(0)	with the exception of some fleetingly amusing improvisations by cedric the entertainer as perry 's boss , there is n't a redeeming moment here .
+tensor(0)	not only unfunny , but downright repellent .
+tensor(0)	perfectly enjoyable , instantly forgettable , nothing to write home about .
+tensor(0)	but tongue - in - cheek preposterousness has always been part of for the most part wilde 's droll whimsy helps being earnest overcome its weaknesses and parker 's creative interference . . .
+tensor(0)	crikey indeed .
+tensor(0)	credibility levels are low and character development a non - starter .
+tensor(0)	watching it is rather like viewing a long soap opera in which only the first episode was any good .
+tensor(0)	a close - to - solid espionage thriller with the misfortune of being released a few decades too late .
+tensor(0)	after the first 10 minutes , which is worth seeing , the movie sinks into an abyss of clich s , depression and bad alternative music .
+tensor(0)	if you can push on through the slow spots , you 'll be rewarded with some fine acting .
+tensor(0)	the pianist is a fine valedictory work for polanski , made richer by his own experiences , making his other movies somehow richer in the bargain .
+tensor(0)	an immensely entertaining look at some of the unsung heroes of 20th century pop music .
+tensor(0)	tambor and clayburgh make an appealing couple he 's understated and sardonic , she 's appealingly manic and energetic . both deserve better .
+tensor(0)	it 's rare to find a film to which the adjective UNK applies , but the word perfectly describes pauline paulette .
+tensor(0)	baran is n't the most transporting or gripping film from iran - - or , indeed , by its director - - but it 's a worthy companion to the many fine , focused films emerging from that most surprising of nations .
+tensor(0)	one big blustery movie where nothing really happens . when it comes out on video , then it 's the perfect cure for insomnia .
+tensor(0)	phoned - in business as usual .
+tensor(0)	the trashy teen - sleaze equivalent of showgirls .
+tensor(0)	given how heavy - handed and portent - heavy it is , this could be the worst thing soderbergh has ever done .
+tensor(0)	such a bad movie that its luckiest viewers will be seated next to one of those ignorant pinheads who talk throughout the show .
+tensor(0)	lightweight but appealing .
+tensor(0)	though few will argue that it ranks with the best of herzog 's works , invincible shows he 's back in form , with an astoundingly rich film .
+tensor(0)	may be spoofing an easy target - - those old '50 's giant creature features - - but . . . it acknowledges and celebrates their cheesiness as the reason why people get a kick out of watching them today .
+tensor(0)	. . . breathes surprising new life into the familiar by amalgamating genres and adding true human complexity to its not - so - stock characters .
+tensor(0)	this re - do is so dumb and so exploitative in its violence that , ironically , it becomes everything that the rather clumsy original was railing against .
+tensor(0)	human nature is a goofball movie , in the way that malkovich was , but it tries too hard .
+tensor(0)	has enough wit , energy and geniality to please not only the fanatical adherents on either side , but also people who know nothing about the subject and think they 're not interested .
+tensor(0)	instead of making his own style , director marcus adams just copies from various sources good sources , bad mixture
+tensor(0)	sweet and memorable film .
+tensor(0)	campanella 's competent direction and his excellent cast overcome the obstacles of a predictable outcome and a screenplay that glosses over rafael 's evolution .
+tensor(0)	obviously , a lot of people wasted a lot of their time ( including mine ) on something very inconsequential .
+tensor(0)	schindler 's list it ai n't .
+tensor(0)	twenty years after its first release , e . t . remains the most wondrous of all hollywood fantasies - - and the apex of steven spielberg 's misunderstood career .
+tensor(0)	parents beware this is downright movie penance .
+tensor(0)	vividly demonstrates that the director of such hollywood blockbusters as patriot games can still turn out a small , personal film with an emotional wallop .
+tensor(0)	the sad thing about knockaround guys is its lame aspiration for grasping the coolness vibes when in fact the film is n't as flippant or slick as it thinks it is .
+tensor(0)	light , silly , photographed with colour and depth , and rather a good time .
+tensor(0)	crackerjack entertainment - - nonstop romance , music , suspense and action .
+tensor(0)	. . . works on some levels and is certainly worth seeing at least once .
+tensor(0)	brutally honest and told with humor and poignancy , which makes its message resonate .
+tensor(0)	the filmmakers try to balance pointed , often incisive satire and unabashed sweetness , with results that are sometimes bracing , sometimes baffling and quite often , and in unexpected ways , touching .
+tensor(0)	verbinski implements every hack - artist trick to give us the UNK - UNK .
+tensor(0)	the script is n't very good not even someone as gifted as hoffman ( the actor ) can make it work .
+tensor(0)	the overall vibe is druggy and self - indulgent , like a spring - break orgy for pretentious arts majors .
+tensor(0)	there is no pleasure in watching a child suffer . just embarrassment and a vague sense of shame .
+tensor(0)	should n't have been allowed to use the word new in its title , because there 's not an original character , UNK or joke in the entire movie .
+tensor(0)	it extends the writings of jean genet and john rechy , the films of fassbinder , perhaps even the nocturnal works of goya .
+tensor(0)	this sci - fi techno - sex thriller starts out bizarre and just keeps getting weirder .
+tensor(0)	maryam is a small film , but it offers large rewards .
+tensor(0)	gayton 's script telegraphs every discovery and layers on the gloss of convenience .
+tensor(0)	parker probably thinks he 's shaking up a classic the way kenneth branagh and baz luhrmann have , but this half - hearted messing - about just makes us miss wilde 's still - contemporary play .
+tensor(0)	all analyze that proves is that there is really only one movie 's worth of decent gags to be gleaned from the premise .
+tensor(0)	if mr . zhang 's subject matter is , to some degree at least , quintessentially american , his approach to storytelling might be called iranian .
+tensor(0)	when the first few UNK are introduced as spider and snake you know you 're in for a real winner , creativity at its peak .
+tensor(0)	an inept , tedious spoof of '70s kung fu pictures , it contains almost enough chuckles for a three - minute sketch , and no more .
+tensor(0)	if i have to choose between gorgeous animation and a lame story ( like , say , treasure planet ) or so - so animation and an exciting , clever story with a batch of appealing characters , i 'll take the latter every time .
+tensor(0)	turns a potentially interesting idea into an excruciating film school experience that plays better only for the film 's publicists or for people who take as many drugs as the film 's characters
+tensor(0)	can be classified as one of those UNK UNK movies . . . except that it would have worked so much better dealing in only one reality .
+tensor(0)	plays like one of those conversations that comic book guy on the simpsons has .
+tensor(0)	so fiendishly cunning that even the most jaded cinema audiences will leave the auditorium feeling dizzy , confused , and totally disorientated . not to mention absolutely refreshed .
+tensor(0)	a lovely film for the holiday season .
+tensor(0)	if welles was unhappy at the prospect of the human race splitting in two , he probably would n't be too crazy with his great - grandson 's movie splitting up in pretty much the same way .
+tensor(0)	very solid , very watchable first feature for director peter sheridan
+tensor(0)	nicole kidman makes it a party worth attending .
+tensor(0)	deep down , i realized the harsh reality of my situation i would leave the theater with a lower i . q . than when i had entered .
+tensor(0)	highly uneven and inconsistent . . . margarita happy hour kinda resembles the el cheapo margaritas served within .
+tensor(0)	the case is a convincing one , and should give anyone with a conscience reason to pause .
+tensor(0)	tim allen is great in his role but never hogs the scenes from his fellow cast , as there are plenty of laughs and good lines for everyone in this comedy .
+tensor(0)	w hile long on amiable monkeys and worthy environmentalism , jane goodall 's wild chimpanzees is short on the thrills the oversize medium demands .
+tensor(0)	call this the full monty on ice , the underdog sports team formula redux .
+tensor(0)	a predictable , manipulative stinker . the story passes time until it 's time for an absurd finale of twisted metal , fireballs and revenge .
+tensor(0)	devolves into the derivative , leaning on badly - rendered cgi effects .
+tensor(0)	being unique does n't necessarily equate to being good , no matter how admirably the filmmakers have gone for broke .
+tensor(0)	the slapstick is labored , and the bigger setpieces flat .
+tensor(0)	oozes condescension from every pore .
+tensor(0)	the action is reasonably well - done . . . yet story , character and comedy bits are too ragged to ever fit smoothly together .
+tensor(0)	call me a cynic , but there 's something awfully deadly about any movie with a life - affirming message .
+tensor(0)	. . . the same tired old gags , modernized for the extreme sports generation . there 's already been too many of these films . . .
+tensor(0)	is it possible for a documentary to be utterly entranced by its subject and still show virtually no understanding of it ?
+tensor(0)	could the whole plan here have been to produce something that makes fatal attraction look like a classic by comparison ? that 's the only sane rationale i can think of for swimfan 's existence .
+tensor(0)	it 's getting harder and harder to ignore the fact that hollywood is n't laughing with us , folks . it 's laughing at us .
+tensor(0)	starts as a tart little lemon drop of a movie and ends up as a bitter pill .
+tensor(0)	the film is a blunt indictment , part of a perhaps surreal campaign to bring kissinger to trial for crimes against humanity .
+tensor(0)	as a director , paxton is surprisingly brilliant , deftly sewing together what could have been a confusing and horrifying vision into an intense and engrossing head - trip .
+tensor(0)	the doofus - on - the - loose banter of welcome to collinwood has a cocky , after - hours loopiness to it . and as with most late - night bull sessions , eventually the content is n't nearly as captivating as the rowdy participants think it is .
+tensor(0)	unambitious writing emerges in the movie , using a plot that could have come from an animated - movie screenwriting textbook .
+tensor(0)	shocking only in that it reveals the filmmaker 's bottomless pit of self - absorption .
+tensor(0)	. . . the movie is just a plain old monster .
+tensor(0)	tartakovsky 's team has some freakish powers of visual charm , but the five writers slip into the modern rut of narrative banality .
+tensor(0)	every now and again , a movie comes along to remind us of how very bad a motion picture can truly be . frank UNK c . i . is that movie !
+tensor(0)	a living testament to the power of the eccentric and the strange . the fact that it is n't very good is almost beside the point .
+tensor(0)	there are plot holes big enough for shamu the killer whale to swim through .
+tensor(0)	hayek is stunning as frida and . . . a star - making project .
+tensor(0)	both a grand tour through 300 hundred years of russian cultural identity and a stunning technical achievement .
+tensor(0)	an uneven mix of dark satire and childhood awakening .
+tensor(0)	does not go far enough in its humor or stock ideas to stand out as particularly memorable or even all that funny .
+tensor(0)	genuinely touching because it 's realistic about all kinds of love .
+tensor(0)	harrison 's flowers puts its heart in the right place , but its brains are in no particular place at all .
+tensor(0)	we 've seen the hippie - turned - yuppie plot before , but there 's an enthusiastic charm in i ? fire that makes the formula fresh again .
+tensor(0)	warm in its loving yet UNK inconsistent depiction of everyday people , relaxed in its perfect quiet pace and proud in its message . i loved this film .
+tensor(0)	the messy emotions raging throughout this three - hour effort are instantly recognizable , allowing the film to paradoxically feel familiar and foreign at the same time .
+tensor(0)	one of those movies that make us pause and think of what we have given up to acquire the fast - paced contemporary society .
+tensor(0)	as a belated nod to some neglected all - stars , standing in the shadows of motown is cultural history of the best kind informative , revealing and richly entertaining .
+tensor(0)	helmer devito . . . attempts to do too many things in this story about ethics , payola , vice , murder , UNK tv and revenge .
+tensor(0)	maybe leblanc thought , hey , the movie about the baseball - playing monkey was worse .
+tensor(0)	. . . for all its social and political potential , state property does n't end up being very inspiring or insightful .
+tensor(0)	there 's enough science to make it count as educational , and enough beauty to make it unforgettable .
+tensor(0)	sheridan is painfully bad , a fourth - rate jim carrey who does n't understand the difference between dumb fun and just plain dumb .
+tensor(0)	the story has some nice twists but the ending and some of the back - story is a little tired . the performances are all solid it merely lacks originality to make it a great movie .
+tensor(0)	more timely than its director could ever have dreamed , this quietly lyrical tale probes the ambiguous welcome extended by iran to the afghani refugees who streamed across its borders , desperate for work and food .
+tensor(0)	an enjoyable , if occasionally flawed , experiment .
+tensor(0)	. . . a quietly introspective portrait of the self - esteem of employment and the shame of losing a job . . .
+tensor(0)	this sensitive , smart , savvy , compelling coming - of - age drama delves into the passive - aggressive psychology of co - dependence and the struggle for self - esteem .
+tensor(0)	any enjoyment will be hinge from a personal threshold of watching sad but endearing characters do extremely unconventional things .
+tensor(0)	sodden and glum , even in those moments where it 's supposed to feel funny and light .
+tensor(0)	a sly dissection of the inanities of the contemporary music business and a rather sad story of the difficulties of artistic collaboration .
+tensor(0)	to my taste , the film 's comic characters come perilously close to being UNK and andys for a new generation .
+tensor(0)	. . . the one thing this wild film has that other imax films do n't chimps , lots of chimps , all blown up to the size of a house . that 's fun for kids of any age .
+tensor(0)	i had more fun watching spy than i had with most of the big summer movies .
+tensor(0)	. . . quite good at providing some good old fashioned spooks .
+tensor(0)	contrived as this may sound , mr . rose 's updating works surprisingly well .
+tensor(0)	dull , lifeless , and amateurishly assembled .
+tensor(0)	westbrook makes a wonderful subject for the camera .
+tensor(0)	aggravating and tedious .
+tensor(0)	offers absolutely nothing i had n't already seen .
+tensor(0)	it has the ability to offend and put off everyone , but it holds you with its outrageousness .
+tensor(0)	exposing the ways we fool ourselves is one hour photo 's real strength .
+tensor(0)	a documentary to make the stones weep - - as shameful as it is scary .
+tensor(0)	you can tell almost immediately that welcome to collinwood is n't going to jell .
+tensor(0)	in his debut as a film director , denzel washington delivers a lean and engaging work .
+tensor(0)	a satisfying UNK .
+tensor(0)	the abiding impression , despite the mild hallucinogenic buzz , is of overwhelming waste - - the acres of haute couture ca n't quite conceal that there 's nothing resembling a spine here .
+tensor(0)	a party - hearty teen flick that scalds like acid .
+tensor(0)	. . . think of it as american pie on valium .
+tensor(0)	no telegraphing is too obvious or simplistic for this movie .
+tensor(0)	it drowns in sap .
+tensor(0)	expanded to 65 minutes for theatrical release , it still feels somewhat unfinished .
+tensor(0)	it believes it 's revealing some great human truths , when , in reality , it 's churning ground that has long passed the point of being fertile .
+tensor(0)	in any case , i would recommend big bad love only to winger fans who have missed her since 1995 's forget paris . but even then , i 'd recommend waiting for dvd and just skipping straight to her scenes .
+tensor(0)	the film is way too full of itself it 's stuffy and pretentious in a give - me - an - oscar kind of way .
+tensor(0)	the histrionic muse still eludes madonna and , playing a charmless witch , she is merely a charmless witch .
+tensor(0)	the movie spends more time with schneider than with newcomer mcadams , even though her performance is more interesting ( and funnier ) than his .
+tensor(0)	there 's too much forced drama in this wildly uneven movie , about a young man 's battle with his inescapable past and uncertain future in a very UNK but largely unfulfilling present .
+tensor(0)	comedy troupe broken lizard 's first movie is very funny but too concerned with giving us a plot .
+tensor(0)	easily one of the best and most exciting movies of the year .
+tensor(0)	. . . wise and elegiac . . .
+tensor(0)	the film overcomes the regular minefield of coming - of - age cliches with potent doses of honesty and sensitivity .
+tensor(0)	it 's just weirdness for the sake of weirdness , and where human nature should be ingratiating , it 's just grating .
+tensor(0)	chicago pode at ser um filme divertido e UNK ( como ) , mas acaba UNK um passo que vai na dire o UNK ria UNK o dos UNK .
+tensor(0)	baby - faced renner is eerily convincing as this bland blank of a man with unimaginable demons within .
+tensor(0)	although i did n't hate this one , it 's not very good either . it can be safely recommended as a video dvd babysitter .
+tensor(0)	in the end , the movie bogs down in insignificance , saying nothing about kennedy 's assassination and revealing nothing about the pathology it pretends to investigate .
+tensor(0)	UNK may be a flawed film , but it is nothing if not sincere .
+tensor(0)	this warm and gentle romantic comedy has enough interesting characters to fill several movies , and its ample charms should win over the most hard - hearted cynics .
+tensor(0)	like its two predecessors , 1983 's koyaanisqatsi and 1988 's UNK , the cinematic collage naqoyqatsi could be the most navel - gazing film ever .
+tensor(0)	as animation increasingly emphasizes the computer and the cool , this is a film that takes a stand in favor of tradition and warmth .
+tensor(0)	the movie feels like it 's going to be great , and it carries on feeling that way for a long time , but takeoff just never happens .
+tensor(0)	a cartoon that 's truly cinematic in scope , and a story that 's compelling and heartfelt - - even if the heart belongs to a big , four - legged herbivore .
+tensor(0)	the lively appeal of the last kiss lies in the ease with which it integrates thoughtfulness and pasta - fagioli comedy .
+tensor(0)	in some ways , lagaan is quintessential bollywood . except it 's much , much better .
+tensor(0)	there 's no real reason to see it , and no real reason not to .
+tensor(0)	an ingenious and often harrowing look at damaged people and how families can offer either despair or consolation .
+tensor(0)	extreme oops - oops , ops , no matter how you spell it , it 's still a mistake to go see it .
+tensor(0)	a dull , simple - minded and stereotypical tale of drugs , death and mind - numbing indifference on the inner - city streets .
+tensor(0)	features fincher 's characteristically startling visual style and an almost palpable sense of intensity .
+tensor(0)	for a shoot - 'em - up , ballistic is oddly lifeless .
+tensor(0)	psychologically savvy .
+tensor(0)	an instance of an old dog not only learning but inventing a remarkable new trick .
+tensor(0)	further proof that the epicenter of cool , beautiful , thought - provoking foreign cinema is smack - dab in the middle of dubya 's axis of evil .
+tensor(0)	i 'd have to say the star and director are the big problems here .
+tensor(0)	with a romantic comedy plotline straight from the ages , this cinderella story does n't have a single surprise up its sleeve . but it does somehow manage to get you under its spell .
+tensor(0)	just the sort of lazy tearjerker that gives movies about ordinary folk a bad name .
+tensor(0)	it 's a refreshing change from the self - interest and paranoia that shape most american representations of castro .
+tensor(0)	h ad i suffered and bled on the hard ground of ia drang , i 'd want something a bit more complex than we were soldiers to be remembered by .
+tensor(0)	gulpilil is a commanding screen presence , and his character 's abundant humanism makes him the film 's moral compass .
+tensor(0)	a modest and messy metaphysical thriller offering more questions than answers .
+tensor(0)	mr . deeds is sure to give you a lot of laughs in this simple , sweet and romantic comedy .
+tensor(0)	hoffman notches in the nuances of pain , but his smart , edgy voice and waddling profile ( emphasized here ) accent the humor of wilson 's plight , and that saves his pathos from UNK .
+tensor(0)	fluffy neo - noir hiding behind cutesy film references .
+tensor(0)	this idea has lost its originality . . . and neither star appears very excited at rehashing what was basically a one - joke picture .
+tensor(0)	a refreshingly honest and ultimately touching tale of the sort of people usually ignored in contemporary american film . search it out .
+tensor(0)	an ideal love story for those intolerant of the more common saccharine genre .
+tensor(0)	the filmmakers keep pushing the jokes at the expense of character until things fall apart .
+tensor(0)	tries to add some spice to its quirky sentiments but the taste is all too familiar .
+tensor(0)	grown - up quibbles are beside the point here . the little girls understand , and mccracken knows that 's all that matters .
+tensor(0)	the mothman prophecies , which is mostly a bore , seems to exist only for its climactic setpiece .
+tensor(0)	abderrahmane sissako 's UNK ( waiting for happiness ) is an elegiac portrait of a transit city on the west african coast struggling against foreign influences .
+tensor(0)	an awkwardly contrived exercise in magic realism .
+tensor(0)	it 's a cool event for the whole family . maybe not a classic , but a movie the kids will want to see over and over again .
+tensor(0)	well cast and well directed - a powerful drama with enough sardonic wit to keep it from being maudlin .
+tensor(0)	there 's plenty of style in guillermo del toro 's sequel to the 1998 hit but why do we need 117 minutes to tell a tale that simply ca n't sustain more than 90 minutes .
+tensor(0)	a sobering and powerful documentary about the most severe kind of personal loss rejection by one 's mother .
+tensor(0)	the ya - ya 's have many secrets and one is - the books are better . translating complex characters from novels to the big screen is an impossible task but they are true to the essence of what it is to be ya - ya .
+tensor(0)	UNK not sure these words have ever been together in the same sentence this erotic cannibal movie is boring .
+tensor(0)	irwin is so earnest that it 's hard to resist his pleas to spare wildlife and respect their environs . there are far worse messages to teach a young audience , which will probably be perfectly happy with the sloppy slapstick comedy .
+tensor(0)	yes , ballistic is silly . unfortunately , it 's not silly fun unless you enjoy really bad movies .
+tensor(0)	the powers team has fashioned a comedy with more laughs than many , no question . but this time there 's some mold on the gold .
+tensor(0)	the first mistake , i suspect , is casting shatner as a legendary professor and kunis as a brilliant college student - - where 's pauly shore as the rocket scientist ?
+tensor(0)	what will , most likely , turn out to be the most repellent movie of 2002 .
+tensor(0)	pumpkin sits in a patch somewhere between mirthless todd UNK satire and callow student film .
+tensor(0)	spider - man is about growing strange hairs , getting a more mature body , and finding it necessary to hide new secretions from the parental units .
+tensor(0)	marinated in clich s and mawkish dialogue .
+tensor(0)	ultimately the , yes , snail - like pacing and lack of thematic resonance make the film more silly than scary , like some sort of martha stewart decorating program run amok .
+tensor(0)	based on a devilishly witty script by heather mcgowan and niels mueller , the film gets great laughs , but never at the expense of its characters
+tensor(0)	a gentle and engrossing character study .
+tensor(0)	hugely entertaining from start to finish , featuring a fall from grace that still leaves shockwaves , it will gratify anyone who has ever suspected hollywood of being overrun by corrupt and hedonistic weasels .
+tensor(0)	UNK bare - bones narrative more closely resembles an outline for a '70s exploitation picture than the finished product .
+tensor(0)	the hours makes you examine your own life in much the same way its characters do , and the experience is profound . the hours is what movies are supposed to be . . .
+tensor(0)	meyjes . . . has done his homework and soaked up some jazzy new revisionist theories about the origins of nazi politics and aesthetics .
+tensor(0)	there ai n't a lot more painful than an unfunny movie that thinks it 's hilarious .
+tensor(0)	in capturing the understated comedic agony of an ever - ruminating , genteel yet decadent aristocracy that can no longer pay its bills , the film could just as well be addressing the turn of the 20th century into the 21st .
+tensor(0)	gaping plot holes sink this UNK - standard thriller and drag audience enthusiasm to crush depth .
+tensor(0)	a terrible movie that some people will nevertheless find moving .
+tensor(0)	an original and highly cerebral examination of the psychopathic mind
+tensor(0)	a solid , psychological action film from hong kong .
+tensor(0)	as his circle of friends keeps getting smaller one of the characters in long time dead says UNK telling you , this is f UNK . maybe he was reading the minds of the audience .
+tensor(0)	succeeds in providing a disquiet world the long - dreaded completion of the police academy series .
+tensor(0)	the warnings to resist temptation in this film . . . are blunt and challenging and offer no easy rewards for staying clean .
+tensor(0)	this starts off with a 1950 's doris day feel and it gets very ugly , very fast . the first five minutes will have you talking 'til the end of the year !
+tensor(0)	fincher 's camera sense and assured pacing make it an above - average thriller .
+tensor(0)	malone does have a gift for generating nightmarish images that will be hard to burn out of your brain . but the movie 's narrative hook is way too muddled to be an effectively chilling guilty pleasure .
+tensor(0)	not so much funny as aggressively sitcom - cute , it 's full of throwaway one - liners , not - quite jokes , and a determined tv amiability that allen personifies .
+tensor(0)	as predictable as the outcome of a globetrotters - generals game , juwanna mann is even more ludicrous than you 'd expect from the guy - in - a - dress genre , and a personal low for everyone involved .
+tensor(0)	it 's a shame that the storyline and its underlying themes . . . finally seem so impersonal or even shallow .
+tensor(0)	the film is so packed with subplots involving the various UNK that it feels more like the pilot episode of a tv series than a feature film .
+tensor(0)	it 's hard to believe that something so short could be so flabby .
+tensor(0)	a damn fine and a truly distinctive and a deeply pertinent film .
+tensor(0)	garcia and the other actors help make the wobbly premise work .
+tensor(0)	an UNK awful study in self - and audience - abuse .
+tensor(0)	it 's one thing to read about or rail against the ongoing - and unprecedented - construction project going on over our heads . it 's quite another to feel physically caught up in the process .
+tensor(0)	it 's the kind of movie that ends up festooning u . s . art house screens for no reason other than the fact that it 's in french ( well , mostly ) with english subtitles and is magically UNK because of that .
+tensor(0)	allen manages to breathe life into this somewhat tired premise .
+tensor(0)	red dragon is entertaining . an obvious copy of one of the best films ever made , how could it not be ? but it is entertaining on an inferior level . it is a popcorn film , not a must - own , or even a must - see .
+tensor(0)	brosnan 's finest non - UNK performance yet fails to overcome the film 's manipulative sentimentality and annoying stereotypes .
+tensor(0)	a screenplay more ingeniously constructed than memento
+tensor(0)	the master of disguise may have made a great saturday night live sketch , but a great movie it is not .
+tensor(0)	skip this turd and pick your nose instead because you 're sure to get more out of the latter experience .
+tensor(0)	all the amped - up tony hawk - style stunts and thrashing rap - metal ca n't disguise the fact that , really , we 've been here , done that .
+tensor(0)	UNK n't it be nice if all guys got a taste of what it 's like on the other side of the bra ? '
+tensor(0)	the screenplay , co - written by director imogen kimmel , lacks the wit necessary to fully exploit the comic elements of the premise , making the proceedings more bizarre than actually amusing .
+tensor(0)	clayburgh and tambor are charming performers neither of them deserves eric schaeffer .
+tensor(0)	there 's something auspicious , and daring , too , about the artistic instinct that pushes a majority - oriented director like steven spielberg to follow a . i . with this challenging report so liable to unnerve the majority .
+tensor(0)	the man from elysian fields is a cold , bliss - less work that groans along thinking itself some important comment on how life throws us some beguiling curves .
+tensor(0)	a mess . the screenplay does too much meandering , norton has to recite bland police procedural details , fiennes wanders around in an attempt to seem weird and distanced , hopkins looks like a drag queen .
+tensor(0)	the movie ultimately relies a bit too heavily on grandstanding , emotional , rocky - like moments . . . but it 's such a warm and charming package that you 'll feel too happy to argue much .
+tensor(0)	it 's fairly self - aware in its dumbness .
+tensor(0)	never again , while nothing special , is pleasant , diverting and modest - - definitely a step in the right direction .
+tensor(0)	essentially an exceptionally well - written , well - edited , well - directed , well - acted , bald rip - off of aliens .
+tensor(0)	a rambling ensemble piece with loosely connected characters and plots that never quite gel .
+tensor(0)	watching harris ham it up while physically and emotionally disintegrating over the course of the movie has a certain poignancy in light of his recent death , but boyd 's film offers little else of consequence .
+tensor(0)	spy - vs . - spy action flick with antonio banderas and lucy liu never comes together .
+tensor(0)	that it 'll probably be the best and most mature comedy of the 2002 summer season speaks more of the season than the picture
+tensor(0)	texan director george ratliff had unlimited access to families and church meetings , and he delivers fascinating psychological fare .
+tensor(0)	this movie has the usual impossible stunts . . . but it has just as many scenes that are lean and tough enough to fit in any modern action movie .
+tensor(0)	the chateau belongs to rudd , whose portrait of a therapy - dependent UNK spouting french malapropisms . . . is a nonstop hoot .
+tensor(0)	exciting and direct , with ghost imagery that shows just enough to keep us on our toes .
+tensor(0)	the movie obviously seeks to re - create the excitement of such '50s flicks as jules verne 's '20 , 000 leagues under the UNK and the george pal version of h . g . UNK UNK time machine . ' but its storytelling prowess and special effects are both listless .
+tensor(0)	the story itself is uninteresting , and the songs are painfully undistinguished they might be UNK so to be one of us may be the most tuneless tune ever composed .
+tensor(0)	well - meant but unoriginal .
+tensor(0)	sandra bullock , despite downplaying her good looks , carries a little too much ai n't - she - cute baggage into her lead role as a troubled and determined homicide cop to quite pull off the heavy stuff .
+tensor(0)	fails to bring as much to the table .
+tensor(0)	mr . clooney , mr . kaufman and all their collaborators are entitled to take a deep bow for fashioning an engrossing entertainment out of an almost sure - fire prescription for a critical and commercial disaster .
+tensor(0)	shanghai ghetto , much stranger than any fiction , brings this unknown slice of history affectingly to life .
+tensor(0)	do n't hate el crimen del padre amaro because it 's anti - catholic . hate it because it 's lousy .
+tensor(0)	never decides whether it wants to be a black comedy , drama , melodrama or some combination of the three .
+tensor(0)	aloof and lacks any real raw emotion , which is fatal for a film that relies on personal relationships .
+tensor(0)	the dark and bittersweet twist feels strange as things turn nasty and tragic during the final third of the film . first - timer john mckay is never able to pull it back on course .
+tensor(0)	the most brilliant and brutal uk crime film since jack carter went back to newcastle , the first half of gangster no . 1 drips with style and , at times , blood .
+tensor(0)	almost as offensive as freddy got fingered .
+tensor(0)	it puts washington , as honest working man john q . archibald , on a pedestal , then keeps lifting the pedestal higher .
+tensor(0)	the hook is the drama within the drama , as an unsolved murder and an unresolved moral conflict jockey for the spotlight .
+tensor(0)	it proves quite compelling as an intense , brooding character study .
+tensor(0)	how do you make a movie with depth about a man who lacked any ? on the evidence before us , the answer is clear not easily and , in the end , not well enough .
+tensor(0)	the film serves as a valuable time capsule to remind us of the devastating horror suffered by an entire people .
+tensor(0)	t here 's only so much anyone can do with a florid , UNK , anne rice rock 'n' roll vampire novel before the built - in silliness of the whole affair defeats them .
+tensor(0)	maintains your interest until the end and even leaves you with a few lingering animated thoughts .
+tensor(0)	the skills of a calculus major at m . i . t . are required to balance all the formulaic equations in the long - winded heist comedy who is UNK tout ?
+tensor(0)	it 's fun , but a psychological mess , with austin powers bumping his head on the way out of the closet .
+tensor(0)	seeing seinfeld at home as he watches his own appearance on letterman with a clinical eye reminds you that the key to stand - up is to always make it look easy , even though the reality is anything but .
+tensor(0)	does n't do more than expand a tv show to movie length . however , it 's pleasant enough and its ecological , pro - wildlife sentiments are certainly welcome .
+tensor(0)	this flat run at a hip - hop tootsie is so poorly paced you could fit all of pootie tang in between its punchlines .
+tensor(0)	hawke 's film , a boring , pretentious waste of nearly two hours , does n't tell you anything except that the chelsea hotel today is populated by whiny , pathetic , starving and untalented artistes .
+tensor(0)	combine the paranoid claustrophobia of a submarine movie with the unsettling spookiness of the supernatural - - why did n't hollywood think of this sooner ?
+tensor(0)	the otherwise good - UNK of mr . deeds , with its embrace of sheer goofiness and cameos of less - than - likely new york celebrities . . . certainly raises the film above anything sandler 's been attached to before .
+tensor(0)	a sharp satire of desperation and cinematic deception .
+tensor(0)	has an unmistakable , easy joie de vivre .
+tensor(0)	releasing a film with the word UNK in its title in january lends itself to easy jokes and insults , and snow dogs deserves every single one of them .
+tensor(0)	an undeniably gorgeous , terminally smitten document of a troubadour , his acolytes , and the triumph of his band .
+tensor(0)	what is captured during the conceptual process does n't add up to a sufficient explanation of what the final dance work , the selection , became in its final form .
+tensor(0)	nice piece of work .
+tensor(0)	aptly named , this shimmering , beautifully costumed and filmed production does n't work for me .
+tensor(0)	a trashy , exploitative , thoroughly unpleasant experience .
+tensor(0)	a pure participatory event that malnourished intellectuals will gulp down in a frenzy .
+tensor(0)	digital - video documentary about stand - up comedians is a great glimpse into a very different world .
+tensor(0)	trivial where it should be profound , and hyper - cliched where it should be sincere .
+tensor(0)	an absorbing and unsettling psychological drama .
+tensor(0)	t his beguiling belgian fable , very much its own droll and delicate little film , has some touching things to say about what is important in life and why .
+tensor(0)	a fragile framework upon which to hang broad , mildly fleshed - out characters that seem to have been conjured up only 10 minutes prior to filming .
+tensor(0)	a moving story of determination and the human spirit .
+tensor(0)	on the surface , it 's a lovers - on - the - run crime flick , but it has a lot in common with piesiewicz 's and kieslowski 's earlier work , films like the double life of veronique .
+tensor(0)	there 's something unintentionally comic in the film 's drumbeat about authenticity , given the stale plot and pornographic way the film revels in swank apartments , clothes and parties .
+tensor(0)	if you liked the 1982 film then , you 'll still like it now .
+tensor(0)	it 's a familiar story , but one that is presented with great sympathy and intelligence .
+tensor(0)	too bad maggio could n't come up with a better script .
+tensor(0)	at the very least , if you do n't know anything about derrida when you walk into the theater , you wo n't know much more when you leave .
+tensor(0)	focuses on joan 's raging hormones and sledgehammers the audience with spanish inquisitions about her madness so much that i became mad that i wasted 123 minutes and 9 . 50 on this 21st century torture device .
+tensor(0)	this is the kind of movie where the big scene is a man shot out of a cannon into a vat of ice cream .
+tensor(0)	it 's a treat watching shaw , a british stage icon , melting under the heat of phocion 's attentions .
+tensor(0)	time literally stops on a dime in the tries - so - hard - to - be - cool clockstoppers , but that does n't mean it still wo n't feel like the longest 90 minutes of your movie - going life .
+tensor(0)	uneven performances and a spotty script add up to a biting satire that has no teeth .
+tensor(0)	well - shot but badly written tale set in a future ravaged by dragons .
+tensor(0)	looking for leonard just seems to kinda sit in neutral , hoping for a stiff wind to blow it uphill or something .
+tensor(0)	a delightful little film that revels in its own simplicity , mostly martha will leave you with a smile on your face and a grumble in your stomach .
+tensor(0)	meeting , even exceeding expectations , it 's the best sequel since the empire strikes back . . . a majestic achievement , an epic of astonishing grandeur and surprising emotional depth .
+tensor(0)	promises is one film that 's truly deserving of its oscar nomination .
+tensor(0)	monte cristo smartly emphasizes the well - wrought story and omits needless chase scenes and UNK as the revenge unfolds .
+tensor(0)	a vile , incoherent mess . . . a scummy ripoff of david cronenberg 's brilliant UNK . '
+tensor(0)	the beauty of alexander payne 's ode to the everyman is in the details .
+tensor(0)	trouble every day is a success in some sense , but it 's hard to like a film so cold and dead .
+tensor(0)	the story feels more like a serious read , filled with heavy doses of always enticing sayles dialogue .
+tensor(0)	it suggests the wide - ranging effects of media manipulation , from the kind of reporting that is done by the supposedly liberal media . . . to the intimate and ultimately tragic heartache of maverick individuals like hatfield and hicks .
+tensor(0)	there 's not much more to this adaptation of the nick hornby novel than charm - - effortless , pleasurable , featherweight charm .
+tensor(0)	this is a truly , truly bad movie .
+tensor(0)	the documentary is much too conventional - - lots of boring talking heads , etc . - - to do the subject matter justice .
+tensor(0)	maid in manhattan might not look so appealing on third or fourth viewing down the road . . . but as a high concept vehicle for two bright stars of the moment who can rise to UNK lofty expectations , the movie passes inspection .
+tensor(0)	the invincible werner herzog is alive and well and living in la
+tensor(0)	despite its sincere acting , signs is just another unoriginal run of the mill sci - fi film with a flimsy ending and lots of hype .
+tensor(0)	incoherence reigns .
+tensor(0)	it has a subtle way of getting under your skin and sticking with you long after it 's over .
+tensor(0)	davis has energy , but she does n't bother to make her heroine 's book sound convincing , the gender - war ideas original , or the comic scenes fly .
+tensor(0)	performances all around are tops , with the two leads delivering oscar - caliber performances .
+tensor(0)	this is n't just the cliffsnotes version of nicholas nickleby , it 's the cliffsnotes with pages missing .
+tensor(0)	rashomon - for - UNK tale .
+tensor(0)	the film is painfully authentic , and the performances of the young players are utterly convincing .
+tensor(0)	those unfamiliar with mormon traditions may find the singles ward occasionally bewildering .
+tensor(0)	if you thought tom hanks was just an ordinary big - screen star , wait until you 've seen him eight stories tall .
+tensor(0)	brosnan gives a portrayal as solid and as perfect as his outstanding performance as bond in die another day .
+tensor(0)	professionally speaking , it 's tempting to jump ship in january to avoid ridiculous schlock like this shoddy suspense thriller .
+tensor(0)	an ambitious UNK if ? ' that works .
+tensor(0)	the director explores all three sides of his story with a sensitivity and an inquisitiveness reminiscent of truffaut .
+tensor(0)	the film is itself a sort of cinematic high crime , one that brings military courtroom dramas down very , very low .
+tensor(0)	it 's a strange film , one that was hard for me to warm up to .
+tensor(0)	i 've yet to find an actual vietnam war combat movie actually produced by either the north or south vietnamese , but at least now we 've got something pretty damn close .
+tensor(0)	baran is shockingly devoid of your typical majid majidi shoe - loving , crippled children .
+tensor(0)	as quiet , patient and tenacious as mr . lopez himself , who approaches his difficult , endless work with remarkable serenity and discipline .
+tensor(0)	human nature initially succeeds by allowing itself to go crazy , but ultimately fails by spinning out of control .
+tensor(0)	a combination of standard , stiff tv - style animation and snazzy - looking digital effects that do little to disguise the fact that the characters barely move .
+tensor(0)	a thoughtful movie , a movie that is concerned with souls and risk and schemes and the consequences of one 's actions .
+tensor(0)	. . . feels as if ( there 's ) a choke leash around your neck so director nick cassavetes can give it a good , hard yank whenever he wants you to feel something .
+tensor(0)	the pacing is often way off and there are too many bona fide groaners among too few laughs .
+tensor(0)	more of a career curio than a major work .
+tensor(0)	the april 2002 instalment of the american war for independence , complete with loads of cgi and bushels of violence , but not a drop of human blood .
+tensor(0)	a delicious and delicately funny look at the residents of a copenhagen neighborhood coping with the befuddling complications life tosses at them .
+tensor(0)	if signs is a good film , and it is , the essence of a great one is in there somewhere .
+tensor(0)	grant is certainly amusing , but the very hollowness of the character he plays keeps him at arms length
+tensor(0)	never inspires more than an interested detachment .
+tensor(0)	the touch is generally light enough and the performances , for the most part , credible .
+tensor(0)	any movie this boring should be required to have ushers in the theater that hand you a cup of coffee every few minutes . like a marathon runner trying to finish a race , you need a constant influx of liquid just to get through it .
+tensor(0)	what soured me on the santa clause 2 was that santa bumps up against 21st century reality so hard , it 's icky .
+tensor(0)	using an endearing cast , writer director dover UNK takes a slightly dark look at relationships , both sexual and kindred .
+tensor(0)	. . . watching this film nearly provoked me to take my own life . and if the hours wins UNK UNK i just might .
+tensor(0)	toes the fine line between cheese and earnestness remarkably well everything is delivered with such conviction that it 's hard not to be carried away .
+tensor(0)	. . . a bland murder - on - campus yawner .
+tensor(0)	this dreadfully earnest inversion of the concubine love triangle eschews the previous film 's historical panorama and roiling pathos for bug - eyed mugging and gay - niche condescension .
+tensor(0)	as a first - time director , paxton has tapped something in himself as an actor that provides frailty with its dark soul .
+tensor(0)	bottom - rung new jack city wannabe .
+tensor(0)	anyone who ever fantasized about space travel but ca n't afford the 20 million ticket to ride a russian rocket should catch this imax offering .
+tensor(0)	tedious norwegian offering which somehow snagged an oscar nomination .
+tensor(0)	even as it pays earnest homage to turntablists and beat jugglers , old schoolers and current innovators , scratch is great fun , full of the kind of energy it 's documenting .
+tensor(0)	that neither protagonist has a distinguishable condition hardly matters because both are just UNK concoctions , defined by childlike dimness and a handful of quirks .
+tensor(0)	it is a UNK , dense sci - fi action thriller hybrid that delivers and then some . i have n't seen one in so long , no wonder i did n't recognize it at first .
+tensor(0)	watching the chemistry between freeman and judd , however , almost makes this movie worth seeing . almost .
+tensor(0)	the comedy makes social commentary more palatable .
+tensor(0)	the sum of all fears pretends to be a serious exploration of nuclear terrorism , but it 's really nothing more than warmed - over cold war paranoia .
+tensor(0)	its spirit of iconoclastic abandon - - however canned - - makes for unexpectedly giddy viewing .
+tensor(0)	would be an unendurable viewing experience for this ultra - provincial new yorker if 26 - year - old reese witherspoon were not on hand to inject her pure fantasy character , melanie carmichael , with a massive infusion of old - fashioned hollywood magic .
+tensor(0)	ludicrous , but director carl franklin adds enough flourishes and freak - outs to make it entertaining .
+tensor(0)	cuaron repeatedly , perversely undercuts the joie de vivre even as he creates it , giving the movie a mournful undercurrent that places the good - time shenanigans in welcome perspective .
+tensor(0)	the drama is played out with such aching beauty and truth that it brings tears to your eyes .
+tensor(0)	nothing more substantial than a fitfully clever doodle .
+tensor(0)	derailed by bad writing and possibly also by some of that extensive post - production reworking to aim the film at young males in the throes of their first full flush of testosterone .
+tensor(0)	it 's a big idea , but the film itself is small and shriveled .
+tensor(0)	a virtual roller - coaster ride of glamour and sleaze .
+tensor(0)	you do n't need to be a hip - hop fan to appreciate scratch , and that 's the mark of a documentary that works .
+tensor(0)	if this is an example of the type of project that robert redford 's lab is willing to lend its imprimatur to , then perhaps it 's time to rethink independent films .
+tensor(0)	films about loss , grief and recovery are pretty valuable these days . seen in that light , moonlight mile should strike a nerve in many .
+tensor(0)	it deserves to be seen by anyone with even a passing interest in the events shaping the world beyond their own horizons .
+tensor(0)	if we sometimes need comforting fantasies about mental illness , we also need movies like tim mccann 's revolution no . 9 .
+tensor(0)	the more you think about the movie , the more you will probably like it .
+tensor(0)	queen of the damned is too long with too little going on .
+tensor(0)	a penetrating glimpse into the tissue - thin ego of the stand - up comic .
+tensor(0)	odd and weird .
+tensor(0)	jagger , stoppard and director michael apted . . . deliver a riveting and surprisingly romantic ride .
+tensor(0)	worth seeing once , but its charm quickly fades .
+tensor(0)	about as cutting - edge as pet rock the movie .
+tensor(0)	cusack 's just brilliant in this .
+tensor(0)	although german cooking does not come readily to mind when considering the world 's best cuisine , mostly martha could make UNK a popular destination for hungry tourists .
+tensor(0)	a surprisingly flat retread , hobbled by half - baked setups and sluggish pacing .
+tensor(0)	too simple for its own good .
+tensor(0)	poignant and delicately complex .
+tensor(0)	maelstrom is strange and compelling , engrossing and different , a moral tale with a twisted sense of humor .
+tensor(0)	a decent - enough nail - biter that stands a good chance of being the big hit franklin needs to stay afloat in hollywood .
+tensor(0)	a low - key labor of love that strikes a very resonant chord .
+tensor(0)	it sticks rigidly to the paradigm , rarely permitting its characters more than two obvious dimensions and repeatedly placing them in contrived , well - worn situations .
+tensor(0)	skillfully weaves both the elements of the plot and a powerfully evocative mood combining heated sexuality with a haunting sense of malaise .
+tensor(0)	the am - radio soundtrack and game cast - - tierney and the inimitable walken especially - - keep this unusual comedy from choking on its own conceit .
+tensor(0)	UNK vel UNK pelo fracasso UNK UNK de doce lar , o UNK c . jay cox n o UNK UNK UNK os UNK UNK momentos em que UNK da UNK .
+tensor(0)	biggie and tupac is so single - mindedly daring , it puts far more polished documentaries to shame .
+tensor(0)	what is 100 missing here is a script of even the most elemental literacy , an inkling of genuine wit , and anything resembling acting .
+tensor(0)	an almost unbearably morbid love story .
+tensor(0)	the story is predictable , the jokes are typical sandler fare , and the romance with ryder is puzzling .
+tensor(0)	as antonia is assimilated into this newfangled community , the film settles in and becomes compulsively watchable in a guilty - pleasure , daytime - drama sort of fashion .
+tensor(0)	by and large this is mr . kilmer 's movie , and it 's his strongest performance since the doors .
+tensor(0)	none of this sounds promising and , indeed , the first half of sorority boys is as appalling as any UNK to ever spill from a projector 's lens .
+tensor(0)	the bourne identity is what summer screen escapism used to be in the decades when it was geared more to grownups .
+tensor(0)	. . . if it had been only half - an - hour long or a tv special , the humor would have been fast and furious - - at ninety minutes , it drags .
+tensor(0)	if UNK wanted to tell a story about a man who loses his faith , why did n't he just do it , instead of using bad sci - fi as window dressing ?
+tensor(0)	the film 's greatest asset is how much it 's not just another connect - the - dots , spy - on - the - run picture .
+tensor(0)	if you 're as happy listening to movies as you are watching them , and the slow parade of human frailty fascinates you , then you 're at the right film .
+tensor(0)	it strikes hardest when it reminds you how pertinent its dynamics remain . fifty years after the fact , the world 's political situation seems little different , and director phillip noyce brings out the allegory with remarkable skill .
+tensor(0)	it 's a piece of handiwork that shows its indie tatters and self - conscious seams in places , but has some quietly moving moments and an intelligent subtlety .
+tensor(0)	extremely well acted by the four primary actors , this is a seriously intended movie that is not easily forgotten .
+tensor(0)	este apenas mais um ( longo ) UNK dio do programa da mtv . a nica UNK a que , desta vez , a paramount teve o mau UNK de UNK - lo nos cinemas .
+tensor(0)	fans of nijinsky will savor every minute of cox 's work .
+tensor(0)	stevens is so stoked to make an important film about human infidelity and happenstance that he tosses a kitchen sink onto a story already overladen with plot conceits .
+tensor(0)	by applying definition to both sides of the man , the picture realizes a fullness that does not negate the subject .
+tensor(0)	filmmaker stacy peralta has a flashy editing style that does n't always jell with sean penn 's monotone narration , but he respects the material without sentimentalizing it .
+tensor(0)	audiences will find no mention of political prisoners or persecutions that might paint the castro regime in less than saintly tones .
+tensor(0)	. . . a powerful sequel and one of the best films of the year .
+tensor(0)	this is a throwaway , junk - food movie whose rap soundtrack was better tended to than the film itself .
+tensor(0)	death to smoochy tells a moldy - oldie , not - nearly - as - nasty - as - it - thinks - it - is joke . over and over again .
+tensor(0)	do not , under any circumstances , consider taking a child younger than middle school age to this wallow in crude humor .
+tensor(0)	a compelling portrait of moral emptiness
+tensor(0)	the sequel plays out like a flimsy excuse to give blade fans another look at wesley UNK iconic hero doing battle with dozens of bad guys - - at once .
+tensor(0)	at once half - baked and overheated .
+tensor(0)	i have two words to say about reign of fire . great dragons !
+tensor(0)	dong shows how intolerance has the power to deform families , then tear them apart .
+tensor(0)	an amateurish , quasi - improvised acting exercise shot on ugly digital video .
+tensor(0)	see it now , before the inevitable hollywood remake flattens out all its odd , intriguing wrinkles .
+tensor(0)	all prints of this film should be sent to and buried on pluto .
+tensor(0)	an enjoyable comedy of lingual and cultural differences the ch UNK is a film - - full of life and small delights - - that has all the wiggling energy of young kitten .
+tensor(0)	director todd solondz has made a movie about critical reaction to his two previous movies , and about his responsibility to the characters that he creates .
+tensor(0)	it goes on for too long and bogs down in a surfeit of characters and unnecessary subplots .
+tensor(0)	jolting into charleston rhythms , the story has the sizzle of old news that has finally found the right vent ( accurate ? who cares ? ) .
+tensor(0)	the story is familiar from its many predecessors like them , it eventually culminates in the not - exactly - stunning insight that crime does n't pay .
+tensor(0)	a era do gelo UNK , mas n o UNK . um UNK UNK e s .
+tensor(0)	instead of hiding pinocchio from critics , miramax should have hidden it from everyone .
+tensor(0)	f rom the performances and the cinematography to the outstanding soundtrack and unconventional narrative , the film is blazingly alive and admirable on many levels .
+tensor(0)	peter jackson and company once again dazzle and delight us , fulfilling practically every expectation either a longtime tolkien fan or a movie - going neophyte could want .
+tensor(0)	the kind of film that leaves you scratching your head in amazement over the fact that so many talented people could participate in such an ill - advised and poorly executed idea .
+tensor(0)	rarely has a film 's title served such dire warning .
+tensor(0)	. . . a rather bland affair .
+tensor(0)	the premise of abandon holds promise , . . . but its delivery is a complete mess .
+tensor(0)	harvard man is a semi - throwback , a reminiscence without nostalgia or sentimentality .
+tensor(0)	too loud , too long and too frantic by half , die another day suggests that the bond franchise has run into a creative wall that 007 cannot fly over , tunnel under or barrel through .
+tensor(0)	the casting of raymond j . barry as the UNK greatly enhances the quality of neil burger 's impressive fake documentary .
+tensor(0)	the enjoyable undercover brother , a zany mix of saturday night live - style parody , '70s blaxploitation films and goofball action comedy gone wild , dishes out a ton of laughs that everyone can enjoy .
+tensor(0)	the cartoon that is n't really good enough to be on afternoon tv is now a movie that is n't really good enough to be in theaters .
+tensor(0)	this film is an act of spiritual faith - - an eloquent , deeply felt meditation on the nature of compassion .
+tensor(0)	this 100 - minute movie only has about 25 minutes of decent material .
+tensor(0)	a thoughtful look at a painful incident that made headlines in 1995 .
+tensor(0)	the film 's gamble to occasionally break up the live - action scenes with animated sequences pays off , as does its sensitive handling of some delicate subject matter .
+tensor(0)	bring on the sequel .
+tensor(0)	for all the charm of kevin kline and a story that puts old - fashioned values under the microscope , there 's something creepy about this movie .
+tensor(0)	. . . with the candy - like taste of it fading faster than 25 - cent bubble gum , i realized this is a throwaway movie that wo n't stand the test of time . it 's a trifle .
+tensor(0)	even before it builds up to its insanely staged ballroom scene , in which 3000 actors appear in full regalia , it 's waltzed itself into the art film pantheon .
+tensor(0)	UNK could pass for a thirteen - year - old 's book report on the totalitarian themes of 1984 and farenheit 451 .
+tensor(0)	a lovely film . . . elegant , witty and beneath a prim exterior unabashedly romantic . . . hugely enjoyable in its own right though not really faithful to its source 's complexity .
+tensor(0)	while glover , the irrepressible eccentric of river 's edge , dead man and back to the future , is perfect casting for the role , he represents bartleby 's main overall flaw .
+tensor(0)	part of the charm of satin rouge is that it avoids the obvious with humour and lightness .
+tensor(0)	washington overcomes the script 's flaws and envelops the audience in his character 's anguish , anger and frustration .
+tensor(0)	. . . the plot weaves us into a complex web .
+tensor(0)	a gangster movie with the capacity to surprise .
+tensor(0)	just about the surest bet for an all - around good time at the movies this summer .
+tensor(0)	the performances are an absolute joy .
+tensor(0)	a grand fart coming from a director beginning to resemble someone 's crazy french grandfather .
+tensor(0)	all that ( powerpuff girls ) charm is present in the movie , but it 's spread too thin .
+tensor(0)	creepy , authentic and dark . this disturbing bio - pic is hard to forget .
+tensor(0)	it 's easy to be cynical about documentaries in which underdogs beat the odds and the human spirit triumphs , but westbrook 's foundation and dalrymple 's film earn their uplift .
+tensor(0)	the sentimental script has problems , but the actors pick up the slack .
+tensor(0)	. . . a magnificent drama well worth tracking down .
+tensor(0)	broomfield has a rather unique approach to documentary . he thinks the film is just as much a document about him as it is about the subject .
+tensor(0)	. . . a light , yet engrossing piece . lux , now in her eighties , does a great combination act as narrator , jewish grandmother and subject taking us through a film that is part biography , part entertainment and part history .
+tensor(0)	this is mostly well - constructed fluff , which is all it seems intended to be .
+tensor(0)	dong never pushes for insights beyond the superficial tensions of the dynamic he 's dissecting , and the film settles too easily along the contours of expectation .
+tensor(0)	here 's a self - congratulatory 3d imax rah - rah .
+tensor(0)	the chateau cleverly probes the cross - cultural differences between gauls and yanks .
+tensor(0)	to call the other side of heaven appalling would be to underestimate just how dangerous entertainments like it can be .
+tensor(0)	it might be UNK to watch on video at home , but that should n't stop die - hard french film connoisseurs from going out and enjoying the big - screen experience .
+tensor(0)	a few pieces of the film buzz and whir very little of it actually clicks . the thing just never gets off the ground .
+tensor(0)	i was amused and entertained by the unfolding of bielinsky 's cleverly constructed scenario , and greatly impressed by the skill of the actors involved in the enterprise .
+tensor(0)	it says a lot about a filmmaker when he can be wacky without clobbering the audience over the head and still maintain a sense of urgency and suspense .
+tensor(0)	i guess it just goes to show that if you give a filmmaker an unlimited amount of phony blood , nothing good can happen .
+tensor(0)	oddly , the film is n't nearly as downbeat as it sounds , but strikes a tone that 's alternately melancholic , hopeful and strangely funny .
+tensor(0)	this bond film goes off the beaten path , not necessarily for the better .
+tensor(0)	every individual will see the movie through the prism of his or her own beliefs and prejudices , but the one thing most will take away is the sense that peace is possible . that , in itself , is extraordinary .
+tensor(0)	a riveting story well told .
+tensor(0)	whenever you think you 've figured out late marriage , it throws you for a loop .
+tensor(0)	sc2 is an autopilot hollywood concoction lacking in imagination and authentic christmas spirit , yet it 's geared toward an audience full of masters of both .
+tensor(0)	one senses in world traveler and in his earlier film that freundlich bears a grievous but obscure complaint against fathers , and circles it obsessively , without making contact .
+tensor(0)	for most of the distance the picture provides a satisfyingly unsettling ride into the dark places of our national psyche .
+tensor(0)	poetic , heartbreaking .
+tensor(0)	a very pretty after - school special . it 's an effort to watch this movie , but it eventually pays off and is effective if you stick with it .
+tensor(0)	the country bears has no scenes that will upset or frighten young viewers . unfortunately , there is almost nothing in this flat effort that will amuse or entertain them , either .
+tensor(0)	not once in the rush to save the day did i become very involved in the proceedings to me , it was just a matter of UNK . '
+tensor(0)	ambitious , unsettling psychodrama that takes full , chilling advantage of its rough - around - the - edges , low - budget constraints .
+tensor(0)	piccoli 's performance is amazing , yes , but the symbols of loss and denial and life - at - arm 's - length in the film seem irritatingly transparent .
+tensor(0)	a macabre and very stylized swedish UNK about a modern city where all the religious and civic virtues that hold society in place are in tatters .
+tensor(0)	the ring just left me cold and wet like i was out in the seattle drizzle without rainwear .
+tensor(0)	you might not want to hang out with samantha , but you 'll probably see a bit of yourself in her unfinished story .
+tensor(0)	like its parade of predecessors , this halloween is a gory slash - fest . it ca n't escape its past , and it does n't want to .
+tensor(0)	do n't let your festive spirit go this far .
+tensor(0)	if the title is a jeopardy question , then the answer might be how does steven seagal come across these days ? or maybe how will you feel after an 88 - minute rip - off of the rock with action confined to slo - mo gun firing and random glass - shattering ?
+tensor(0)	jir UNK 's script is a gem . his characters are engaging , intimate and the dialogue is realistic and greatly moving . the scope of the silberstein family is large and we grow attached to their lives , full of strength , warmth and vitality . .
+tensor(0)	ritchie 's film is easier to swallow than wertmuller 's polemical allegory , but it 's self - UNK decorous .
+tensor(0)	the metaphors are provocative , but too often , the viewer is left puzzled by the mechanics of the delivery .
+tensor(0)	while the now 72 - year - old robert evans been slowed down by a stroke , he has at least one more story to tell his own .
+tensor(0)	we know the plot 's a little crazy , but it held my interest from start to finish .
+tensor(0)	hard as this may be to believe , here on earth , a surprisingly similar teen drama , was a better film .
+tensor(0)	arteta directs one of the best ensemble casts of the year
+tensor(0)	the cast is top - notch and i predict there will be plenty of female audience members drooling over michael UNK as michael .
+tensor(0)	like a south - of - the - border melrose place .
+tensor(0)	katz 's documentary does n't have much panache , but with material this rich it does n't need it .
+tensor(0)	even as i valiantly struggled to remain interested , or at least conscious , i could feel my eyelids . . . getting . . . very . . . heavy . . .
+tensor(0)	a gently funny , sweetly adventurous film that makes you feel genuinely good , that is to say , entirely UNK by false sentiment or sharp , UNK hollywood practices .
+tensor(0)	nothing short of wonderful with its ten - year - old female protagonist and its steadfast refusal to set up a dualistic battle between good and evil .
+tensor(0)	tailored to entertain !
+tensor(0)	miyazaki 's nonstop images are so stunning , and his imagination so vivid , that the only possible complaint you could have about spirited away is that there is no rest period , no timeout .
+tensor(0)	so refreshingly incisive is grant that for the first time he 'll probably appeal more to guys than to their girlfriends who drag them to this movie for the hugh factor .
+tensor(0)	though it draws several decent laughs , it 's low - cal woody at best .
+tensor(0)	for all its alleged youthful fire , xxx is no less subservient to bond 's tired formula of guns , girls and gadgets while brandishing a new action hero .
+tensor(0)	parts seem like they were lifted from terry gilliam 's subconscious , pressed through kafka 's meat grinder and into bu uel 's casings
+tensor(0)	bond - inspired ? certainly . likely to have decades of life as a classic movie franchise ? let 's hope not .
+tensor(0)	starts out mediocre , spirals downward , and thuds to the bottom of the pool with an utterly incompetent conclusion .
+tensor(0)	godawful boring slug of a movie .
+tensor(0)	the second chapter of the harry potter series is even more magical than the first and simply the best family film of the year .
+tensor(0)	beautifully crafted and brutally honest , promises offers an unexpected window into the complexities of the middle east struggle and into the humanity of its people .
+tensor(0)	from its invitingly upbeat overture to its pathos - filled but ultimately life - affirming finale , martin is a masterfully conducted work .
+tensor(0)	each of these stories has the potential for touched by an angel simplicity and sappiness , but thirteen conversations about one thing , for all its generosity and optimism , never resorts to easy feel - good sentiments .
+tensor(0)	the overall effect is awe and affection - - and a strange urge to get on a board and , uh , shred , dude .
+tensor(0)	if lilo stitch is n't the most edgy piece of disney animation to hit the silver screen , then this first film to use a watercolor background since dumbo certainly ranks as the most original in years .
+tensor(0)	a cautionary tale about the folly of superficiality that is itself endlessly superficial .
+tensor(0)	why , you may ask , why should you buy the movie milk when the tv cow is free ? there 's no good answer to that one .
+tensor(0)	equal parts bodice - ripper and plodding costume drama .
+tensor(0)	my thoughts were focused on the characters . that is a compliment to kuras and miller . if i had been thinking about the visual medium , they would have been doing something wrong .
+tensor(0)	due to stodgy , soap opera - ish dialogue , the rest of the cast comes across as stick figures reading lines from a teleprompter .
+tensor(0)	predictably melodramatic .
+tensor(0)	nettelbeck . . . has a pleasing way with a metaphor .
+tensor(0)	the result puts a human face on derrida , and makes one of the great minds of our times interesting and accessible to people who normally could n't care less .
+tensor(0)	the pleasures of super troopers may be fleeting , but they 'll register strongly with anybody who still retains a soft spot for UNK humor .
+tensor(0)	a terrific date movie , whatever your orientation .
+tensor(0)	light , cute and forgettable .
+tensor(0)	i think it was plato who said , UNK think , therefore i know better than to rush to the theatre for this one . '
+tensor(0)	UNK and amazing , ' unhappily , is neither . . . excessively strained and contrived .
+tensor(0)	despite a performance of sustained intelligence from stanford and another of subtle humour from bebe neuwirth , as an older woman who seduces oscar , the film founders on its lack of empathy for the social milieu - rich new york intelligentsia - and its off
+tensor(0)	tony gayton 's script does n't give us anything we have n't seen before , but director d . j . caruso 's grimy visual veneer and kilmer 's absorbing performance increase the gravitational pull considerably .
+tensor(0)	just is n't as weird as it ought to be .
+tensor(0)	a finely tuned mood piece , a model of menacing atmosphere .
+tensor(0)	the acting , for the most part , is terrific , although the actors must struggle with the fact that they 're playing characters who sometimes feel more like literary conceits than flesh - and - blood humans .
+tensor(0)	there 's so much to look at in metropolis you hate to tear your eyes away from the images long enough to read the subtitles .
+tensor(0)	. . . stale and uninspired .
+tensor(0)	no worse a film than breaking out , and breaking out was utterly charming .
+tensor(0)	UNK vision is far less mature , interpreting the play as a call for pity and sympathy for anachronistic phantasms haunting the imagined glory of their own pasts .
+tensor(0)	sets animation back 30 years , musicals back 40 years and judaism back at least 50 .
+tensor(0)	not a movie but a live - action agitprop cartoon so shameless and coarse , it 's almost funny .
+tensor(0)	such a premise is ripe for all manner of lunacy , but kaufman and gondry rarely seem sure of where it should go .
+tensor(0)	you really have to wonder how on earth anyone , anywhere could have thought they 'd make audiences guffaw with a script as utterly diabolical as this .
+tensor(0)	though the aboriginal aspect lends the ending an extraordinary poignancy , and the story itself could be played out in any working class community in the nation .
+tensor(0)	lathan and diggs have considerable personal charm , and their screen rapport makes the old story seem new .
+tensor(0)	for a film that 's being advertised as a comedy , sweet home alabama is n't as funny as you 'd hoped . for a film that 's being advertised as a comedy , sweet home alabama is n't as funny as you 'd hoped .
+tensor(0)	i can imagine this movie as a b w british comedy , circa 1960 , with peter sellers , kenneth williams , et al . , but at this time , with this cast , this movie is hopeless .
+tensor(0)	the plot is so amusingly contrived and outlandish in its coincidences that no one could ever mistake it for anything resembling reality
+tensor(0)	there 's a disreputable air about the whole thing , and that 's what makes it irresistible .
+tensor(0)	a very well - made , funny and entertaining picture .
+tensor(0)	i like this movie a lot . i like that smith , he 's not making fun of these people , he 's not laughing at them .
+tensor(0)	it 's not too fast and not too slow . it 's not too racy and it 's not too offensive . it 's not too much of anything .
+tensor(0)	the basic premise is intriguing but quickly becomes distasteful and downright creepy .
+tensor(0)	a tasty masala .
+tensor(0)	it 's an awfully derivative story .
+tensor(0)	a smart , compelling drama .
+tensor(0)	if the idea of the white man arriving on foreign shores to show wary natives the true light is abhorrent to you , the simplistic heaven will quite likely be more like hell .
+tensor(0)	an amazing and incendiary movie that dives straight into the rough waters of contradiction .
+tensor(0)	benefits from a strong performance from zhao , but it 's dong jie 's face you remember at the end .
+tensor(0)	the mood , look and tone of the film fit the incredible storyline to a t .
+tensor(0)	the cumulative effect of watching this 65 - minute trifle is rather like being trapped while some weird relative trots out the video he took of the family vacation to stonehenge . before long , you 're desperate for the evening to end .
+tensor(0)	has something to say . . . but it is a statement and issue worthy of a much more thoughtfulness and insight than a melodramatic and wholly predictable thriller .
+tensor(0)	yet another self - consciously overwritten story about a rag - tag bunch of would - be characters that team up for a ca n't - miss heist - - only to have it all go wrong .
+tensor(0)	wedding feels a bit anachronistic . still , not every low - budget movie must be quirky or bleak , and a happy ending is no cinematic sin .
+tensor(0)	sweet home alabama is n't going to win any academy awards , but this date - night diversion will definitely win some hearts .
+tensor(0)	a movie where story is almost an afterthought amidst a swirl of colors and inexplicable events .
+tensor(0)	apparently designed as a reverie about memory and regret , but the only thing you 'll regret is remembering the experience of sitting through it .
+tensor(0)	does n't deliver a great story , nor is the action as gripping as in past seagal films .
+tensor(0)	ear - splitting exercise in formula crash - and - bash action .
+tensor(0)	all the pieces fall together without much surprise , but little moments give it a boost .
+tensor(0)	stands as one of the year 's most intriguing movie experiences , letting its imagery speak for it while it forces you to ponder anew what a movie can be .
+tensor(0)	droll caper - comedy remake of big deal on madonna street that 's a sly , amusing , laugh - filled little gem in which the ultimate bellini begins to look like a real UNK .
+tensor(0)	labute 's careful handling makes the material seem genuine rather than pandering .
+tensor(0)	a triumph , a film that hews out a world and carries us effortlessly from darkness to light .
+tensor(0)	the movie is too amateurishly square to make the most of its own ironic implications .
+tensor(0)	those prone to indignation need not apply those susceptible to blue hilarity , step right up .
+tensor(0)	fubar is very funny , but not always in a laugh - out - loud way .
+tensor(0)	a derivative collection of horror and sci - fi cliches .
+tensor(0)	the overall effect is so completely inane that one would have to be mighty bored to even think of staying with this for more than , say , ten . . . make that three minutes .
+tensor(0)	a better title , for all concerned , might be swept under the rug .
+tensor(0)	while easier to sit through than most of jaglom 's self - conscious and gratingly irritating films , it 's still tainted by cliches , painful improbability and murky points .
+tensor(0)	a pointed , often tender , examination of the pros and cons of unconditional love and familial duties .
+tensor(0)	with mcconaughey in an entirely irony - free zone and bale reduced mainly to batting his sensitive eyelids , there 's not enough intelligence , wit or innovation on the screen to attract and sustain an older crowd .
+tensor(0)	scherfig has made a movie that will leave you wondering about the UNK lives after the clever credits roll .
+tensor(0)	a provocative movie about loss , anger , greed , jealousy , sickness and love .
+tensor(0)	novak manages to capture a cruelly hilarious vein of black comedy in the situation with his cast of non - actors and a gritty , no - budget approach .
+tensor(0)	sayles has a knack for casting , often resurrecting performers who rarely work in movies now . . . and drawing flavorful performances from bland actors .
+tensor(0)	here 's a case of two actors who do everything humanly possible to create characters who are sweet and believable , and are defeated by a screenplay that forces them into bizarre , implausible behavior .
+tensor(0)	too much power , not enough puff .
+tensor(0)	the ingenuity that parker displays in freshening the play is almost in a class with that of wilde himself .
+tensor(0)	i do n't know precisely what to make of steven soderbergh 's full frontal , though that did n't stop me from enjoying much of it .
+tensor(0)	writer director david caesar ladles on the local flavour with a hugely enjoyable film about changing times , clashing cultures and the pleasures of a well - made pizza .
+tensor(0)	constantly slips from the grasp of its maker .
+tensor(0)	a big , baggy , sprawling carnival of a movie , stretching out before us with little rhyme or reason .
+tensor(0)	the entire movie is so formulaic and forgettable that it 's hardly over before it begins to fade from memory .

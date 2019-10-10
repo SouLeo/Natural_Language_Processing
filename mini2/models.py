@@ -87,18 +87,18 @@ def train_evaluate_fancy(train_exs: List[SentimentExample], dev_exs: List[Sentim
     # shrink input for faster training and debugging
 
     full_set = 8530-1
-    cutoff = 8000
-    train_mat = train_mat[0:cutoff]
-    train_seq_lens = train_seq_lens[0:cutoff]
-    train_labels_arr = train_labels_arr[0:cutoff]
+    cutoff = 50
+    train_mat_alt = train_mat[0:cutoff]
+    train_seq_lens_alt = train_seq_lens[0:cutoff]
+    train_labels_arr_alt = train_labels_arr[0:cutoff]
 
-    hidden_size = 128  #256
+    hidden_size = 128  # 256
     n_layers = 1
-    batch_size = 100
+    batch_size = 1
     bilstm = BiLSTM(word_vectors.vectors, word_vectors.get_embedding_length(), hidden_size, n_layers, batch_size)
     # print(bilstm)
     print('begin training')
-    bilstm_training(batch_size, train_labels_arr, train_seq_lens, train_mat, bilstm)
+    bilstm_training(batch_size, train_labels_arr_alt, train_seq_lens_alt, train_mat_alt, bilstm)
     print('done training')
 
     # Begin Prediction
@@ -110,7 +110,7 @@ def train_evaluate_fancy(train_exs: List[SentimentExample], dev_exs: List[Sentim
 
     # shrink input for faster training and debugging
     whole_dev = 1066-1
-    cutoff_d = 4000  #whole_dev
+    cutoff_d = 1000  #whole_dev
     dev_mat = train_mat[0:cutoff_d]  #dev_mat[0:cutoff_d]
     dev_seq_lens = train_seq_lens[0:cutoff_d]  #dev_seq_lens[0:cutoff_d]
     dev_labels_arr = train_labels_arr[0:cutoff_d] #dev_labels_arr[0:cutoff_d]
@@ -120,13 +120,16 @@ def train_evaluate_fancy(train_exs: List[SentimentExample], dev_exs: List[Sentim
 
     bilstm.batch_size = cutoff_d
     bilstm.hidden = bilstm.init_hidden()
+    # test_loader = load_data(train_mat, train_labels, train_seq_lens, batch_size)
     predictions = bilstm.forward(torch.from_numpy(dev_mat), torch.from_numpy(dev_seq_lens))
-    predictions = predictions.data.max(1)[1].numpy()
-    for idx in range(0, len(predictions)):
+
+    # predictions = predictions.data.max(1)[1].numpy()
+    _, y_hat = torch.max(predictions.data, 1)
+    for idx in range(0, len(y_hat)):
         # prediction = bilstm.predict_forward(dev_mat[idx], dev_seq_lens[idx])
-        guess = SentimentExample(dev_exs[idx].indexed_words, predictions[idx])
+        guess = SentimentExample(train_exs[idx].indexed_words, y_hat[idx])
         guesses.append(guess)
-        if predictions[idx] == dev_exs[idx].label:
+        if y_hat[idx] == train_exs[idx].label:
             correct += 1
     accuracy = 100 * correct / len(dev_mat)
     print('accuracy: ')
