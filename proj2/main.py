@@ -171,7 +171,24 @@ def train_model_encdec(train_data: List[Example], test_data: List[Example], inpu
 
     # First create a model. Then loop over epochs, loop over examples, and given some indexed words, call
     # the encoder, call your decoder, accumulate losses, update parameters
-    raise Exception("Implement the rest of me to train your encoder-decoder model")
+
+    # TODO: Create Training Loop
+    encoder_embed_layer = EmbeddingLayer(input_dim=300, full_dict_size=len(input_indexer), embedding_dropout_rate=0.2)
+    x = all_train_input_data[0, :]  # one example to embed layer
+    x_len = encoder_embed_layer.forward(torch.from_numpy(x))
+
+    encoder = RNNEncoder(input_size=300, hidden_size=128, bidirect=True)
+
+    decoder_embed_layer = EmbeddingLayer(input_dim=300, full_dict_size=len(output_indexer), embedding_dropout_rate=0.2)
+    decoder = RNNDecoder(input_size=4, hidden_size=128, bidirect=False)
+
+    criterion = nn.CrossEntropyLoss()
+    encoder_optimizer = optim.Adam(encoder.parameters(), lr=1e-3)
+    decoder_optimizer = optim.Adam(decoder.parameters(), lr=1e-3)
+    epochs = 5
+    for epoch in range(0, epochs):
+        print('hi')
+        # TODO: Create Batching Helper Functions
 
 
 def evaluate(test_data: List[Example], decoder, example_freq=50, print_output=True, outfile=None):
@@ -220,6 +237,7 @@ if __name__ == '__main__':
     else:
         decoder = train_model_encdec(train_data_indexed, dev_data_indexed, input_indexer, output_indexer, args)
     print("=======FINAL EVALUATION ON BLIND TEST=======")
-    evaluate(test_data_indexed, decoder, print_output=False, outfile="geo_test_output.tsv")
+    # TODO: Evaluate function checking TRAIN data NOT TEST (test_data_indexed)
+    evaluate(train_data_indexed, decoder, print_output=False, outfile="geo_test_output.tsv")
 
 
