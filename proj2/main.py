@@ -9,6 +9,8 @@ from models import *
 from data import *
 from utils import *
 from typing import List
+from tutorial_seq2seq import *
+from torch.utils.data import TensorDataset, DataLoader
 
 def _parse_args():
     """
@@ -23,8 +25,8 @@ def _parse_args():
 
     parser.add_argument('--train_path', type=str, default='data/geo_train.tsv', help='path to train data')
     parser.add_argument('--dev_path', type=str, default='data/geo_dev.tsv', help='path to dev data')
-    parser.add_argument('--test_path', type=str, default='data/geo_test.tsv', help='path to blind test data')
-    parser.add_argument('--test_output_path', type=str, default='geo_test_output.tsv', help='path to write blind test results')
+    parser.add_argument('--test_path', type=str, default='data/geo_dev.tsv', help='path to blind test data')
+    parser.add_argument('--test_output_path', type=str, default='geo_dev_output.tsv', help='path to write blind test results')
     parser.add_argument('--domain', type=str, default='geo', help='domain (geo for geoquery)')
     
     # Some common arguments for your convenience
@@ -172,23 +174,41 @@ def train_model_encdec(train_data: List[Example], test_data: List[Example], inpu
     # First create a model. Then loop over epochs, loop over examples, and given some indexed words, call
     # the encoder, call your decoder, accumulate losses, update parameters
 
+    # BATCH IT:
+    batch_size = 48  #
+    # exs_per_batch = int(all_train_input_data.shape[0]/batch_size)
+    # num_examples = np.arange(all_train_input_data.shape[0])
+    # np.random.shuffle(num_examples)
+    #
+    # batches = num_examples.reshape((batch_size, exs_per_batch))  # 10 batches w/ 48 examples ea.
+
+    train_data_tensor = TensorDataset(torch.from_numpy(all_train_input_data), torch.from_numpy(all_train_output_data))
+    test_data_tensor = TensorDataset(torch.from_numpy(all_test_input_data), torch.from_numpy(all_test_output_data))
+    train_loader = DataLoader(train_data_tensor, shuffle=True, batch_size=batch_size)
+    test_loader = DataLoader(test_data_tensor, shuffle=True, batch_size=batch_size)
+
+    encoder = EncoderRNN(input_size=238, hidden_size=128)
+    decoder = AttnDecoderRNN(hidden_size=128, output_size=153)
+
+    model = Seq2Seq(encoder, decoder)
+
     # TODO: Create Training Loop
-    encoder_embed_layer = EmbeddingLayer(input_dim=300, full_dict_size=len(input_indexer), embedding_dropout_rate=0.2)
-    x = all_train_input_data[0, :]  # one example to embed layer
-    x_len = encoder_embed_layer.forward(torch.from_numpy(x))
-
-    encoder = RNNEncoder(input_size=300, hidden_size=128, bidirect=True)
-
-    decoder_embed_layer = EmbeddingLayer(input_dim=300, full_dict_size=len(output_indexer), embedding_dropout_rate=0.2)
-    decoder = RNNDecoder(input_size=4, hidden_size=128, bidirect=False)
-
-    criterion = nn.CrossEntropyLoss()
-    encoder_optimizer = optim.Adam(encoder.parameters(), lr=1e-3)
-    decoder_optimizer = optim.Adam(decoder.parameters(), lr=1e-3)
     epochs = 5
     for epoch in range(0, epochs):
-        print('hi')
+        print('epoch num: ')
+        print(epoch)
         # TODO: Create Batching Helper Functions
+        for sents, labels in train_loader:
+            criterion = nn.CrossEntropyLoss()
+
+            model.encoder_optimizer.zero_grad()
+            model.decoder_optimizer.zero_grad()
+
+            model.forward(sents, labels)
+
+
+
+
 
 
 def evaluate(test_data: List[Example], decoder, example_freq=50, print_output=True, outfile=None):
