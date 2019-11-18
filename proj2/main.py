@@ -78,12 +78,46 @@ class NearestNeighborSemanticParser(object):
 
 
 class Seq2SeqSemanticParser(object):
-    def __init__(self):
-        raise Exception("implement me!")
+    def __init__(self, model, input_indexer, output_indexer, criterion):
+        self.model = model
+        self.input_indexer = input_indexer
+        self.output_indexer = output_indexer
+        self.criterion = criterion
+        # raise Exception("implement me!")
         # Add any args you need here
 
     def decode(self, test_data: List[Example]) -> List[List[Derivation]]:
-        raise Exception("implement me!")
+        # Sort in descending order by x_indexed, essential for pack_padded_sequence
+        test_data.sort(key=lambda ex: len(ex.x_indexed), reverse=True)
+
+        input_max_len = 19
+        all_test_input_data = make_padded_input_tensor(test_data, self.input_indexer, input_max_len, reverse_input=False)
+        output_max_len = 65
+        all_test_output_data = make_padded_output_tensor(test_data, self.output_indexer, output_max_len)
+        batch_size = 48  #
+
+        test_data_tensor = TensorDataset(torch.from_numpy(all_test_input_data), torch.from_numpy(all_test_output_data))
+        test_loader = DataLoader(test_data_tensor, shuffle=False, batch_size=batch_size)
+
+        epoch_loss = 0
+        self.model.eval()
+        with torch.no_grad():
+            for sents, labels in test_loader:
+                output = self.model(sents, labels, 0)
+
+                out_q = output.argmax(2)
+                w, h = out_q.shape[0], out_q.shape[1]
+                decoded_out = [[self.output_indexer.get_object(int(out_q[x, y])) for x in range(w)] for y in range(h)]
+
+                output = output[1:].view(-1, output.shape[-1])
+                labels_t = torch.transpose(labels, 0, 1)
+                labels = torch.reshape(labels_t[1:], (-1,))  # use reshape instead
+                loss = self.criterion(output, labels)
+                epoch_loss += loss.item()
+        print('test data loss:')
+        print(epoch_loss)
+        print('end?')
+        # raise Exception("implement me!")
 
 
 def make_padded_input_tensor(exs: List[Example], input_indexer: Indexer, max_len: int, reverse_input=False) -> np.ndarray:
@@ -171,44 +205,55 @@ def train_model_encdec(train_data: List[Example], test_data: List[Example], inpu
     print("Train output length: %i" % np.max(np.asarray([len(ex.y_indexed) for ex in train_data])))
     print("Train matrix: %s; shape = %s" % (all_train_input_data, all_train_input_data.shape))
 
-    # First create a model. Then loop over epochs, loop over examples, and given some indexed words, call
-    # the encoder, call your decoder, accumulate losses, update parameters
-
     # BATCH IT:
     batch_size = 48  #
-    # exs_per_batch = int(all_train_input_data.shape[0]/batch_size)
-    # num_examples = np.arange(all_train_input_data.shape[0])
-    # np.random.shuffle(num_examples)
-    #
-    # batches = num_examples.reshape((batch_size, exs_per_batch))  # 10 batches w/ 48 examples ea.
 
     train_data_tensor = TensorDataset(torch.from_numpy(all_train_input_data), torch.from_numpy(all_train_output_data))
-    test_data_tensor = TensorDataset(torch.from_numpy(all_test_input_data), torch.from_numpy(all_test_output_data))
+    # test_data_tensor = TensorDataset(torch.from_numpy(all_test_input_data), torch.from_numpy(all_test_output_data))
     train_loader = DataLoader(train_data_tensor, shuffle=True, batch_size=batch_size)
-    test_loader = DataLoader(test_data_tensor, shuffle=True, batch_size=batch_size)
+    # test_loader = DataLoader(test_data_tensor, shuffle=True, batch_size=batch_size)
 
     encoder = EncoderRNN(input_size=238, hidden_size=128)
     decoder = AttnDecoderRNN(hidden_size=128, output_size=153)
-
     model = Seq2Seq(encoder, decoder)
 
+    criterion = nn.CrossEntropyLoss(ignore_index=0)  # ignore padding
     # TODO: Create Training Loop
-    epochs = 5
+    epochs = 3  # TODO: Change back to 5
     for epoch in range(0, epochs):
         print('epoch num: ')
         print(epoch)
+        model.train()
+        epoch_loss = 0
         # TODO: Create Batching Helper Functions
         for sents, labels in train_loader:
-            criterion = nn.CrossEntropyLoss()
+            model.optimizer = torch.optim.Adam(model.parameters(), lr=model.lr)
+            model.optimizer.zero_grad()
 
-            model.encoder_optimizer.zero_grad()
-            model.decoder_optimizer.zero_grad()
+            output = model.forward(sents, labels)
 
-            model.forward(sents, labels)
+            out_q = output.argmax(2)
+            w, h = out_q.shape[0], out_q.shape[1]
+            decoded_out = [[output_indexer.get_object(int(out_q[x, y])) for x in range(w)] for y in range(h)]
+
+            output = output[1:].view(-1, output.shape[-1])
+            labels_t = torch.transpose(labels, 0, 1)
+            labels = torch.reshape(labels_t[1:], (-1,))  # use reshape instead
+
+            loss = criterion(output, labels)
+            loss.backward()
+
+            torch.nn.utils.clip_grad_norm_(model.parameters(), 1)
+            model.optimizer.step()
+            epoch_loss += loss.item()
+        loss_normalized = epoch_loss/10  # ?
+        print(loss_normalized)
 
 
-
-
+    decoding_class = Seq2SeqSemanticParser(model, input_indexer, output_indexer, criterion)
+    decoded_output = decoding_class.decode(train_data)
+        # TODO: Change return statement?
+    return Seq2SeqSemanticParser(model, input_indexer, output_indexer, criterion)
 
 
 def evaluate(test_data: List[Example], decoder, example_freq=50, print_output=True, outfile=None):
@@ -256,8 +301,6 @@ if __name__ == '__main__':
         evaluate(dev_data_indexed, decoder)
     else:
         decoder = train_model_encdec(train_data_indexed, dev_data_indexed, input_indexer, output_indexer, args)
-    print("=======FINAL EVALUATION ON BLIND TEST=======")
-    # TODO: Evaluate function checking TRAIN data NOT TEST (test_data_indexed)
-    evaluate(train_data_indexed, decoder, print_output=False, outfile="geo_test_output.tsv")
-
-
+        print("=======FINAL EVALUATION ON BLIND TEST=======")
+        # TODO: Evaluate function checking TRAIN data NOT TEST (test_data_indexed)
+        evaluate(train_data_indexed, decoder, print_output=False, outfile="geo_test_output.tsv")

@@ -27,8 +27,6 @@ class Seq2Seq(nn.Module):
         self.decoder = decoder
 
         self.lr = 1e-3
-        self.encoder_optimizer = torch.optim.Adam(encoder.parameters(), lr=self.lr)
-        self.decoder_optimizer = torch.optim.Adam(decoder.parameters(), lr=self.lr)
 
     def forward(self, src, trg, teacher_forcing_ratio=0.5):
         # src = [src sent len, batch size]
