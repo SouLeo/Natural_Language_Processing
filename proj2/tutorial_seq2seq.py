@@ -168,5 +168,6 @@ class AttnDecoderRNN(nn.Module):
         rnn_input = torch.cat((embed, weighted), dim=2)
 
         output, hidden = self.gru(rnn_input, hidden.unsqueeze(0))
-        output = self.softmax(self.out(output[0]))
+        output = self.out(output[0])
+        # self.softmax(self.out(output[0]))
         return output, hidden.squeeze(0)

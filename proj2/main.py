@@ -114,6 +114,7 @@ class Seq2SeqSemanticParser(object):
                 labels = torch.reshape(labels_t[1:], (-1,))  # use reshape instead
                 loss = self.criterion(output, labels)
                 epoch_loss += loss.item()
+            epoch_loss = batch_size*epoch_loss
         print('test data loss:')
         print(epoch_loss)
         print('end?')
@@ -206,7 +207,7 @@ def train_model_encdec(train_data: List[Example], test_data: List[Example], inpu
     print("Train matrix: %s; shape = %s" % (all_train_input_data, all_train_input_data.shape))
 
     # BATCH IT:
-    batch_size = 48  #
+    batch_size = 2  #
 
     train_data_tensor = TensorDataset(torch.from_numpy(all_train_input_data), torch.from_numpy(all_train_output_data))
     # test_data_tensor = TensorDataset(torch.from_numpy(all_test_input_data), torch.from_numpy(all_test_output_data))
@@ -219,7 +220,8 @@ def train_model_encdec(train_data: List[Example], test_data: List[Example], inpu
 
     criterion = nn.CrossEntropyLoss(ignore_index=0)  # ignore padding
     # TODO: Create Training Loop
-    epochs = 3  # TODO: Change back to 5
+    model.optimizer = torch.optim.Adam(model.parameters(), lr=model.lr)
+    epochs = 10  # TODO: Change back to 5
     for epoch in range(0, epochs):
         print('epoch num: ')
         print(epoch)
@@ -227,7 +229,6 @@ def train_model_encdec(train_data: List[Example], test_data: List[Example], inpu
         epoch_loss = 0
         # TODO: Create Batching Helper Functions
         for sents, labels in train_loader:
-            model.optimizer = torch.optim.Adam(model.parameters(), lr=model.lr)
             model.optimizer.zero_grad()
 
             output = model.forward(sents, labels)
@@ -246,7 +247,7 @@ def train_model_encdec(train_data: List[Example], test_data: List[Example], inpu
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1)
             model.optimizer.step()
             epoch_loss += loss.item()
-        loss_normalized = epoch_loss/10  # ?
+        loss_normalized = epoch_loss*48  # ?
         print(loss_normalized)
 
 
