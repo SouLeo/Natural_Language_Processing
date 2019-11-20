@@ -94,7 +94,7 @@ class Seq2SeqSemanticParser(object):
         all_test_input_data = make_padded_input_tensor(test_data, self.input_indexer, input_max_len, reverse_input=False)
         output_max_len = 65
         all_test_output_data = make_padded_output_tensor(test_data, self.output_indexer, output_max_len)
-        batch_size = 48  #
+        batch_size = 480  #
 
         test_data_tensor = TensorDataset(torch.from_numpy(all_test_input_data), torch.from_numpy(all_test_output_data))
         test_loader = DataLoader(test_data_tensor, shuffle=False, batch_size=batch_size)
@@ -106,18 +106,30 @@ class Seq2SeqSemanticParser(object):
                 output = self.model(sents, labels, 0)
 
                 out_q = output.argmax(2)
+                out_q[0, :] = 3
+                out_q[-1, :] = 2
                 w, h = out_q.shape[0], out_q.shape[1]
                 decoded_out = [[self.output_indexer.get_object(int(out_q[x, y])) for x in range(w)] for y in range(h)]
 
-                output = output[1:].view(-1, output.shape[-1])
-                labels_t = torch.transpose(labels, 0, 1)
-                labels = torch.reshape(labels_t[1:], (-1,))  # use reshape instead
-                loss = self.criterion(output, labels)
-                epoch_loss += loss.item()
-            epoch_loss = batch_size*epoch_loss
-        print('test data loss:')
-        print(epoch_loss)
-        print('end?')
+            derivative_list = []
+            for j in range(out_q.shape[1]):
+                eol_indx = decoded_out[j].index('<EOS>')  # change back to '<EOS>'
+                decoded_out[j] = decoded_out[j][:eol_indx]
+
+                # if eol_indx is 1,0
+                #     out_q[j] =test_data[j][:eol_indx.item()]
+                b = Derivation(test_data[j], 1.0, decoded_out[j])
+                derivative_list.append([b])
+
+            #     output = output[1:].view(-1, output.shape[-1])
+            #     labels_t = torch.transpose(labels, 0, 1)
+            #     labels = torch.reshape(labels_t[1:], (-1,))  # use reshape instead
+            #     loss = self.criterion(output, labels)
+            #     epoch_loss += loss.item()
+            # epoch_loss = batch_size*epoch_loss
+        # print('test data loss:')
+        # print(epoch_loss)
+        return derivative_list
         # raise Exception("implement me!")
 
 
@@ -207,7 +219,7 @@ def train_model_encdec(train_data: List[Example], test_data: List[Example], inpu
     print("Train matrix: %s; shape = %s" % (all_train_input_data, all_train_input_data.shape))
 
     # BATCH IT:
-    batch_size = 2  #
+    batch_size = 2
 
     train_data_tensor = TensorDataset(torch.from_numpy(all_train_input_data), torch.from_numpy(all_train_output_data))
     # test_data_tensor = TensorDataset(torch.from_numpy(all_test_input_data), torch.from_numpy(all_test_output_data))
@@ -221,7 +233,7 @@ def train_model_encdec(train_data: List[Example], test_data: List[Example], inpu
     criterion = nn.CrossEntropyLoss(ignore_index=0)  # ignore padding
     # TODO: Create Training Loop
     model.optimizer = torch.optim.Adam(model.parameters(), lr=model.lr)
-    epochs = 10  # TODO: Change back to 5
+    epochs = 10  # TODO: Change back to 10
     for epoch in range(0, epochs):
         print('epoch num: ')
         print(epoch)
@@ -247,7 +259,7 @@ def train_model_encdec(train_data: List[Example], test_data: List[Example], inpu
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1)
             model.optimizer.step()
             epoch_loss += loss.item()
-        loss_normalized = epoch_loss*48  # ?
+        loss_normalized = epoch_loss*2  # ?
         print(loss_normalized)
 
 
@@ -304,4 +316,4 @@ if __name__ == '__main__':
         decoder = train_model_encdec(train_data_indexed, dev_data_indexed, input_indexer, output_indexer, args)
         print("=======FINAL EVALUATION ON BLIND TEST=======")
         # TODO: Evaluate function checking TRAIN data NOT TEST (test_data_indexed)
-        evaluate(train_data_indexed, decoder, print_output=False, outfile="geo_test_output.tsv")
+        evaluate(dev_data_indexed, decoder, print_output=False, outfile="geo_test_output.tsv")
